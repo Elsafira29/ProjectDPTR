@@ -19,6 +19,7 @@ use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Round;
 */
 
 //menampilkan home 
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('home', [HomeController::class, 'index'])->name('home');
 
 //memanggil tabel pemanfaatan
