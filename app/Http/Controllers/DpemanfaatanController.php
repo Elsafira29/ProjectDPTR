@@ -15,7 +15,6 @@ class DpemanfaatanController extends Controller
      */
     public function index()
     {
-        //percobaan
         //memunculksn data inputan ke tabel
         $dtpemanfaatan = dpemanfaatan::all();
         return view('pemanfaatan.tabel', compact('dtpemanfaatan'));
@@ -61,8 +60,8 @@ class DpemanfaatanController extends Controller
             'tanggal_akhir'=>$request->tanggal_akhir,
             // 'file_SK'=>$request->file_SK,
             'file_SK' => $request->file('file_SK')->store('dpemanfaatan')
-        ]); 
-            
+        ]);
+
         //     $nm = request()->file('file_SK');
         //     $namaFile = $nm->store("img/menu");
 
@@ -147,5 +146,5 @@ class DpemanfaatanController extends Controller
         return redirect()->route('tabel');
     }
 
-    
+
 }
