@@ -66,13 +66,13 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            @csrf
+            <a href="{{ route('actionlogout') }}" class="nav-link">
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Log Out
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-                <span class="right badge badge-danger">New</span>
               </p>
             </a>
           </li>
