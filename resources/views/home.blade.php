@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active"><a href="#">Log Out</a></li>
+              <li class="breadcrumb-item active"><a href="{{ route('actionlogout') }}">Log Out</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,7 +45,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="row">
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-secondary">
+              <div class="small-box bg-light">
                 <div class="inner">
                   <h3>150</h3>
 
@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-secondary">
+              <div class="small-box bg-light">
                 <div class="inner">
                   <h3>65</h3>
 
