@@ -89,11 +89,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <input class="form-control" type="file" id="formFile">
                   </div> --}}
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success">Simpan Data</button>
+                        <button type="submit" class="btn btn-secondary">Simpan Data</button>
                     </div>
                 </form>
             </div>
-        </div> 
+        </div>
     </div>
     <!-- /.content -->
   </div>
