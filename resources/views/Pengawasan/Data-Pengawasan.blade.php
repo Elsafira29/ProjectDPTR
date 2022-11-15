@@ -38,10 +38,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
     <!-- Main content -->
     <div class="content">
-        <div class="card card-info card-outline">
+        <div class="card card-info card-outline" style="width: 130rem;">
             <div class="card-header">
                 <div class="card-tools">
-                    <a href="{{ route('Create-Pengawasan') }}" class="btn btn-success">Tambah Data <i class="fa fa-plus-square"></i></a>
+                    <a href="{{ route('Create-Pengawasan') }}" class="btn btn-secondary">Tambah Data <i class="fa fa-plus-square"></i></a>
                 </div>
             </div>
 

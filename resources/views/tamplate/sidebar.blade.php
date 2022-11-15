@@ -1,20 +1,17 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: 	#A0522D">
     <!-- Brand Logo -->
     <style>
         .sidebar{
-            background-color: #F0FFF0;
-        }
-        .sidebar .user-panel .info{
-            background-color: #F0FFF0;
+            background-color: 	#A0522D;
         }
     </style>
     <a href="index3.html" class="brand-link">
       <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Dinas" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">DISPERTARU DIY</span>
+      <span class="brand-text font-weight-dark" style="color: white">DISPERTARU DIY</span>
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" style="background-color:#A0522D">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
@@ -43,22 +40,22 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
-            <a href="{{ route('home') }}" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+            <a href="{{ route('home') }}" class="nav-link focus">
+              <i class="nav-icon fas fa-plus"></i>
               <p>
-                Dasboard
+                Input Data
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{ route('tabel') }}" class="nav-link active">
+                <a href="{{ route('tabel') }}" class="nav-link focus">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Pemanfaatan</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="{{ route('Data-Pengawasan') }}" class="nav-link active">
+                <a href="{{ route('Data-Pengawasan') }}" class="nav-link focus">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Data Pengawasan</p>
                 </a>
@@ -68,9 +65,9 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-h"></i>
               <p>
-                Log Out
+                Tanggal
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
                 <span class="right badge badge-danger">New</span>
               </p>

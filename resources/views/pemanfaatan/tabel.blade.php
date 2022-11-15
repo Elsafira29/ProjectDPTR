@@ -38,10 +38,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
     <!-- Main content -->
     <div class="content">
-        <div class="card card-info card-outline ">
+        <div class="card card-info card-outline" style="width: 150rem;">
             <div class="card-header">
                 <div class="card-tools">
-                    <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-success">Tambah Data <i class="fa fa-plus-square"></i></a>
+                    <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-secondary">Tambah Data <i class="fa fa-plus-square"></i></a>
                 </div>
             </div>
       <!--filter data-->
@@ -64,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
      </form> --}}
      <!-- end filter data-->
-  
+
       <!--main content paling utama-->
             <div class="card-body">
               <table id="myTable" class="table table-striped" style="width:100%">
@@ -84,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <th>Action</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                       @foreach ($dtpemanfaatan as $item)
                         <tr>
@@ -101,11 +101,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
                             {{-- <td>{{ $item->file_SK }}</td> --}}
                             <td><img src="{{ asset('uploads/' . $item->file_SK) }}" width="100"></td>
-                            
+
                               {{-- <a href="{{ asset('img/'. $item->gambar) }}" target="_blank" rel="noopener noreferrer">lihat gambar</a> --}}
                               {{-- <img src="cover/{{ $item->file_SK }}" class="img-responsive" style="max-height:100px; max-width:100px" alt="" srcset=""> --}}
                               {{-- <img src="{{ asset('img/'.$item->file_SK) }}" class="img-responsive" height="10%" width="50%" alt="" srcset=""> --}}
-                            
+
                             <td>
                               <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
                               <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
@@ -117,7 +117,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </tbody>
                 </table>
             </div>
-        </div> 
+        </div>
     </div>
     <!-- /.content -->
   </div>

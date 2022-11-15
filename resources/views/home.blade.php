@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <li class="breadcrumb-item active"><a href="{{ route('actionlogout') }}">Log Out</a></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,10 +45,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="row">
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-info">
+              <div class="small-box bg-light">
                 <div class="inner">
                   <h3>150</h3>
-  
+
                   <p>Bantul</p>
                 </div>
                 <div class="icon">
@@ -60,10 +60,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-success">
+              <div class="small-box bg-light">
                 <div class="inner">
                   <h3>53<sup style="font-size: 20px">%</sup></h3>
-  
+
                   <p>Kulon Progo</p>
                 </div>
                 <div class="icon">
@@ -75,10 +75,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-warning">
+              <div class="small-box bg-light">
                 <div class="inner">
                   <h3>44</h3>
-  
+
                   <p>Gunung Kidul</p>
                 </div>
                 <div class="icon">
@@ -90,10 +90,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
-              <div class="small-box bg-danger">
+              <div class="small-box bg-light">
                 <div class="inner">
                   <h3>65</h3>
-  
+
                   <p>Sleman</p>
                 </div>
                 <div class="icon">
@@ -141,12 +141,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div><!-- /.card-body -->
               </div>
               <!-- /.card -->
-  
+
               <!-- DIRECT CHAT -->
               <div class="card direct-chat direct-chat-primary">
                 <div class="card-header">
                   <h3 class="card-title">Direct Chat</h3>
-  
+
                   <div class="card-tools">
                     <span title="3 New Messages" class="badge badge-primary">3</span>
                     <button type="button" class="btn btn-tool" data-card-widget="collapse">
@@ -179,7 +179,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <!-- /.direct-chat-text -->
                     </div>
                     <!-- /.direct-chat-msg -->
-  
+
                     <!-- Message to the right -->
                     <div class="direct-chat-msg right">
                       <div class="direct-chat-infos clearfix">
@@ -195,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <!-- /.direct-chat-text -->
                     </div>
                     <!-- /.direct-chat-msg -->
-  
+
                     <!-- Message. Default to the left -->
                     <div class="direct-chat-msg">
                       <div class="direct-chat-infos clearfix">
@@ -211,7 +211,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <!-- /.direct-chat-text -->
                     </div>
                     <!-- /.direct-chat-msg -->
-  
+
                     <!-- Message to the right -->
                     <div class="direct-chat-msg right">
                       <div class="direct-chat-infos clearfix">
@@ -227,17 +227,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <!-- /.direct-chat-text -->
                     </div>
                     <!-- /.direct-chat-msg -->
-  
+
                   </div>
                   <!--/.direct-chat-messages-->
-  
+
                   <!-- Contacts are loaded here -->
                   <div class="direct-chat-contacts">
                     <ul class="contacts-list">
                       <li>
                         <a href="#">
                           <img class="contacts-list-img" src="dist/img/user1-128x128.jpg" alt="User Avatar">
-  
+
                           <div class="contacts-list-info">
                             <span class="contacts-list-name">
                               Count Dracula
@@ -252,7 +252,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <li>
                         <a href="#">
                           <img class="contacts-list-img" src="dist/img/user7-128x128.jpg" alt="User Avatar">
-  
+
                           <div class="contacts-list-info">
                             <span class="contacts-list-name">
                               Sarah Doe
@@ -267,7 +267,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <li>
                         <a href="#">
                           <img class="contacts-list-img" src="dist/img/user3-128x128.jpg" alt="User Avatar">
-  
+
                           <div class="contacts-list-info">
                             <span class="contacts-list-name">
                               Nadia Jolie
@@ -282,7 +282,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <li>
                         <a href="#">
                           <img class="contacts-list-img" src="dist/img/user5-128x128.jpg" alt="User Avatar">
-  
+
                           <div class="contacts-list-info">
                             <span class="contacts-list-name">
                               Nora S. Vans
@@ -297,7 +297,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <li>
                         <a href="#">
                           <img class="contacts-list-img" src="dist/img/user6-128x128.jpg" alt="User Avatar">
-  
+
                           <div class="contacts-list-info">
                             <span class="contacts-list-name">
                               John K.
@@ -312,7 +312,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <li>
                         <a href="#">
                           <img class="contacts-list-img" src="dist/img/user8-128x128.jpg" alt="User Avatar">
-  
+
                           <div class="contacts-list-info">
                             <span class="contacts-list-name">
                               Kenneth M.
@@ -343,7 +343,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- /.card-footer-->
               </div>
               <!--/.direct-chat -->
-  
+
               <!-- TO DO List -->
               <div class="card">
                 <div class="card-header">
@@ -351,7 +351,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <i class="ion ion-clipboard mr-1"></i>
                     To Do List
                   </h3>
-  
+
                   <div class="card-tools">
                     <ul class="pagination pagination-sm">
                       <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
@@ -478,7 +478,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- /.Left col -->
             <!-- right col (We are only adding the ID to make the widgets sortable)-->
             <section class="col-lg-5 connectedSortable">
-  
+
               <!-- Map card -->
               <div class="card bg-gradient-primary">
                 <div class="card-header border-0">
@@ -523,7 +523,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
               </div>
               <!-- /.card -->
-  
+
               <!-- solid sales graph -->
               <div class="card bg-gradient-info">
                 <div class="card-header border-0">
@@ -531,7 +531,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <i class="fas fa-th mr-1"></i>
                     Sales Graph
                   </h3>
-  
+
                   <div class="card-tools">
                     <button type="button" class="btn bg-info btn-sm" data-card-widget="collapse">
                       <i class="fas fa-minus"></i>
@@ -550,21 +550,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="col-4 text-center">
                       <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
                              data-fgColor="#39CCCC">
-  
+
                       <div class="text-white">Mail-Orders</div>
                     </div>
                     <!-- ./col -->
                     <div class="col-4 text-center">
                       <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
                              data-fgColor="#39CCCC">
-  
+
                       <div class="text-white">Online</div>
                     </div>
                     <!-- ./col -->
                     <div class="col-4 text-center">
                       <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
                              data-fgColor="#39CCCC">
-  
+
                       <div class="text-white">In-Store</div>
                     </div>
                     <!-- ./col -->
@@ -574,11 +574,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- /.card-footer -->
               </div>
               <!-- /.card -->
-  
+
               <!-- Calendar -->
               <div class="card bg-gradient-success">
                 <div class="card-header border-0">
-  
+
                   <h3 class="card-title">
                     <i class="far fa-calendar-alt"></i>
                     Calendar
@@ -620,7 +620,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- /.row (main row) -->
         </div><!-- /.container-fluid -->
       </section>
-          </div> 
+          </div>
     </div>
     <!-- /.content -->
   </div>
