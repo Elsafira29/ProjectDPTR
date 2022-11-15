@@ -13,10 +13,8 @@ class DpemanfaatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        //percobaan
-        $dpemanfaatan = pemanfaatan::with([''])
         //memunculksn data inputan ke tabel
         $dtpemanfaatan = dpemanfaatan::all();
         return view('pemanfaatan.tabel', compact('dtpemanfaatan'));
@@ -62,8 +60,8 @@ class DpemanfaatanController extends Controller
             'tanggal_akhir'=>$request->tanggal_akhir,
             // 'file_SK'=>$request->file_SK,
             'file_SK' => $request->file('file_SK')->store('dpemanfaatan')
-        ]); 
-            
+        ]);
+
         //     $nm = request()->file('file_SK');
         //     $namaFile = $nm->store("img/menu");
 
@@ -148,5 +146,5 @@ class DpemanfaatanController extends Controller
         return redirect()->route('tabel');
     }
 
-    
+
 }
