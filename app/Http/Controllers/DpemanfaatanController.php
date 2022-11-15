@@ -15,8 +15,6 @@ class DpemanfaatanController extends Controller
      */
     public function index()
     {
-        //percobaan
-
         //memunculksn data inputan ke tabel
         $dtpemanfaatan = dpemanfaatan::all();
         return view('pemanfaatan.tabel', compact('dtpemanfaatan'));
