@@ -38,7 +38,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content-header -->
     <!-- Main content -->
     <div class="content">
-        <div class="card card-info card-outline ">
+        <div class="card card-info card-outline">
             <div class="card-header">
                 <div class="card-tools">
                     <a href="{{ route('Create-Pengawasan') }}" class="btn btn-success">Tambah Data <i class="fa fa-plus-square"></i></a>
@@ -71,7 +71,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <th>Aksi</th>
                         </tr>
                     </thead>
-                    
+
                     <tbody>
                       @foreach ($dtpengawasan as $item)
                         <tr>
@@ -104,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </tbody>
                 </table>
             </div>
-        </div> 
+        </div>
     </div>
     <!-- /.content -->
   </div>

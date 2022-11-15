@@ -1,4 +1,4 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: rgb(221, 223, 115)">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: rgb(0, 0, 0)">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
       <img src="{{ asset('img/logo1.png') }}" alt="Logo Dinas" class="brand-image img-circle elevation-3" style="opacity: .8">
@@ -6,7 +6,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar" style="background-color:rgb(250, 252, 130)">
+    <div class="sidebar" style="background-color:rgb(0, 0, 0)">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
