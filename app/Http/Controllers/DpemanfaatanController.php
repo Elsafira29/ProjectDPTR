@@ -13,10 +13,9 @@ class DpemanfaatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
         //percobaan
-        $dpemanfaatan = pemanfaatan::with([''])
         //memunculksn data inputan ke tabel
         $dtpemanfaatan = dpemanfaatan::all();
         return view('pemanfaatan.tabel', compact('dtpemanfaatan'));
