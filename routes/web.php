@@ -31,7 +31,7 @@ Route::group(['middleware' => 'web'], function () {
 
     //Home
     Route::get('home', [HomeController::class, 'index'])->name('home');
-    Route::post('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
+    Route::match(['get', 'post'],'actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
     
     Route::get('user', function () {
         return view('user');
