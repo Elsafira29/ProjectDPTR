@@ -66,7 +66,7 @@
             @csrf
             <a href="{{ route('actionlogout') }}" class="nav-link">
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              <i class="nav-icon fas fa-calendar"></i>
+              <i class="nav-icon fas fa-h"></i>
               <p>
                 Tanggal
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
