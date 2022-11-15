@@ -3,7 +3,7 @@
     background-color: #A0522D;
     }
 </style>
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="color:#A0522D">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="color:#A0522D;width:141%">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">

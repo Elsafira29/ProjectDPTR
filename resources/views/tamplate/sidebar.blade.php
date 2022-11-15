@@ -11,7 +11,7 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" style="background-color:#A0522D">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
@@ -65,7 +65,7 @@
           <li class="nav-item">
             <a href="#" class="nav-link">
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              <i class="nav-icon fas fa-calendar"></i>
+              <i class="nav-icon fas fa-h"></i>
               <p>
                 Tanggal
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
