@@ -75,3 +75,5 @@ Route::get('/delete-pengawasan/{id}',[PengawasanController::class,'destroy'])->n
 
 });
 
+
+Route::get('/search',[DpemanfaatanController::class,'pemanfaatan']);

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\dpemanfaatan;
 use App\Http\Requests\StoredpemanfaatanRequest;
 use App\Http\Requests\UpdatedpemanfaatanRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class DpemanfaatanController extends Controller
 {
@@ -13,6 +15,14 @@ class DpemanfaatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function pemanfaatan(Request $request) 
+    {
+        $data = DB::table('dpemanfaatan')
+        ->where('kabupaten', 'John')
+        ->where('kelurahan', )->get();
+        
+        dd($data);
+    }
     public function index()
     {
         //percobaan
