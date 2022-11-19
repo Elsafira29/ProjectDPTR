@@ -15,13 +15,35 @@ class DpemanfaatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function kabupaten(Request $request) {
+        $data = DB::table('dpemanfaatan')->select('kabupaten')->distinct()->get();
+        return $data;
+    }
+    public function kecamatan(Request $request) {
+        $kabupaten = $request->query('kabupaten');
+        if(!isset($kabupaten)) {
+            dd("gk ada kabupaten di query");
+        }
+        $data = DB::table('dpemanfaatan')->where('kabupaten', $kabupaten)->select('desa_kecamatan')->distinct()->get();
+        // dd($data);
+        return $data;
+    }
     public function pemanfaatan(Request $request) 
     {
-        $data = DB::table('dpemanfaatan')
-        ->where('kabupaten', 'John')
-        ->where('kelurahan', )->get();
+        // dd($request);
+        $kabupaten =  $request->query('kabupaten');
+        $desa_kecamatan = $request->query('desa_kecamatan');
         
-        dd($data);
+        if(isset($desa_kecamatan)) {
+            $data = DB::table('dpemanfaatan')
+            ->where('kabupaten', $kabupaten)
+            ->where('desa_kecamatan', $desa_kecamatan)->get();
+        } else {
+            $data = DB::table('dpemanfaatan')
+            ->where('kabupaten', $kabupaten)->get();
+        }
+        
+        return response()->json($data);
     }
     public function index()
     {

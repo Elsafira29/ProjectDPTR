@@ -7,8 +7,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
   <head>
   @include('tamplate.head')
-  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> 
+<!-- Select2 CSS --> 
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> 
 
+<!-- jQuery --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
+<!-- Select2 JS --> 
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
   </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -66,22 +72,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
      </form> --}}
      <!-- end filter data-->
-     <select id='selUser' style='width: 200px;'>
-      <option value='0'>Select User</option> 
-      <option value='1'>Yogesh singh</option> 
-      <option value='2'>Sonarika Bhadoria</option> 
-      <option value='3'>Anil Singh</option> 
-      <option value='4'>Vishal Sahu</option> 
-      <option value='5'>Mayank Patidar</option> 
-      <option value='6'>Vijay Mourya</option> 
-      <option value='7'>Rakesh sahu</option> 
- </select>
- 
- <input type='button' value='Seleted option' id='but_read'>
- 
- <br/>
- <div id='result'></div>
-
+     <div style="display: flex;">
+       <select id="kabupaten">
+        <option value="">Pilih Kabupaten</option>
+      </select>
+      <select id='kecamatan'>
+        <option value=''>Pilih Kecamatan</option>
+      </select>
+     </div>
       <!--main content paling utama-->
             <div class="card-body">
               <table id="myTable" class="table table-striped" style="width:100%">
@@ -102,7 +100,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </tr>
                     </thead>
 
-                    <tbody>
+                    <tbody id="table">
                       @foreach ($dtpemanfaatan as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
@@ -146,8 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 
 <!-- Select2 JS --> 
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
     @include('tamplate.footer')
    </footer>
 </div>
@@ -157,5 +154,109 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- jQuery -->
 @include('tamplate.script')
+<script>
+  // fetch omset, keuntungan, omset, dan total penjualan
+  $(document).ready(function() {
+    let kabupaten = $("#kabupaten");
+    let kecamatan = $('#kecamatan')
+    kecamatan.select2();
+    kabupaten.select2();
+
+    kabupaten.on('select2:select', (e) => {
+          
+          // fetch selected kabupaten
+          $.ajax({
+            url: "{{route('api.pemanfaatan.search')}}",
+            type: "GET",
+            data: {
+              kabupaten: e.target.value
+            },
+            success: function(data) {
+              $('#table').empty()
+              console.log("e", e.target.value)
+              console.log('data', data)
+              data.forEach(item => {
+                $('#table').append(`
+                <tr>
+                  <td>${item.id}</td>
+                  <td>${item.kelurahan}</td>
+                  <td>${item.kabupaten}</td>
+                </tr>`)                        
+              })
+                                        
+              },
+          })
+
+          // fetch list kecamatan
+          $.ajax({
+            url: "{{route('api.pemanfaatan.kecamatan')}}",
+            type: "GET",
+            data: {
+              kabupaten: e.target.value
+            },
+            success: function(data) {
+              console.log("memanggil kecamatan")
+              console.log("e", e.target.value)
+              console.log('data', data)
+              data.map(it => {
+                var newOption = new Option(it.desa_kecamatan, it.desa_kecamatan, false, false);
+                $('#kecamatan').append(newOption);
+              })
+                                        
+              },
+          })
+    })
+
+    kecamatan.on('select2:select', (e) => {
+          console.log("hereee", e.target.value)
+          $.ajax({
+            url: "{{route('api.pemanfaatan.search')}}",
+            type: "GET",
+            data: {
+              desa_kecamatan: e.target.value,
+              kabupaten: $("#kabupaten").val()
+            },
+            success: function(data) {
+              $('#table').empty()
+              console.log("e", e.target.value)
+              console.log('data', data)
+              data.forEach(item => {
+                $('#table').append(`
+                <tr>
+                  <td>${item.id}</td>
+                  <td>${item.kelurahan}</td>
+                  <td>${item.kabupaten}</td>
+                </tr>`)                        
+              })
+                                        
+              },
+            error: function(data) {
+              let alert = $('div[role="alert"]')
+              alert.addClass('alert alert-danger alert-dismissible')
+              alert.html(JSON.stringify(data.responseJSON.message))
+                alert.show()
+            }
+        })
+    })
+    $.ajax({
+        url: "{{route('api.pemanfaatan.kabupaten')}}",
+        type: "GET",
+        success: function(data) {
+          console.log('data', data)
+          data.map(it => {
+            var newOption = new Option(it.kabupaten, it.kabupaten, false, false);
+            $('#kabupaten').append(newOption).trigger('change');
+          })
+
+        },
+        error: function(data) {
+            let alert = $('div[role="alert"]')
+            alert.addClass('alert alert-danger alert-dismissible')
+            alert.html(JSON.stringify(data.responseJSON.message))
+            alert.show()
+        }
+    })
+  })
+</script>
 </body>
 </html>

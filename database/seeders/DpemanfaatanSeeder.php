@@ -20,8 +20,8 @@ class DpemanfaatanSeeder extends Seeder
         DB::table('dpemanfaatan')->insert([
             'kode_perizinan'=> Str::random(10),
             'desa_kecamatan'=> Str::random(10),
-            'kabupaten'=> Str::random(10),
-            'kelurahan'=> Str::random(10),
+            'kabupaten'=> 'sleman',
+            'kelurahan'=> 'ngaglik',
             'persil'=> Str::random(10),
             'luas'=> Str::random(10),
             'uraian'=> Str::random(10),

@@ -76,4 +76,6 @@ Route::get('/delete-pengawasan/{id}',[PengawasanController::class,'destroy'])->n
 });
 
 
-Route::get('/search',[DpemanfaatanController::class,'pemanfaatan']);
+Route::get('/search/pemanfaatan',[DpemanfaatanController::class,'pemanfaatan'])->name('api.pemanfaatan.search');
+Route::get('/search/pemanfaatan/kabupaten',[DpemanfaatanController::class, 'kabupaten'])->name('api.pemanfaatan.kabupaten');
+Route::get('/search/pemanfaatan/kecamatan',[DpemanfaatanController::class, 'kecamatan'])->name('api.pemanfaatan.kecamatan');
