@@ -82,6 +82,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="form-group">
                       <input type="text" id="file_SK" name="file_SK" class="form-control" placeholder="File SK" value="{{ $item->file_SK }}">
                   </div>
+                  <div class="form-group">
+                    <input type="file" id="file_SK" name="file_SK" class="form-control" placeholder="File SK" value="{{ $item->file_SK }}">
+                  </div>
+                  <img height="100px" src="{{ url('/') }}/uploads/{{ $item->file_SK }}" alt="gambar" placeholder="gambar">
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">Ubah Data</button>
                     </div>

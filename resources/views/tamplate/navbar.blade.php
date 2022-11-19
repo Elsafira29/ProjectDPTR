@@ -10,7 +10,13 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link" style="color: white">Home</a>
+        <a href="/" class="nav-link" style="color: white">Home</a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <form action="/logout" method="POST">
+          @csrf
+          <button class="btn btn-danger">Logout</button>
+      </form>
       </li>
     </ul>
   </nav>

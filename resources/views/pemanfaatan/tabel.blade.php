@@ -173,14 +173,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
             },
             success: function(data) {
               $('#table').empty()
-              console.log("e", e.target.value)
-              console.log('data', data)
               data.forEach(item => {
                 $('#table').append(`
                 <tr>
                   <td>${item.id}</td>
-                  <td>${item.kelurahan}</td>
+                  <td>${item.kode_perizinan}</td>
+                  <td>${item.desa_kecamatan}</td>
                   <td>${item.kabupaten}</td>
+                  <td>${item.kelurahan}</td>
+                  <td>${item.persil}</td>
+                  <td>${item.luas}</td>
+                  <td>${item.uraian}</td>
+                  <td>${item.tanggal_mulai}</td>
+                  <td>${item.tanggal_akhir}</td>
+                  <td>${item.file_sk}</td>
+                  <td>Edit</td>
                 </tr>`)                        
               })
                                         
@@ -208,7 +215,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     })
 
     kecamatan.on('select2:select', (e) => {
-          console.log("hereee", e.target.value)
           $.ajax({
             url: "{{route('api.pemanfaatan.search')}}",
             type: "GET",
@@ -218,14 +224,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
             },
             success: function(data) {
               $('#table').empty()
+              kecamatan.empty()
               console.log("e", e.target.value)
               console.log('data', data)
               data.forEach(item => {
                 $('#table').append(`
                 <tr>
                   <td>${item.id}</td>
-                  <td>${item.kelurahan}</td>
+                  <td>${item.kode_perizinan}</td>
+                  <td>${item.desa_kecamatan}</td>
                   <td>${item.kabupaten}</td>
+                  <td>${item.kelurahan}</td>
+                  <td>${item.persil}</td>
+                  <td>${item.luas}</td>
+                  <td>${item.uraian}</td>
+                  <td>${item.tanggal_mulai}</td>
+                  <td>${item.tanggal_akhir}</td>
+                  <td>${item.file_sk}</td>
+                  <td>Edit</td>
                 </tr>`)                        
               })
                                         
