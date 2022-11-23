@@ -14,12 +14,12 @@
     <div class="sidebar" style="background-color:#A0522D">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
+        {{-- <div class="image">
           <img src="{{ asset('assets/img/') }}" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
+        </div> --}}
+        {{-- <div class="info">
           <a href="#" class="d-block">mas/mba</a>
-        </div>
+        </div> --}}
       </div>
 
       <!-- SidebarSearch Form -->
@@ -39,6 +39,16 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+               <li class="nav-item">
+                <a href="{{ route('home') }}" class="nav-link">
+                    {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
+                  <i class="nav-icon fas fa-h"></i>
+                  <p>
+                    Dashboard
+                    {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
+                  </p>
+                </a>
+              </li>
           <li class="nav-item menu-open">
             <a href="{{ route('home') }}" class="nav-link focus">
               <i class="nav-icon fas fa-plus"></i>
@@ -69,7 +79,16 @@
               <p>
                 Tanggal
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('masteradmin') }}" class="nav-link">
+                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
+              <i class="nav-icon fas fa-h"></i>
+              <p>
+                Admin
+                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
               </p>
             </a>
           </li>

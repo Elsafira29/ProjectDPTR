@@ -6,8 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pengarsipan Pertanahan DPTR</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head
+
+
+  @include('tamplate.head')
+
+
+ @include('tamplate.navbar')
+
+ @include('tamplate.sidebar')>
 </head>
-<body>
+<body class="hold-transition sidebar-mini">
     <div class="container"><br>
         <div class="col-md-4 col-md-offset-4">
             <h2 class="text-center"><br>Website Pengarsipan DPTR</h3>
@@ -17,7 +26,7 @@
                 <b>Opps!</b> {{session('error')}}
             </div>
             @endif
-            <form action="{{ route('actionlogin') }}" method="post">
+            <form action="{{ route('master') }}" method="post">
             @csrf
                 <div class="form-group">
                     <label>Email</label>
@@ -33,5 +42,15 @@
             </form>
         </div>
     </div>
+    <footer class="main-footer">
+        @include('tamplate.footer')
+       </footer>
+    </div>
+    <!-- ./wrapper -->
+    
+    <!-- REQUIRED SCRIPTS -->
+    
+    <!-- jQuery -->
+    @include('tamplate.script')
 </body>
 </html>

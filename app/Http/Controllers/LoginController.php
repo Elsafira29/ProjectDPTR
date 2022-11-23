@@ -29,16 +29,49 @@ class LoginController extends Controller
             return redirect('/home');
         } else {
             Session::flash('error', 'Email atau Password salah');
-            return redirect('/');
+            return redirect('/login');
         }
     }
 
     public function actionlogout(Request $request)
     {
         Auth::logout();
-        return redirect('/');
+        // return redirect('/user_dashboard');
+        return view('/user_dashboard');
     }
 
+
+    public function masterlogin (){
+        if (Auth::check()) {
+            return view('login_master');
+        } else {
+            return view('home');
+        }
+    }
+
+    public function actionmaster(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
+ 
+        if (Auth::attempt($credentials, true)) {
+            $request->session()->regenerate();
+            return redirect('/register');
+        } else {
+            Session::flash('error', 'Email atau Password salah');
+            return redirect('/masterlogin');
+        }
+    }
+
+    public function master (){
+        if (Auth::check()) {
+            return view('master');
+        } else {
+            return view('home');
+        }
+    }
 
     
 }
