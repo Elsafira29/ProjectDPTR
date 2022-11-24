@@ -187,7 +187,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <td>${item.tanggal_mulai}</td>
                   <td>${item.tanggal_akhir}</td>
                   <td>${item.file_sk}</td>
-                  <td>Edit</td>
+                  <td>
+                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
+                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
+                              @csrf
+                            </td>
                 </tr>`)                        
               })
                                         
@@ -241,7 +245,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <td>${item.tanggal_mulai}</td>
                   <td>${item.tanggal_akhir}</td>
                   <td>${item.file_sk}</td>
-                  <td>Edit</td>
+                  <td>
+                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
+                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
+                              @csrf
+                            </td>
                 </tr>`)                        
               })
                                         
