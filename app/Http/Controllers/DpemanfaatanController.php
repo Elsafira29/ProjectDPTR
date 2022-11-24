@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\dpemanfaatan;
+use App\Models\FileUpload;
 use App\Http\Requests\StoredpemanfaatanRequest;
 use App\Http\Requests\UpdatedpemanfaatanRequest;
 use Illuminate\Support\Facades\DB;
@@ -80,10 +81,25 @@ class DpemanfaatanController extends Controller
     {
         //bagian untuk menyimpan data ketabel
         // dd($request->all());
-
-        dpemanfaatan::create([
+        // $this->validate($request, [
+        //     'filenames' => 'required',
+        //     'filenames.*' => 'required'
+        // ]);
+        
+        $files = [];
+        if($request->hasfile('filenames'))
+        {
+            foreach($request->file('filenames') as $file)
+            {
+                $name = time().rand(1,100).'.'.$file->extension();
+                $file->move(public_path('files'), $name);  
+                $files[] = $name;  
+            }
+        }
+        // dd($request->all());
+        $hello = dpemanfaatan::create([
             'id'=>$request->id,
-            'kode_perizinan'=>$request->kode_perizinan,
+            'kode_perizinan'=> $request->kode_perizinan,
             'desa_kecamatan'=>$request->desa_kecamatan,
             'kabupaten'=>$request->kabupaten,
             'kelurahan'=>$request->kelurahan,
@@ -92,9 +108,17 @@ class DpemanfaatanController extends Controller
             'uraian'=>$request->uraian,
             'tanggal_mulai'=>$request->tanggal_mulai,
             'tanggal_akhir'=>$request->tanggal_akhir,
-            // 'file_SK'=>$request->file_SK,
-            'file_SK' => $request->file('file_SK')->store('dpemanfaatan')
+            'file_SK' => 'hehe :P'
         ]);
+
+        // dd($hello);
+
+        foreach($files as $file) {
+            FileUpload::create([
+                'filename' => $file,
+                'id_pemanfaatan' => $request->id
+            ]);
+        }
 
         //     $nm = request()->file('file_SK');
         //     $namaFile = $nm->store("img/menu");
@@ -161,7 +185,7 @@ class DpemanfaatanController extends Controller
                         'file_SK'=>$request->file_SK,
                     ]);
 
-                    return redirect()->route('tabel');
+        return redirect()->route('tabel');
     }
 
     /**
