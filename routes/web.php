@@ -80,3 +80,8 @@ Route::get('/search/pemanfaatan',[DpemanfaatanController::class,'pemanfaatan'])-
 Route::get('/search/pemanfaatan/kabupaten',[DpemanfaatanController::class, 'kabupaten'])->name('api.pemanfaatan.kabupaten');
 Route::get('/search/pemanfaatan/kecamatan',[DpemanfaatanController::class, 'kecamatan'])->name('api.pemanfaatan.kecamatan');
 Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
+
+
+Route::get('/search/pengawasan',[pengawasanController::class,'pengawasan'])->name('api.pengawasan.search');
+Route::get('/search/pengawasan/kabupaten',[pengawasanController::class, 'kabupaten'])->name('api.pengawasan.kabupaten');
+Route::get('/search/pengawasan/kapanewon',[pengawasanController::class, 'kapanewon'])->name('api.pengawasan.kapanewon');
