@@ -85,7 +85,6 @@ Route::get('/delete-pengawasan/{id}',[PengawasanController::class,'destroy'])->n
 });
 
 
-<<<<<<< HEAD
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -93,9 +92,3 @@ Route::get('/delete-pengawasan/{id}',[PengawasanController::class,'destroy'])->n
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-=======
-Route::get('/search/pemanfaatan',[DpemanfaatanController::class,'pemanfaatan'])->name('api.pemanfaatan.search');
-Route::get('/search/pemanfaatan/kabupaten',[DpemanfaatanController::class, 'kabupaten'])->name('api.pemanfaatan.kabupaten');
-Route::get('/search/pemanfaatan/kecamatan',[DpemanfaatanController::class, 'kecamatan'])->name('api.pemanfaatan.kecamatan');
-Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
->>>>>>> ddfce48df1022516d36c0f7139c26b90e8eb04de
