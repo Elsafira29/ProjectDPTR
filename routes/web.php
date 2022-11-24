@@ -25,20 +25,29 @@ use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Round;
 Route::group(['middleware' => 'web'], function () {
     // Route::auth();
 
+    Route::get('/', function () {
+        return view('user_dashboard');
+    })->name('user');
+
     //Login
-    Route::get('/', [LoginController::class, 'login'])->name('login');
+    Route::get('/login', [LoginController::class, 'login'])->name('login_admin');
     Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
     //Home
     Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::match(['get', 'post'],'actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
     
-    Route::get('user', function () {
-        return view('user');
-    })->name('user');
+    // Route::get('user', function () {
+    //     return view('user');
+    // })->name('user');
     //Register
     Route::get('register', [RegisterController::class, 'register'])->name('register');
     Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
+
+    // Route::get('master', [RegisterController::class, 'register'])->name('register');
+    Route::get('/masterlogin', [LoginController::class, 'masterlogin'])->name('masteradmin');
+    Route::post('actionmaster', [LoginController::class, 'actionmaster'])->name('masterlogin');
+    Route::post('/master', [LoginController::class, 'master'])->name('master');
 
     // Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('home', [HomeController::class, 'index'])->name('home');
@@ -76,6 +85,13 @@ Route::get('/delete-pengawasan/{id}',[PengawasanController::class,'destroy'])->n
 });
 
 
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/search/pemanfaatan',[DpemanfaatanController::class,'pemanfaatan'])->name('api.pemanfaatan.search');
 Route::get('/search/pemanfaatan/kabupaten',[DpemanfaatanController::class, 'kabupaten'])->name('api.pemanfaatan.kabupaten');
 Route::get('/search/pemanfaatan/kecamatan',[DpemanfaatanController::class, 'kecamatan'])->name('api.pemanfaatan.kecamatan');
