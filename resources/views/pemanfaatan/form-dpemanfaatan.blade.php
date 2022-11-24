@@ -7,6 +7,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
   <head>
   @include('tamplate.head')
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/filepond@4.30.4/dist/filepond.min.css">
   </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -80,8 +81,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="form-group">
                       <label for="files" class="form-label mt-4">Upload SK Images :</label>
-                      <input type="file" id="file_SK" name="file_SK" class="form-control">
-                      {{-- <input type="file" id="file_SK" name="file_SK[]" class="form-control" accept="image/*" multiple> --}}
+                      <input type="file" 
+                      class="filepond"
+                      name="filepond" 
+                      id="filepond"
+                      multiple 
+                      data-allow-reorder="true"
+                      data-max-file-size="3MB"
+                      data-max-files="3">                      {{-- <input type="file" id="file_SK" name="file_SK[]" class="form-control" accept="image/*" multiple> --}}
                       {{-- <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="file_SK[]" multiple> --}}
                   </div>
                   {{-- <div class="mb-3">
@@ -98,7 +105,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-
+  <!--
+  The classic file input element we'll enhance
+  to a file pond, configured with attributes
+  -->
   <!-- Main Footer -->
   <footer class="main-footer">
     @include('tamplate.footer')
@@ -110,5 +120,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- jQuery -->
 @include('tamplate.script')
+<script src="https://cdn.jsdelivr.net/npm/filepond@4.30.4/dist/filepond.min.js"></script>
+<script>
+// We want to preview images, so we register
+// the Image Preview plugin, We also register 
+// exif orientation (to correct mobile image
+// orientation) and size validation, to prevent
+// large files from being added
+
+
+// Select the file input and use 
+// create() to turn it into a pond
+FilePond.create(
+  document.getElementById('filepond')
+);
+
+// How to use with Pintura Image Editor:
+// https://pqina.nl/pintura/docs/latest/getting-started/installation/filepond/
+
+</script>
 </body>
 </html>

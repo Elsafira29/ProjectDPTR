@@ -20,7 +20,7 @@
 <script>
     $(document).ready(function() {
     var table = $('#myTable').DataTable( {
-        lengthChange: false,
+        lengthChange: true,
         buttons: [ 'copy', 'excel', 'pdf', 'colvis' ]
     } );
  
