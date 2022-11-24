@@ -81,16 +81,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <div class="form-group">
                       <label for="files" class="form-label mt-4">Upload SK Images :</label>
-                      <input type="file" 
-                      class="filepond"
-                      name="filepond" 
-                      id="filepond"
-                      multiple 
-                      data-allow-reorder="true"
-                      data-max-file-size="3MB"
-                      data-max-files="3">                      {{-- <input type="file" id="file_SK" name="file_SK[]" class="form-control" accept="image/*" multiple> --}}
-                      {{-- <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="file_SK[]" multiple> --}}
-                  </div>
+                      <div class="input-group hdtuto control-group lst increment" >
+                        <input type="file" name="filenames[]" class="myfrm form-control">
+                        <div class="input-group-btn"> 
+                          <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
+                        </div>
+                      </div>
+                      <div class="clone hide">
+                        <div class="hdtuto control-group lst input-group" style="margin-top:10px">
+                          <input type="file" name="filenames[]" class="myfrm form-control">
+                          <div class="input-group-btn"> 
+                            <button class="btn btn-danger" type="button"><i class="fldemo glyphicon glyphicon-remove"></i> Remove</button>
+                          </div>
+                        </div>
+                      </div>                  </div>
                   {{-- <div class="mb-3">
                     <label for="formFile" class="form-label">Upload file SK</label>
                     <input class="form-control" type="file" id="formFile">
@@ -121,23 +125,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- jQuery -->
 @include('tamplate.script')
 <script src="https://cdn.jsdelivr.net/npm/filepond@4.30.4/dist/filepond.min.js"></script>
-<script>
-// We want to preview images, so we register
-// the Image Preview plugin, We also register 
-// exif orientation (to correct mobile image
-// orientation) and size validation, to prevent
-// large files from being added
-
-
-// Select the file input and use 
-// create() to turn it into a pond
-FilePond.create(
-  document.getElementById('filepond')
-);
-
-// How to use with Pintura Image Editor:
-// https://pqina.nl/pintura/docs/latest/getting-started/installation/filepond/
-
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".btn-success").click(function(){ 
+        var lsthmtl = $(".clone").html();
+        $(".increment").after(lsthmtl);
+    });
+    $("body").on("click",".btn-danger",function(){ 
+        $(this).parents(".hdtuto").remove();
+    });
+  });
 </script>
 </body>
 </html>
