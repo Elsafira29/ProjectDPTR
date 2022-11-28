@@ -61,6 +61,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <option value=''>Pilih Kapanewon</option>
               </select>
               </div>
+              <select id='kelurahan'>
+                <option value=''>Pilih Kalurahan</option>
+              </select>
+              </div>
                <!--main content paling utama-->
             <div class="card-body">
               <table id="myTable" class="table table-striped" style="width:100%">
@@ -148,6 +152,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   $(document).ready(function() {
     let kabupaten = $("#kabupaten");
     let kapanewon = $('#kapanewon')
+    let kelurahan= $('#kelurahan')
+    kelurahan.select2();
     kapanewon.select2();
     kabupaten.select2();
 
@@ -202,9 +208,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               kabupaten: e.target.value
             },
             success: function(data) {
-              console.log("memanggil kapanewon")
-              console.log("e", e.target.value)
-              console.log('data', data)
+              // console.log("memanggil kapanewon")
+              // console.log("e", e.target.value)
+              // console.log('data', data)
               data.map(it => {
                 var newOption = new Option(it.kapanewon, it.kapanewon, false, false);
                 $('#kapanewon').append(newOption);
@@ -215,7 +221,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
     })
 
    kapanewon.on('select2:select', (e) => {
-    console.log('hereeeeeee', $("#kabupaten").val(), e.target.value)
+    // console.log('hereeeeeee', $("#kabupaten").val(), e.target.value)
+    $.ajax({
+            url: "{{route('api.pengawasan.kelurahan')}}",
+            type: "GET",
+            data: {
+             kapanewon: e.target.value, kabupaten:$("#kabupaten").val()
+            },
+            success: function(data) {
+              // console.log("memanggil kelurahan")
+              // console.log("e", e.target.value)
+              // console.log('data', data)
+              console.log("dataaa", data)
+              data.map(it => {
+                var newOption = new Option(it.kelurahan, it.kelurahan, false, false);
+                $('#kelurahan').append(newOption);
+              })
+                                        
+              },
+          })
           $.ajax({
             url: "{{route('api.pengawasan.search')}}",
             type: "GET",
@@ -226,8 +250,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             success: function(data) {
               $('#table').empty()
               kapanewon.empty()
-              console.log("e", e.target.value)
-              console.log('data', data)
+              // console.log("e", e.target.value)
+              // console.log('data', data)
               data.forEach(item => {
                 $('#table').append(`
                 <tr>
@@ -266,11 +290,66 @@ scratch. This page gets rid of all links and provides the needed markup only.
             }
         })
     })
+
+      // fetch list kelurahan
+   kelurahan.on('select2:select', (e) => {
+    // console.log('hereeeeeee', $("#kabupaten").val(), e.target.value)
+    $.ajax({
+            url: "{{route('api.pengawasan.search')}}",
+            type: "GET",
+            data: {
+             kelurahan: e.target.value,
+              kabupaten: $("#kabupaten").val()
+            },
+            success: function(data) {
+              $('#table').empty()
+              kelurahan.empty()
+              // console.log("e", e.target.value)
+              // console.log('data', data)
+              data.forEach(item => {
+                $('#table').append(`
+                <tr>
+                  <td>${item.kabupaten}</td>
+                  <td>${item.kapanewon}</td>
+                  <td>${item.kelurahan}</td>
+                  <td>${item.tahun_pengawasan}</td>
+                  <td>${item.nomor_sk}</td>
+                  <td>${item.tanggal_sk}</td>
+                  <td>${item.bentuk_pemanfaatan}</td>
+                  <td>${item.pengelola}</td>
+                  <td>${item.persil_klas}</td>
+                  <td>${item.nomor_sertifikat}</td>
+                  <td>${item.luas_pemanfaatan}</td>
+                  <td>${item.luas_keseluruhan}</td>
+                  <td>${item.jumlah_bidang}</td>
+                  <td>${item.lokasi}</td>
+                  <td>${item.koordinat}</td>
+                  <td>${item.jktwaktu}</td>
+                  <td>${item.jenis_sk}</td>
+                  <td>${item.tdklanjut}</td>
+                  <td>${item.kesesuaian}</td>
+                  <td>
+                     <a href="{{ url('edit-pengawasan',$item->id) }}"><i class="fas fa-edit"></i></a> |
+                     <a href="{{ url('delete-pengawasan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt"></i></a>
+                  </td>
+                </tr>`)                        
+              })
+                                        
+              },
+            error: function(data) {
+              let alert = $('div[role="alert"]')
+              alert.addClass('alert alert-danger alert-dismissible')
+              alert.html(JSON.stringify(data.responseJSON.message))
+                alert.show()
+            }
+        })
+       })
+
     $.ajax({
         url: "{{route('api.pengawasan.kabupaten')}}",
         type: "GET",
         success: function(data) {
-          console.log('data', data)
+          // console.log('data', data)
           data.map(it => {
             var newOption = new Option(it.kabupaten, it.kabupaten, false, false);
             $('#kabupaten').append(newOption).trigger('change');
