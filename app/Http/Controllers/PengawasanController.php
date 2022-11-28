@@ -28,21 +28,36 @@ class PengawasanController extends Controller
         // dd($data);
         return $data;
     }
+
+     public function kelurahan(Request $request) {
+        $kabupaten = $request->query('kabupaten');
+        if(!isset($kabupaten)) {
+            dd("gk ada kabupaten di query");
+        }
+        $data = DB::table('pengawasan')->where('kabupaten', $kabupaten)->select('kelurahan')->distinct()->get();
+        // dd($data);
+        return $data;
+    }
     public function pengawasan(Request $request) 
     {
         // dd($request);
         $kabupaten =  $request->query('kabupaten');
         $kapanewon = $request->query('kapanewon');
+        $kelurahan = $request->query('kelurahan');
         
-        if(isset($kapanewon)) {
+        if(isset($kapanewon)&&isset($kabupaten)&&isset($kelurahan)) {
             $data = DB::table('pengawasan')
             ->where('kabupaten', $kabupaten)
-            ->where('kapanewon', $kapanewon)->get();
+            ->where('kapanewon', $kapanewon)
+            ->where('kelurahan', $kelurahan)->get();
+        } elseif (isset($kelurahan)&&isset($kabupaten)) {
+            $data = DB::table('pengawasan')
+           ->where('kabupaten', $kabupaten)
+           ->where('kelurahan', $kelurahan)->get();
         } else {
             $data = DB::table('pengawasan')
             ->where('kabupaten', $kabupaten)->get();
-        }
-        
+        };
         return response()->json($data);
     }
     public function index()
