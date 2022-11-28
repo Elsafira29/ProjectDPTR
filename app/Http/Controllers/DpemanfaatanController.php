@@ -54,6 +54,7 @@ class DpemanfaatanController extends Controller
         // $dtpemanfaatan = dpemanfaatan::all();
         $dtpemanfaatan = DB::table('pemanfaatan')
                     ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
+                    
                     ->get();
     
         return view('pemanfaatan.tabel', compact('dtpemanfaatan'));
