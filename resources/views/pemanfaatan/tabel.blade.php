@@ -79,6 +79,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <select id='kecamatan'>
         <option value=''>Pilih Kecamatan</option>
       </select>
+      <select id='kelurahan'>
+        <option value=''>Pilih Kalurahan</option>
+      </select>
      </div>
       <!--main content paling utama-->
             <div class="card-body">
@@ -159,6 +162,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   $(document).ready(function() {
     let kabupaten = $("#kabupaten");
     let kecamatan = $('#kecamatan')
+    let kelurahan= $('#kelurahan')
+    kelurahan.select2();
     kecamatan.select2();
     kabupaten.select2();
 
@@ -206,9 +211,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               kabupaten: e.target.value
             },
             success: function(data) {
-              console.log("memanggil kecamatan")
-              console.log("e", e.target.value)
-              console.log('data', data)
+              // console.log("memanggil kecamatan")
+              // console.log("e", e.target.value)
+              // console.log('data', data)
               data.map(it => {
                 var newOption = new Option(it.desa_kecamatan, it.desa_kecamatan, false, false);
                 $('#kecamatan').append(newOption);
@@ -219,6 +224,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
     })
 
     kecamatan.on('select2:select', (e) => {
+        $.ajax({
+            url: "{{route('api.pemanfaatan.kelurahan')}}",
+            type: "GET",
+            data: {
+             kecamatan: e.target.value, kabupaten:$("#kabupaten").val()
+            },
+            success: function(data) {
+              console.log("dataaa", data)
+              data.map(it => {
+                var newOption = new Option(it.kelurahan, it.kelurahan, false, false);
+                $('#kelurahan').append(newOption);
+              })
+                                        
+              },
+          })
           $.ajax({
             url: "{{route('api.pemanfaatan.search')}}",
             type: "GET",
@@ -229,8 +249,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             success: function(data) {
               $('#table').empty()
               kecamatan.empty()
-              console.log("e", e.target.value)
-              console.log('data', data)
+              // console.log("e", e.target.value)
+              // console.log('data', data)
               data.forEach(item => {
                 $('#table').append(`
                 <tr>
@@ -262,11 +282,57 @@ scratch. This page gets rid of all links and provides the needed markup only.
             }
         })
     })
+
+         // fetch list kelurahan
+   kelurahan.on('select2:select', (e) => {
+    // console.log('hereeeeeee', $("#kabupaten").val(), e.target.value)
+    $.ajax({
+            url: "{{route('api.pemanfaatan.search')}}",
+            type: "GET",
+            data: {
+             kelurahan: e.target.value,
+              kabupaten: $("#kabupaten").val()
+            },
+            success: function(data) {
+              $('#table').empty()
+              kelurahan.empty()
+              // console.log("e", e.target.value)
+              // console.log('data', data)
+              data.forEach(item => {
+                $('#table').append(`
+                <tr>
+                  <td>${item.id}</td>
+                  <td>${item.kode_perizinan}</td>
+                  <td>${item.desa_kecamatan}</td>
+                  <td>${item.kabupaten}</td>
+                  <td>${item.kelurahan}</td>
+                  <td>${item.persil}</td>
+                  <td>${item.luas}</td>
+                  <td>${item.uraian}</td>
+                  <td>${item.tanggal_mulai}</td>
+                  <td>${item.tanggal_akhir}</td>
+                  <td>${item.file_sk}</td>
+                  <td>
+                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
+                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
+                              @csrf
+                            </td>
+                </tr>`)  
+                 })                          
+              },
+            error: function(data) {
+              let alert = $('div[role="alert"]')
+              alert.addClass('alert alert-danger alert-dismissible')
+              alert.html(JSON.stringify(data.responseJSON.message))
+                alert.show()
+            }
+        })
+       })
     $.ajax({
         url: "{{route('api.pemanfaatan.kabupaten')}}",
         type: "GET",
         success: function(data) {
-          console.log('data', data)
+          // console.log('data', data)
           data.map(it => {
             var newOption = new Option(it.kabupaten, it.kabupaten, false, false);
             $('#kabupaten').append(newOption).trigger('change');

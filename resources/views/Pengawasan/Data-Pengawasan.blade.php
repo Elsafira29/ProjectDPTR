@@ -55,15 +55,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
              <!-- end filter data-->
               <div style="display: flex;">
                 <select id="kabupaten">
-                <option value="">Pilih Kabupaten</option>
-              </select>
-              <select id='kapanewon'>
-                <option value=''>Pilih Kapanewon</option>
-              </select>
-              </div>
-              <select id='kelurahan'>
-                <option value=''>Pilih Kalurahan</option>
-              </select>
+                  <option value="">Pilih Kabupaten</option>
+                </select>
+                <select id='kapanewon'>
+                  <option value=''>Pilih Kapanewon</option>
+                </select>
+                <select id='kelurahan'>
+                  <option value=''>Pilih Kalurahan</option>
+                </select>
               </div>
                <!--main content paling utama-->
             <div class="card-body">
