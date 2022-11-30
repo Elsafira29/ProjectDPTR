@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\dpemanfaatan;
+use App\Models\FileUpload;
 use App\Http\Requests\StoredpemanfaatanRequest;
 use App\Http\Requests\UpdatedpemanfaatanRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class DpemanfaatanController extends Controller
 {
@@ -13,15 +16,66 @@ class DpemanfaatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function kabupaten(Request $request) {
+        $data = DB::table('pemanfaatan')->select('kabupaten')->distinct()->get();
+        return $data;
+    }
+    public function kecamatan(Request $request) {
+        $kabupaten = $request->query('kabupaten');
+        if(!isset($kabupaten)) {
+            dd("gk ada kabupaten di query");
+        }
+        $data = DB::table('pemanfaatan')->where('kabupaten', $kabupaten)->select('desa_kecamatan')->distinct()->get();
+        // dd($data);
+        return $data;
+    }
+    public function kelurahan(Request $request) {
+        $kabupaten = $request->query('kabupaten');
+        if(!isset($kabupaten)) {
+            dd("gk ada kabupaten di query");
+        }
+        $data = DB::table('pemanfaatan')->where('kabupaten', $kabupaten)->select('kelurahan')->distinct()->get();
+        // dd($data);
+        return $data;
+    }
+    public function pemanfaatan(Request $request) 
+    {
+        // dd($request);
+        $kabupaten =  $request->query('kabupaten');
+        $desa_kecamatan = $request->query('desa_kecamatan');
+        $kelurahan = $request->query('kelurahan');
+        if(isset($desa_kecamatan)&&isset($kabupaten)&&isset($kelurahan)) {
+            $data = DB::table('pemanfaatan')
+            ->where('kabupaten', $kabupaten)
+            ->where('desa_kecamatan', $desa_kecamatan)
+            ->where('kelurahan', $kelurahan)->get();
+        } elseif (isset($kelurahan)&&isset($kabupaten)) {
+            $data = DB::table('pemanfaatan')
+           ->where('kabupaten', $kabupaten)
+           ->where('kelurahan', $kelurahan)->get();
+        } else {
+            $data = DB::table('pemanfaatan')
+            ->where('kabupaten', $kabupaten)->get();
+        };
+        
+        return response()->json($data);
+    }
     public function index()
     {
         //percobaan
         
         //memunculksn data inputan ke tabel
-        $dtpemanfaatan = dpemanfaatan::all();
+        // $dtpemanfaatan = dpemanfaatan::all();
+        $dtpemanfaatan = DB::table('pemanfaatan')
+                    ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
+                    
+                    ->get();
+    
         return view('pemanfaatan.tabel', compact('dtpemanfaatan'));
 
+
         //percobaan
+
     }
 
     // public function  DpemanfaatanExport(){
@@ -48,10 +102,25 @@ class DpemanfaatanController extends Controller
     {
         //bagian untuk menyimpan data ketabel
         // dd($request->all());
-
-        dpemanfaatan::create([
-            'id'=>$request->id,
-            'kode_perizinan'=>$request->kode_perizinan,
+        // $this->validate($request, [
+        //     'filenames' => 'required',
+        //     'filenames.*' => 'required'
+        // ]);
+        
+        $files = [];
+        if($request->hasfile('filenames'))
+        {
+            foreach($request->file('filenames') as $file)
+            {
+                $name = time().rand(1,100).'.'.$file->extension();
+                $file->move(public_path('files'), $name);  
+                $files[] = $name;  
+            }
+        }
+        // dd($request->all());
+        $hello = dpemanfaatan::create([
+    
+            'kode_perizinan'=> $request->kode_perizinan,
             'desa_kecamatan'=>$request->desa_kecamatan,
             'kabupaten'=>$request->kabupaten,
             'kelurahan'=>$request->kelurahan,
@@ -60,9 +129,17 @@ class DpemanfaatanController extends Controller
             'uraian'=>$request->uraian,
             'tanggal_mulai'=>$request->tanggal_mulai,
             'tanggal_akhir'=>$request->tanggal_akhir,
-            // 'file_SK'=>$request->file_SK,
-            'file_SK' => $request->file('file_SK')->store('dpemanfaatan')
+            'file_SK' => 'hehe :P'
         ]);
+
+        // dd($hello);
+
+        foreach($files as $file) {
+            FileUpload::create([
+                'filename' => $file,
+                'id_pemanfaatan' => $hello->id
+            ]);
+        }
 
         //     $nm = request()->file('file_SK');
         //     $namaFile = $nm->store("img/menu");
@@ -129,7 +206,7 @@ class DpemanfaatanController extends Controller
                         'file_SK'=>$request->file_SK,
                     ]);
 
-                    return redirect()->route('tabel');
+        return redirect()->route('tabel');
     }
 
     /**
