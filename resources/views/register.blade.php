@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Register</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
 </head>
 <body>
@@ -23,9 +22,9 @@
 
   <!-- Main Sidebar Container -->
  @include('tamplate.sidebar')
-
+ <div class="content-wrapper">
     <div class="container"><br>
-        <div class="col-md-6 col-md-offset-3">
+        <div class="col-md-6 col-md-offset-3" style="display:block; margin:auto">
             <h2 class="text-center">FORM REGISTER</h3>
             <hr>
             @if(session('message'))
@@ -49,14 +48,14 @@
                 </div>
                 <div class="form-group">
                     <label><i class="fa fa-address-book"></i> Role</label>
-                    <input type="text" name="role" class="form-control" value="Guest" readonly>
+                    <input type="text" name="role" class="form-control" value="Admin" readonly>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-user"></i> Register</button>
+                <button type="submit" class="btn btn-block" style="background-color:#f6996f"><i class="fa fa-user"></i> Register</button>
                 <hr>
-                <p class="text-center">Sudah punya akun silahkan <a href="{{ route('login_admin') }}">Login Disini!</a></p>
             </form>
         </div>
     </div>
+</div>
     <footer class="main-footer">
         @include('tamplate.footer')
        </footer>
