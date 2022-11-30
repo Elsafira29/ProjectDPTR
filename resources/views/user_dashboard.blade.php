@@ -20,8 +20,9 @@
 }
 .carousel-item img {
     margin-top: -100px;
-    filter: brightness(70%);
+    filter: brightness(50%);
 }
+
 
 </style>
 <body>
@@ -41,10 +42,10 @@
                   <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="#">Pengawasan</a>
+                  <a class="nav-link active text-white" aria-current="page" href="#" &raquo;>Pengawasan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#">Pemanfaatan</a>
+                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pemanfaatan</a>
                   </li>
                 <li class="nav-item">
                   <a class="nav-link active text-white" aria-current="page" href="{{ route('login_admin') }}">Login</a>
@@ -69,29 +70,38 @@
             <div class="carousel-item active">
               <img src="{{ asset('assets/img/gambar1.jpg') }}" class="d-block w-100" alt="...">
               <div class="container">
-                {{-- <div class="carousel-caption text-end">
-                  <center><a id="buttonmkn" class="btn btn-success btn-secondary btn-warning" href="#bawah">Yuk Kulineran
+                <div class="carousel-caption text-center">
+                  <h1>Dinas Pertanahan dan Tata Ruang DIY</h1>
+                  <p>Dinas Pertanahan dan Tata Ruang (Kundha Niti Mandala Sarta Tata Sasana) Daerah Istimewa Yogyakarta mempunyai tugas membantu Gubernur menyelenggarakan urusan pemerintahan dan urusan keistimewaan bidang tata ruang serta urusan pemerintahan dan urusan keistimewaan bidang pertanahan.</p>
+                  <br>
+                  <center><a id="#" class="btn btn-success btn-secondary btn-warning" href="#awasi">Cek Arsip
                       &raquo;</a>
-                </div> --}}
+                </div>
               </div>
             </div>
             <div class="carousel-item">
               <img src="{{ asset('assets/img/gambar2.jpg') }}" class="d-block w-100" alt="...">
-              <div class="container col">
-                {{-- <div class="carousel-caption text-end ">
-                  <center><a id="buttonmkn" class="btn btn-success btn-secondary btn-warning" href="#bawah">Yuk Kulineran
+              <div class="container">
+                <div class="carousel-caption text-center">
+                  <h1>Bidang P5</h1>
+                  <p>“Bidang Pemanfaatan, Penanganan Permasalahan, dan Pengawasan Pertanahan mempunyai tugas melaksanakan fasilitasi pemanfaatan, penanganan permasalahan dan pengawasan pertanahan untuk meningkatkan persentase desa yang sudah mempunyai Peraturan Desa tentang Pemanfaatan Tanah Desa.</p>
+                  <br>
+                  <center><a id="" class="btn btn-success btn-secondary btn-warning" href="#awasi">Cek Arsip
                       &raquo;</a>
-                </div> --}}
+                </div>
               </div>
             </div>
             <div class="carousel-item">
               <img src="{{ asset('assets/img/gambar3.jpeg') }}" class="d-block w-100" alt="...">
               <div class="container">
-                {{-- <div class="carousel-caption text-end">
-                  <center><a id="buttonmkn" class="btn btn-success btn-secondary btn-warning" href="#bawah">Yuk Kulineran
+                <div class="carousel-caption text-center">
+                  <h1>VISI</h1>
+                  <p>“"Terwujudnya Peningkatan Kemuliaan Martabat Manusia Jogja"</p>
+                  <br>
+                  <center><a id="" class="btn btn-success btn-secondary btn-warning" href="#awasi">Cek Arsip
                       &raquo;</a>
-                </div> --}}
-              </div>
+                </div>
+              </div> 
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -152,7 +162,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </select>
      </div> --}}
       <!--main content paling utama-->
-            <div class="card-body">
+            <div class="card-body" id="awasi">
               <table id="myTable" class="table table-striped" style="width:100%">
                     <thead >
                         <tr>
