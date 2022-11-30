@@ -29,20 +29,34 @@ class DpemanfaatanController extends Controller
         // dd($data);
         return $data;
     }
+    public function kelurahan(Request $request) {
+        $kabupaten = $request->query('kabupaten');
+        if(!isset($kabupaten)) {
+            dd("gk ada kabupaten di query");
+        }
+        $data = DB::table('pemanfaatan')->where('kabupaten', $kabupaten)->select('kelurahan')->distinct()->get();
+        // dd($data);
+        return $data;
+    }
     public function pemanfaatan(Request $request) 
     {
         // dd($request);
         $kabupaten =  $request->query('kabupaten');
         $desa_kecamatan = $request->query('desa_kecamatan');
-        
-        if(isset($desa_kecamatan)) {
+        $kelurahan = $request->query('kelurahan');
+        if(isset($desa_kecamatan)&&isset($kabupaten)&&isset($kelurahan)) {
             $data = DB::table('pemanfaatan')
             ->where('kabupaten', $kabupaten)
-            ->where('desa_kecamatan', $desa_kecamatan)->get();
+            ->where('desa_kecamatan', $desa_kecamatan)
+            ->where('kelurahan', $kelurahan)->get();
+        } elseif (isset($kelurahan)&&isset($kabupaten)) {
+            $data = DB::table('pemanfaatan')
+           ->where('kabupaten', $kabupaten)
+           ->where('kelurahan', $kelurahan)->get();
         } else {
             $data = DB::table('pemanfaatan')
             ->where('kabupaten', $kabupaten)->get();
-        }
+        };
         
         return response()->json($data);
     }
