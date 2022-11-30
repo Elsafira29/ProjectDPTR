@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition sidebar-mini">
     <div class="content-wrapper">
     <div class="container"><br>
-        <div class="card col-md-4 col-md-offset-4" style="display:block; margin:auto; font-family:serif">
+        <div class="card col-md-4 col-md-offset-4 mt-4" style="display:block; margin:auto; font-family:serif">
             <h4 class="text-center"><br>Login <br> Master Admin</h4>
             <hr>
             @if(session('error'))

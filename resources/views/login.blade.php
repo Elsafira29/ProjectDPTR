@@ -21,14 +21,29 @@
     .container {
         display: flex;
         justify-content: center;
+        background-image: url("{{ asset('assets/img/peta.png') }}");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
 
-    .card {
+    #badan {
         background-color: #A0522D;
+        opacity: 0.9;
         padding-left: 20px;
         padding-right: 20px;
         padding-bottom: 20px;
+        border-radius: 25px;
+
     }
+
+    .btn {
+        background-color:#FCAB64;
+        display:block; 
+        margin:auto;
+        opacity: 1
+    }
+    
 
     .card h4 {
         color: aliceblue;
@@ -37,6 +52,13 @@
 
     .form-group {
        color: aliceblue
+    }
+
+    body{
+        background-image: url("{{ asset('assets/img/peta.png') }}");
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
     }
 </style>
 <body>
@@ -52,9 +74,9 @@
   </nav>
     
     <div class="container"><br>
-        <div class="card col-md-4 col-md-offset-4" style="margin-top: 60px ">
-            <h4 class="text-center"><br>Login Your Account</h4>
-            <img src="{{ asset('assets/img/logo.jpg') }}" alt="" width="50" height="60" style="display:block; margin:auto;" class="d-flex d-inline-block align-text-top text-center">
+        <div class="card col-md-4 col-md-offset-4" style="margin-top: 60px " id="badan">
+            <h4 class="text-center"><br>Login Akun</h4>
+            <img src="{{ asset('assets/img/logo.jpg') }}" alt="" width="70" height="80" style="display:block; margin:auto;" class="d-flex d-inline-block align-text-top text-center">
             <hr>
             @if(session('error'))
             <div class="alert alert-danger">
@@ -72,7 +94,7 @@
                     <input type="password" name="password" class="form-control" placeholder="Password" required="">
                 </div>
                 <hr>
-                <button type="submit" class="btn btn-block mt-3" style="background-color: #faa47c;display:block; margin:auto;"">Log In</button>
+                <button type="submit" class="btn btn-block mt-3">Log In</button>
                 {{-- <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p> --}}
             </form>
         </div>

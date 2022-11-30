@@ -106,8 +106,4 @@ Route::get('/search/pengawasan/kapanewon',[pengawasanController::class, 'kapanew
 Route::get('/search/pengawasan/kelurahan',[pengawasanController::class, 'kelurahan'])->name('api.pengawasan.kelurahan');
 
 //user dasboard
-// Route::get('/',[UserdasboardController::class,'index'])->name('user_dasboard');
-Route::get('/datapemanfaatan',[UserdasboardController::class,'index'])->name('user_pemanfaatan');
-Route::get('/pemanfaatan', function () {
-    return view('user_pemanfaatan');
-})->name('userpemanfaatan');
+Route::get('/',[UserdasboardController::class,'index'])->name('user_dasboard');
