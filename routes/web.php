@@ -7,6 +7,7 @@ use App\Http\Controllers\PengawasanController;
 use App\Http\Controllers\DpemanfaatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserdasboardController;
 use Illuminate\Support\Facades\Auth;
 use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Round;
 
@@ -103,3 +104,10 @@ Route::get('/search/pengawasan',[pengawasanController::class,'pengawasan'])->nam
 Route::get('/search/pengawasan/kabupaten',[pengawasanController::class, 'kabupaten'])->name('api.pengawasan.kabupaten');
 Route::get('/search/pengawasan/kapanewon',[pengawasanController::class, 'kapanewon'])->name('api.pengawasan.kapanewon');
 Route::get('/search/pengawasan/kelurahan',[pengawasanController::class, 'kelurahan'])->name('api.pengawasan.kelurahan');
+
+//user dasboard
+// Route::get('/',[UserdasboardController::class,'index'])->name('user_dasboard');
+Route::get('/datapemanfaatan',[UserdasboardController::class,'index'])->name('user_pemanfaatan');
+Route::get('/pemanfaatan', function () {
+    return view('user_pemanfaatan');
+})->name('userpemanfaatan');
