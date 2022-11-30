@@ -65,10 +65,17 @@ class DpemanfaatanController extends Controller
         //percobaan
         
         //memunculksn data inputan ke tabel
-        $dtpemanfaatan = dpemanfaatan::all();
+        // $dtpemanfaatan = dpemanfaatan::all();
+        $dtpemanfaatan = DB::table('pemanfaatan')
+                    ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
+                    
+                    ->get();
+    
         return view('pemanfaatan.tabel', compact('dtpemanfaatan'));
 
+
         //percobaan
+
     }
 
     // public function  DpemanfaatanExport(){
@@ -112,7 +119,7 @@ class DpemanfaatanController extends Controller
         }
         // dd($request->all());
         $hello = dpemanfaatan::create([
-            'id'=>$request->id,
+    
             'kode_perizinan'=> $request->kode_perizinan,
             'desa_kecamatan'=>$request->desa_kecamatan,
             'kabupaten'=>$request->kabupaten,
@@ -130,7 +137,7 @@ class DpemanfaatanController extends Controller
         foreach($files as $file) {
             FileUpload::create([
                 'filename' => $file,
-                'id_pemanfaatan' => $request->id
+                'id_pemanfaatan' => $hello->id
             ]);
         }
 

@@ -118,7 +118,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <td>{{ $item->tanggal_akhir }}</td>
                             {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
                             {{-- <td>{{ $item->file_SK }}</td> --}}
-                            <td><img src="{{ asset('uploads/' . $item->file_SK) }}" width="100"></td>
+                            <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
 
                               {{-- <a href="{{ asset('img/'. $item->gambar) }}" target="_blank" rel="noopener noreferrer">lihat gambar</a> --}}
                               {{-- <img src="cover/{{ $item->file_SK }}" class="img-responsive" style="max-height:100px; max-width:100px" alt="" srcset=""> --}}

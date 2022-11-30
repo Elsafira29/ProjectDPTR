@@ -7,12 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class dpemanfaatan extends Model
 {
-    // use HasFactory;
+    //  use HasFactory;
     protected $table = "pemanfaatan";
-    protected $primaryKey = "id";
-    protected $fillable = ['id','kode_perizinan','desa_kecamatan','kabupaten','kelurahan','persil','luas','uraian','tanggal_mulai','tanggal_akhir','file_SK'];
+    protected $fillable = ['kode_perizinan','desa_kecamatan','kabupaten','kelurahan','persil','luas','uraian','tanggal_mulai','tanggal_akhir','file_SK'];
 
-    //relation
+    // relation
     // public function dasboard()
     // {
     //     return $this->belongsTo(dasboar::class);

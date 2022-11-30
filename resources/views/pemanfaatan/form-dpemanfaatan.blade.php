@@ -49,9 +49,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card-body">
                 <form action="{{ route('simpan-dpemanfaatan') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <input type="text" id="id" name="id" class="form-control @error('id') is-invalid @enderror" placeholder="id">
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <input type="text" id="kode_perizinan" name="kode_perizinan" class="form-control" placeholder="kode perizinan">
                     </div>

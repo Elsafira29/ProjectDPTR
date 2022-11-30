@@ -1,25 +1,37 @@
 <!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pengarsipan Pertanahan DPTR</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-</head
-
-
   @include('tamplate.head')
-
-
- @include('tamplate.navbar')
-
- @include('tamplate.sidebar')>
 </head>
 <body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+ @include('tamplate.navbar')
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  @include('tamplate.sidebar')
+
+  <style>
+    .card {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        background-color: #A0522D;
+        color: aliceblue;
+    }
+  </style>
+
+<body class="hold-transition sidebar-mini">
+    <div class="content-wrapper">
     <div class="container"><br>
-        <div class="col-md-4 col-md-offset-4">
-            <h2 class="text-center"><br>Website Pengarsipan DPTR</h3>
+        <div class="card col-md-4 col-md-offset-4" style="display:block; margin:auto; font-family:serif">
+            <h4 class="text-center"><br>Login <br> Master Admin</h4>
             <hr>
             @if(session('error'))
             <div class="alert alert-danger">
@@ -36,21 +48,23 @@
                     <label>Password</label>
                     <input type="password" name="password" class="form-control" placeholder="Password" required="">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Log In</button>
+                <button type="submit" class="btn btn-block" style="background-color: #f6996f">Log In</button>
                 <hr>
                 {{-- <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p> --}}
             </form>
         </div>
     </div>
-    <footer class="main-footer">
-        @include('tamplate.footer')
-       </footer>
-    </div>
-    <!-- ./wrapper -->
-    
-    <!-- REQUIRED SCRIPTS -->
-    
-    <!-- jQuery -->
-    @include('tamplate.script')
+</div>
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    @include('tamplate.footer')
+   </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+{{-- @include('tamplate.script') --}}
 </body>
 </html>
