@@ -1,5 +1,16 @@
-
 <div _ngcontent-wcl-c174="" class="footer myfooter">
+  <app-cp-footer _ngcontent-wcl-c174="" _nghost-wcl-c173="">
+    <div _ngcontent-wcl-c173="" class="container-fluid">
+      <div _ngcontent-wcl-c173="" class="row bar-copyright" style="background-color: #A0522D; color: white;">
+        <p _ngcontent-wcl-c173="" class="mb-2 mt-2 mx-auto" style="text-align: center;">
+          © 2021 Copyright&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dinas Pertanahan dan Tata Ruang Daerah Istimewa Yogyakarta
+        </p>
+      </div>
+    </div> 
+
+     {{-- INI FOOTER --}}
+    
+{{-- <div _ngcontent-wcl-c174="" class="footer myfooter">
   <app-cp-footer _ngcontent-wcl-c174="" _nghost-wcl-c173="">
     <div _ngcontent-wcl-c173="" class="container-fluid">
       <div _ngcontent-wcl-c173="" class="row bar-copyright" style="background-color: #A0522D; color: white;">
@@ -71,5 +82,8 @@
         </div>
       </div>
     </div>
+  </app-cp-footer>
+</div> --}}
+
   </app-cp-footer>
 </div>

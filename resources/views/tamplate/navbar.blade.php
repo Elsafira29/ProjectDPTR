@@ -15,7 +15,7 @@
       <li class="nav-item d-none d-sm-inline-block">
         <form action="/logout" method="POST">
           @csrf
-          <button class="btn btn-custom" style="margin-left: 1200px; background-color:#FFB38F;">Logout</button>
+          <button class="btn btn-custom" style="margin-left: 1200px; background-color:#FFB38F;"><i class="bi bi-box-arrow-right"></i>Logout</button>
       </form>
       </li>
     </ul>
