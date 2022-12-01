@@ -168,48 +168,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </select>
      </div> --}}
       <!--main content paling utama-->
-      <div class="card-body">
-        <table id="myTable" class="table table-striped" style="width:100%">
-              <thead >
-                  <tr>
-                      <th>ID</th>
-                      <th>Kode Perizinan</th>
-                      <th>Desa Kecamatan</th>
-                      <th>Kabupaten</th>
-                      <th>Kalurahan</th>
-                      <th>Luas</th>
-                      <th>Uraian</th>
-                      <th>sertifikat</th>
-                      <th>Tanggal Mlai</th>
-                      <th>Tanggal Akhir</th>
-                      <th>File SK</th>
-                  </tr>
-              </thead>
-
-              <tbody id="table">
-                @foreach ($dtpemanfaatan as $item)
-                  <tr>
-                      <td>{{ $item->id }}</td>
-                      <td>{{ $item->kode_perizinan }}</td>
-                      <td>{{ $item->desa_kecamatan }}</td>
-                      <td>{{ $item->kabupaten }}</td>
-                      <td>{{ $item->kelurahan }}</td>
-                      <td>{{ $item->persil }}</td>
-                      <td>{{ $item->luas }}</td>
-                      <td>{{ $item->uraian }}</td>
-                      <td>{{ $item->tanggal_mulai }}</td>
-                      <td>{{ $item->tanggal_akhir }}</td>
-                      {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
-                      {{-- <td>{{ $item->file_SK }}</td> --}}
-                      <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
-                  </tr>
-                  @endforeach
-              </tbody>
-          </table>
-      </div>
-    <!-- /.content -->
-  </div>
-  
+    
+  <a href="{{ route('uspengawasan') }}" class="btn btn-warning">Pengawasan</a>
 
   <!-- /.content-wrapper -->
 
@@ -229,6 +189,93 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- jQuery -->
 @include('tamplate.script')
+<div class="card-body">
+  <table id="myTable" class="table table-striped" style="width:100%">
+        <thead >
+            <tr>
+                <th>ID</th>
+                <th>Kode Perizinan</th>
+                <th>Desa Kecamatan</th>
+                <th>Kabupaten</th>
+                <th>Kalurahan</th>
+                <th>Luas</th>
+                <th>Uraian</th>
+                <th>sertifikat</th>
+                <th>Tanggal Mlai</th>
+                <th>Tanggal Akhir</th>
+                <th>File SK</th>
+            </tr>
+        </thead>
+
+        <tbody id="table">
+          @foreach ($dtpengawasan as $item)
+            <tr>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->kabupaten }}</td>
+                <td>{{ $item->kapanewon }}</td>
+                <td>{{ $item->kelurahan }}</td>
+                <td>{{ $item->tahun_pengawasan }}</td>
+                <td>{{ $item->nomor_sk }}</td>
+                <td>{{ $item->tanggal_sk }}</td>
+                <td>{{ $item->bentuk_pemanfaatan }}</td>
+                <td>{{ $item->pengelola }}</td>
+                <td>{{ $item->persil_klas }}</td>
+                <td>{{ $item->nomor_sertifikat }}</td>
+                <td>{{ $item->luas_pemanfaatan }}</td>
+                <td>{{ $item->luas_keseluruhan }}</td>
+                <td>{{ $item->jumlah_bidang }}</td>
+                <td>{{ $item->lokasi}}</td>
+                <td>{{ $item->koordinat }}</td>
+                <td>{{ $item->jktwaktu }}</td>
+                <td>{{ $item->jenis_sk }}</td>
+                <td>{{ $item->tdklanjut}}</td>
+                <td>{{ $item->kesesuaian }}</td>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
+<div class="card-body">
+  <table id="myTable" class="table table-striped" style="width:100%">
+        <thead >
+            <tr>
+                <th>ID</th>
+                <th>Kode Perizinan</th>
+                <th>Desa Kecamatan</th>
+                <th>Kabupaten</th>
+                <th>Kalurahan</th>
+                <th>Luas</th>
+                <th>Uraian</th>
+                <th>sertifikat</th>
+                <th>Tanggal Mlai</th>
+                <th>Tanggal Akhir</th>
+                <th>File SK</th>
+            </tr>
+        </thead>
+
+        <tbody id="table">
+          @foreach ($dtpemanfaatan as $item)
+            <tr>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->kode_perizinan }}</td>
+                <td>{{ $item->desa_kecamatan }}</td>
+                <td>{{ $item->kabupaten }}</td>
+                <td>{{ $item->kelurahan }}</td>
+                <td>{{ $item->persil }}</td>
+                <td>{{ $item->luas }}</td>
+                <td>{{ $item->uraian }}</td>
+                <td>{{ $item->tanggal_mulai }}</td>
+                <td>{{ $item->tanggal_akhir }}</td>
+                {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
+                {{-- <td>{{ $item->file_SK }}</td> --}}
+                <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+<!-- /.content -->
+</div>
 {{-- <script>
   // fetch omset, keuntungan, omset, dan total penjualan
   $(document).ready(function() {
