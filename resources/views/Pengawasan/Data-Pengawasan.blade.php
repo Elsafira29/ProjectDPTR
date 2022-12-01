@@ -35,19 +35,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <h1 class="m-0">Pengawasan</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item active"><a href="#">Home</a></li>
             </ol>
-          </div><!-- /.col -->
+          </div><!-- /.col --> --}}
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
     <!-- Main content -->
-    <div class="content">
-        <div class="card card-info card-outline" style="width: 130rem;">
-            <div class="card-header">
+    <div class="content" >
+        <div class="card card-info card-outline" style="width: 150%;">
+            <div class="card-header" style="background-color: #c47b59">
                 <div class="card-tools">
                     <a href="{{ route('Create-Pengawasan') }}" class="btn btn-secondary">Tambah Data <i class="fa fa-plus-square"></i></a>
                 </div>
@@ -132,14 +132,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    @include('tamplate.footer')
-   </footer>
-</div>
-  <!-- Select2 JS --> 
-  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
-      @include('tamplate.footer')
-    </footer>
-  </div>
+    <!-- jQuery --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    
+    <!-- Select2 JS --> 
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
+        @include('tamplate.footer')
+       </footer>
+    </div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->

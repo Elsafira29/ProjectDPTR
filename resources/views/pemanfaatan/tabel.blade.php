@@ -35,19 +35,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <h1 class="m-0">Pemanfaatan</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
             </ol>
-          </div><!-- /.col -->
+          </div><!-- /.col --> --}}
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
     <!-- Main content -->
     <div class="content">
-        <div class="card card-info card-outline" style="width: 150rem;">
-            <div class="card-header">
+        <div class="card card-info card-outline" style="width: 100%;">
+            <div class="card-header" style="background-color: #c47b59">
                 <div class="card-tools">
                     <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-secondary">Tambah Data <i class="fa fa-plus-square"></i></a>
                 </div>
