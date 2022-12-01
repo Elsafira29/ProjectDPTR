@@ -33,7 +33,7 @@ Route::group(['middleware' => 'web'], function () {
     })->name('user');
 
     //Login
-    Route::get('/login', [LoginController::class, 'login'])->name('login_admin');
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
     //Home

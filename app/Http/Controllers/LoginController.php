@@ -37,7 +37,7 @@ class LoginController extends Controller
     {
         Auth::logout();
         // return redirect('/user_dashboard');
-        return view('/user_dashboard');
+        // return view('/user_dashboard');
  
         request()->session()->invalidate();
  

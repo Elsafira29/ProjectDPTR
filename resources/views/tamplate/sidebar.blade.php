@@ -72,17 +72,17 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a href="#" class="nav-link">
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              <i class="nav-icon fas fa-h"></i>
+              {{-- <i class="nav-icon fas fa-h"></i>
               <p>
                 Tanggal
                 <a href=""></a>
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              </p>
+              {{-- </p>
             </a>
-          </li>
+          </li>  --}}
           <li class="nav-item">
             <a href="{{ route('masteradmin') }}" class="nav-link">
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
