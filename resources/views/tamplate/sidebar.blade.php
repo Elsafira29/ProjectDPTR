@@ -78,6 +78,7 @@
               <i class="nav-icon fas fa-h"></i>
               <p>
                 Tanggal
+                <a href=""></a>
                 {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
               </p>
             </a>

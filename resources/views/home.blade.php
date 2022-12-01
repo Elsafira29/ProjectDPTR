@@ -27,12 +27,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-sm-6">
             <h1 class="m-0">Pemanfaatan</h1>
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active"><a href="{{ route('actionlogout') }}">Log Out</a></li>
             </ol>
-          </div><!-- /.col -->
+          </div><!-- /.col --> --}}
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
@@ -43,10 +43,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-3 col-6">
+            <div class="col-lg-3 col-6" >
               <!-- small box -->
-              <div class="small-box bg-light">
-                <div class="inner">
+              <div class="small-box bg-light" >
+                <div class="inner" style="background-color: rgba(255, 179, 143, 1)">
                   <h3>{{ $pengawasan }}</h3>
 
                   <p>Pengawasan</p>
@@ -54,14 +54,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="icon">
                   <i class="ion ion-bag"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer" style="background-color: rgba(242, 138, 89, 1)">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->
             <div class="col-lg-3 col-6">
               <!-- small box -->
               <div class="small-box bg-light">
-                <div class="inner">
+                <div class="inner" style="background-color: rgba(255, 179, 143, 1)">
                   <h3>{{ $pemanfaatan }}</h3>
 
                   <p>Pemanfaatan</p>
@@ -69,7 +69,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="icon">
                   <i class="ion ion-stats-bars"></i>
                 </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="#" class="small-box-footer" style="background-color: rgba(242, 138, 89, 1)">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div>
             </div>
             <!-- ./col -->

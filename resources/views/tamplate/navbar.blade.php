@@ -3,7 +3,7 @@
     background-color: #A0522D;
     }
 </style>
-<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="color:#A0522D;width:200%">
+<nav class="main-header navbar navbar-expand navbar-white navbar-light" style="color:#A0522D;width:130%">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -15,7 +15,7 @@
       <li class="nav-item d-none d-sm-inline-block">
         <form action="/logout" method="POST">
           @csrf
-          <button class="btn btn-danger" >Logout</button>
+          <button class="btn btn-custom" style="margin-left: 1200px; background-color:#FFB38F;">Logout</button>
       </form>
       </li>
     </ul>
