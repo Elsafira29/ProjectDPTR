@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pengarsipan P5 DPTR</title>
-    <script src="https://kit.fontawesome.com/b1ea2b304c.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <style>
@@ -21,9 +20,8 @@
 }
 .carousel-item img {
     margin-top: -100px;
-    filter: brightness(50%);
+    filter: brightness(70%);
 }
-
 
 </style>
 <body>
@@ -43,10 +41,10 @@
                   <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="#" &raquo;>Pengawasan</a>
+                  <a class="nav-link active text-white" aria-current="page" href="#">Pengawasan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pemanfaatan</a>
+                    <a class="nav-link active text-white" aria-current="page" href="#">Pemanfaatan</a>
                   </li>
                 <li class="nav-item">
                   <a class="nav-link active text-white" aria-current="page" href="{{ route('login_admin') }}">Login</a>
@@ -66,48 +64,34 @@
               aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
               aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
-              aria-label="Slide 4"></button>
           </div>
           <div class="carousel-inner">
             <div class="carousel-item active">
               <img src="{{ asset('assets/img/gambar1.jpg') }}" class="d-block w-100" alt="...">
               <div class="container">
-                <div class="carousel-caption text-center">
-                  <h1>Dinas Pertanahan dan Tata Ruang DIY</h1>
-                  <p>Dinas Pertanahan dan Tata Ruang (Kundha Niti Mandala Sarta Tata Sasana) Daerah Istimewa Yogyakarta mempunyai tugas membantu Gubernur menyelenggarakan urusan pemerintahan dan urusan keistimewaan bidang tata ruang serta urusan pemerintahan dan urusan keistimewaan bidang pertanahan.</p>
-                  <br>
-                  <center><a id="#" class="btn btn-success btn-secondary btn-warning" href="#awasi">Cek Arsip
+                {{-- <div class="carousel-caption text-end">
+                  <center><a id="buttonmkn" class="btn btn-success btn-secondary btn-warning" href="#bawah">Yuk Kulineran
                       &raquo;</a>
-                </div>
+                </div> --}}
               </div>
             </div>
             <div class="carousel-item">
               <img src="{{ asset('assets/img/gambar2.jpg') }}" class="d-block w-100" alt="...">
-              <div class="container">
-                <div class="carousel-caption text-center">
-                  <h1>Bidang P5</h1>
-                  <p>“Bidang Pemanfaatan, Penanganan Permasalahan, dan Pengawasan Pertanahan mempunyai tugas melaksanakan fasilitasi pemanfaatan, penanganan permasalahan dan pengawasan pertanahan untuk meningkatkan persentase desa yang sudah mempunyai Peraturan Desa tentang Pemanfaatan Tanah Desa.</p>
-                  <br>
-                  <center><a id="" class="btn btn-success btn-secondary btn-warning" href="#awasi">Cek Arsip
+              <div class="container col">
+                {{-- <div class="carousel-caption text-end ">
+                  <center><a id="buttonmkn" class="btn btn-success btn-secondary btn-warning" href="#bawah">Yuk Kulineran
                       &raquo;</a>
-                </div>
+                </div> --}}
               </div>
             </div>
             <div class="carousel-item">
               <img src="{{ asset('assets/img/gambar3.jpeg') }}" class="d-block w-100" alt="...">
               <div class="container">
-                <div class="carousel-caption text-center">
-                  <h1>VISI</h1>
-                  <p>"Terwujudnya Peningkatan Kemuliaan Martabat Manusia Jogja"</p>
-                  <br>
-                  <center><a id="" class="btn btn-success btn-secondary btn-warning" href="#awasi">Cek Arsip
+                {{-- <div class="carousel-caption text-end">
+                  <center><a id="buttonmkn" class="btn btn-success btn-secondary btn-warning" href="#bawah">Yuk Kulineran
                       &raquo;</a>
-                </div>
-              </div> 
-            </div>
-            <div class="carousel-item">
-              <img src="{{ asset('assets/img/gambar6.png') }}" class="d-block w-100" alt="...">
+                </div> --}}
+              </div>
             </div>
           </div>
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -120,7 +104,7 @@
           </button>
         </div>
         <!--End Carousel Scroll-->
-       
+      
 <!--End About-->
           <Main>
 <!DOCTYPE html>
@@ -168,45 +152,104 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </select>
      </div> --}}
       <!--main content paling utama-->
-      <div class="card-body">
-        <table id="myTable" class="table table-striped" style="width:100%">
-              <thead >
-                  <tr>
-                      <th>ID</th>
-                      <th>Kode Perizinan</th>
-                      <th>Desa Kecamatan</th>
-                      <th>Kabupaten</th>
-                      <th>Kalurahan</th>
-                      <th>Luas</th>
-                      <th>Uraian</th>
-                      <th>sertifikat</th>
-                      <th>Tanggal Mlai</th>
-                      <th>Tanggal Akhir</th>
-                      <th>File SK</th>
-                  </tr>
-              </thead>
+             <div class="card-body">
+              <table id="myTable" class="table table-striped" style="width:100%">
+                    <thead >
+                        <tr>
+                            <th>ID</th>
+                            <th>Kode Perizinan</th>
+                            <th>Desa Kecamatan</th>
+                            <th>Kabupaten</th>
+                            <th>Kalurahan</th>
+                            <th>Luas</th>
+                            <th>Uraian</th>
+                            <th>sertifikat</th>
+                            <th>Tanggal Mlai</th>
+                            <th>Tanggal Akhir</th>
+                            <th>File SK</th>
+                        </tr>
+                    </thead>
 
-              <tbody id="table">
-                @foreach ($dtpemanfaatan as $item)
-                  <tr>
-                      <td>{{ $item->id }}</td>
-                      <td>{{ $item->kode_perizinan }}</td>
-                      <td>{{ $item->desa_kecamatan }}</td>
-                      <td>{{ $item->kabupaten }}</td>
-                      <td>{{ $item->kelurahan }}</td>
-                      <td>{{ $item->persil }}</td>
-                      <td>{{ $item->luas }}</td>
-                      <td>{{ $item->uraian }}</td>
-                      <td>{{ $item->tanggal_mulai }}</td>
-                      <td>{{ $item->tanggal_akhir }}</td>
-                      {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
-                      {{-- <td>{{ $item->file_SK }}</td> --}}
-                      <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
-                  </tr>
-                  @endforeach
-              </tbody>
-          </table>
-      </div>
+                    <tbody id="table">
+                      @foreach ($dtpemanfaatan as $item)
+                        <tr>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->kode_perizinan }}</td>
+                            <td>{{ $item->desa_kecamatan }}</td>
+                            <td>{{ $item->kabupaten }}</td>
+                            <td>{{ $item->kelurahan }}</td>
+                            <td>{{ $item->persil }}</td>
+                            <td>{{ $item->luas }}</td>
+                            <td>{{ $item->uraian }}</td>
+                            <td>{{ $item->tanggal_mulai }}</td>
+                            <td>{{ $item->tanggal_akhir }}</td>
+                            {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
+                            {{-- <td>{{ $item->file_SK }}</td> --}}
+                            <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+            {{-- t2 --}}
+            {{-- <div class="card-body">
+              <table id="myTable" class="table table-striped" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Kabupaten</th>
+                            <th>Kapanewon</th>
+                            <th>Kalurahan</th>
+                            <th>Tahun Pengawasan</th>
+                            <th>Nomor SK</th>
+                            <th>Tanggal SK</th>
+                            <th>Bentuk Pemanfaatan</th>
+                            <th>Pengelola</th>
+                            <th>Persil Klas</th>
+                            <th>Nomor Sertifikat</th>
+                            <th>Luas Pemanfaatan</th>
+                            <th>Luas Keseluruhan</th>
+                            <th>Jumlah Bidang</th>
+                            <th>Lokasi</th>
+                            <th>Koordinat</th>
+                            <th>Jangka Waktu</th>
+                            <th>Jenis Sk</th>
+                            <th>Tinda Lanjut</th>
+                            <th>Kesesuaian</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead> --}}
+
+                    {{-- <tbody id="table">
+                      @foreach ($dtpengawasan as $item)
+                        <tr>
+                            <td>{{ $item->kabupaten }}</td>
+                            <td>{{ $item->kapanewon }}</td>
+                            <td>{{ $item->kelurahan }}</td>
+                            <td>{{ $item->tahun_pengawasan }}</td>
+                            <td>{{ $item->nomor_sk }}</td>
+                            <td>{{ $item->tanggal_sk }}</td>
+                            <td>{{ $item->bentuk_pemanfaatan }}</td>
+                            <td>{{ $item->pengelola }}</td>
+                            <td>{{ $item->persil_klas }}</td>
+                            <td>{{ $item->nomor_sertifikat }}</td>
+                            <td>{{ $item->luas_pemanfaatan }}</td>
+                            <td>{{ $item->luas_keseluruhan }}</td>
+                            <td>{{ $item->jumlah_bidang }}</td>
+                            <td>{{ $item->lokasi}}</td>
+                            <td>{{ $item->koordinat }}</td>
+                            <td>{{ $item->jktwaktu }}</td>
+                            <td>{{ $item->jenis_sk }}</td>
+                            <td>{{ $item->tdklanjut}}</td>
+                            <td>{{ $item->kesesuaian }}</td>
+                          </tr>
+                        </tr>
+                        @endforeach
+                    </tbody> --}}
+                </table>
+            </div>
+        </div>
+    </div>
     <!-- /.content -->
   </div>
   
