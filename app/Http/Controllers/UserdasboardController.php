@@ -18,13 +18,30 @@ class UserdasboardController extends Controller
     public function index()
     {
         $dtpemanfaatan = DB::table('pemanfaatan')
-                    ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
-                    
-                    ->get();
-    
-        return view('user_dashboard', compact('dtpemanfaatan'));
+        ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
+        
+        ->get();
+
+        $dtpengawasan = DB::table('pengawasan')->get();
+        
+       return view('user_dashboard', compact('dtpengawasan','dtpemanfaatan'));
+        
     }
 
+    public function tabeldata()
+    {
+        $dtpemanfaatan = DB::table('pemanfaatan')
+        ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
+        
+        ->get();
+
+return view('user_dashboard', compact('dtpemanfaatan'));
+
+$dtpengawasan = DB::table('pengawasan');
+
+return view('user_dashboard', compact('dtpengawasan'));
+        
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -68,6 +85,17 @@ class UserdasboardController extends Controller
             'file_SK' => 'hehe :P'
         ]);
 
+        $hello = pengawasan::create([
+            'id'=>$request->id,
+            'kabupaten'=>$request->kabupaten,
+            'kapanewon'=>$request->kapanewon,
+            'kelurahan'=>$request->kelurahan,
+            'tahun_pengawasan'=>$request->tahun_pengawasan,
+            'nomor_sk'=>$request->nomor_sk,
+            'tanggal_sk'=>$request->tanggal_sk,
+            'bentuk_pemanfaatan'=>$request->bentuk_pemanfaatan,
+            'pengelola'=>$request->pengelola,
+        ]);
         
 
         // dd($hello);
@@ -92,28 +120,6 @@ class UserdasboardController extends Controller
 
 
 
-        pengawasan::create([
-            'id'=>$request->id,
-            'kabupaten'=>$request->kabupaten,
-            'kapanewon'=>$request->kapanewon,
-            'kelurahan'=>$request->kelurahan,
-            'tahun_pengawasan'=>$request->tahun_pengawasan,
-            'nomor_sk'=>$request->nomor_sk,
-            'tanggal_sk'=>$request->tanggal_sk,
-            'bentuk_pemanfaatan'=>$request->bentuk_pemanfaatan,
-            'pengelola'=>$request->pengelola,
-            'persil_klas'=>$request->persil_klas,
-            'nomor_sertifikat'=>$request->nomor_sertifikat,
-            'luas_pemanfaatan'=>$request->luas_pemanfaatan,
-            'luas_keseluruhan'=>$request->luas_keseluruhan,
-            'jumlah_bidang'=>$request->jumlah_bidang,
-            'lokasi'=>$request->lokasi,
-            'koordinat'=>$request->koordinat,
-            'jktwaktu'=>$request->jktwaktu,
-            'jenis_sk'=>$request->jenis_sk,
-            'tdklanjut'=>$request->tdklanjut,
-            'kesesuaian'=>$request->kesesuaian
-        ]);
 
         return redirect('user_dashboard');
     }
@@ -126,7 +132,7 @@ class UserdasboardController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(pengawasan::with('pengawasan')->find($id));
     }
 
     /**

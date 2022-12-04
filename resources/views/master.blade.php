@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,52 +11,19 @@
     <title>Master</title>
 </head>
 <body>
-    
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
-  <head>
-  @include('tamplate.head')
-  </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
 
-  <!-- Navbar -->
- @include('tamplate.navbar')
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
- @include('tamplate.sidebar')
-
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Data Admin</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item active"><a href="#">Home</a></li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <div class="content">
-        <div class="card card-info card-outline" style="width: 100%;">
+    <div class="content" style="margin:5vh">
+        <div class="card card-info card-outline" style="width: 100%;margin-bottom: 100%">
             <div class="card-header">
-                <div class="card-tools">
-                    <a href="{{ route('register') }}" class="btn btn-secondary">Tambah Data <i class="fa fa-plus-square"></i></a>
-                </div>
+              <h2 class="m-0">Data Admin</h2>
             </div>
+            <div class="card-tools mt-3" style="margin-left: 15px;margin-right:2px">
+              <a href="{{ route('register') }}" class="btn btn-secondary">Tambah Data <i class="fa fa-plus-square"></i></a>
+          </div>
 
             <div class="card-body">
               <table id="myTable" class="table table-striped" style="width:100%">
@@ -105,9 +76,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    @include('tamplate.footer')
-   </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -117,6 +85,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 {{-- @include('tamplate.script') --}}
 </body>
 </html>
-
-</body>
-</html>
+@endsection

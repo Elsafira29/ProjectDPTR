@@ -7,7 +7,8 @@
     <title>Pengarsipan P5 DPTR</title>
     <script src="https://kit.fontawesome.com/b1ea2b304c.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo.jpg') }}">
+  </head>
 <style>
     .container-fluid h3{
         color: azure;
@@ -24,9 +25,9 @@
     filter: brightness(50%);
 }
 
-
 </style>
 <body>
+<!-- Navbar -->
     <nav class="navbar navbar-expand-lg" style="background-color: #A0522D">
         <div class="container-fluid">
             <a class="navbar-brand d-flex" href="#">
@@ -43,21 +44,24 @@
                   <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="#" &raquo;>Pengawasan</a>
+                  <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>Pemanfaatan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pemanfaatan</a>
+                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pengawasan</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="{{ route('login_admin') }}">Login</a>
+                  <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{{ route('login') }}">Login</a>
                 </li>
                 </li>
               </ul>
           </form>
         </div>
       </nav>
+
+<!-- End Navbar -->
+
+<!-- Carousel -->
       <Main>
-        <!--Carousel Scroll-->
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
@@ -119,248 +123,146 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-        <!--End Carousel Scroll-->
+        <nav class="navbar navbar-expand-lg" style="background-color: #c06d47; height:30px;">
+          <div class="container-fluid">
+          </div>
+        </nav>
+<!-- End Carousel -->
        
-<!--End About-->
-          <Main>
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="en">
-  <head>
-<!-- Select2 CSS --> 
-<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> 
+<!-- Tabel Pemanfaatan -->
+              <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
+                <h2 id="manfaat">Pemanfaatan</h2>
+                <table id="myTables" class="table table-striped" style="width:100%">
+                      <thead >
+                          <tr>
+                              <th>ID</th>
+                              <th>Kode Perizinan</th>
+                              <th>Desa Kecamatan</th>
+                              <th>Kabupaten</th>
+                              <th>Kalurahan</th>
+                              <th>Luas</th>
+                              <th>Uraian</th>
+                              <th>sertifikat</th>
+                              <th>Tanggal Mlai</th>
+                              <th>Tanggal Akhir</th>
+                              <th>File SK</th>
+                          </tr>
+                      </thead>
+            
+                      <tbody id="table">
+                        @foreach ($dtpemanfaatan as $item)
+                          <tr>
+                              <td>{{ $item->id }}</td>
+                              <td>{{ $item->kode_perizinan }}</td>
+                              <td>{{ $item->desa_kecamatan }}</td>
+                              <td>{{ $item->kabupaten }}</td>
+                              <td>{{ $item->kelurahan }}</td>
+                              <td>{{ $item->persil }}</td>
+                              <td>{{ $item->luas }}</td>
+                              <td>{{ $item->uraian }}</td>
+                              <td>{{ $item->tanggal_mulai }}</td>
+                              <td>{{ $item->tanggal_akhir }}</td>
+                              <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
+                            </tr>
+                          </tr>
+                          @endforeach
+                      </tbody>
+                  </table>
+              </div>
+<!-- End Tabel Pemanfaatan -->
 
-<!-- jQuery --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<!-- Tabel Pengawasan -->
+                  <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
+                    <h2 id="awasi">Pengawasan</h2>
+                    <table id="myTable" class="table table-striped" style="width:100%">
+                          <thead>
+                              <tr>
+                                <th>Kapanewon</th> 
+                                <th>Kalurahan</th> 
+                                <th>Kabupaten</th>
+                                <th>Tahun Pengawasan</th>  
+                                <th>Nomor SK</th>  
+                                <th>Bentuk Pemanfaatan</th>  
+                                <th>Persil Klas</th>
+                                <th>Jenis Sk</th>
+                                <th>Tindak Lanjut</th>
+                                <th>Kesesuaian</th>
+                              </tr>
+                          </thead>
 
-<!-- Select2 JS --> 
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
-  </head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+                          <tbody id="table">
+                            @foreach ($dtpengawasan as $item)
+                              <tr>
+                                <td>{{ $item->kapanewon }}</td>
+                                <td>{{ $item->kelurahan }}</td>
+                                <td>{{ $item->kabupaten }}</td>
+                                <td>{{ $item->tahun_pengawasan }}</td>  
+                                <td>{{ $item->nomor_sk }}</td>
+                                <td>{{ $item->bentuk_pemanfaatan }}</td>
+                                <td>{{ $item->persil_klas }}</td>
+                                <td>{{ $item->jenis_sk }}</td>
+                                <td>{{ $item->tdklanjut}}</td>
+                                <td>{{ $item->kesesuaian }}</td>
+                                </tr>
+                              </tr>
+                              @endforeach
+                          </tbody>
+                      </table>
+                  </div> 
+<!-- End Tabel Pengawasan -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="mt-4">Pemanfaatan</h1>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <div class="content" style="margin: 50px">
-        <div class="card card-info card-outline" style="width: 100% ;">
-     <!-- end filter data-->
-     {{-- <div style="display: flex;">
-       <select id="kabupaten">
-        <option value="">Pilih Kabupaten</option>
-      </select>
-      <select id='kecamatan'>
-        <option value=''>Pilih Kecamatan</option>
-      </select>
-     </div> --}}
-      <!--main content paling utama-->
-      <div class="card-body">
-        <table id="myTable" class="table table-striped" style="width:100%">
-              <thead >
-                  <tr>
-                      <th>ID</th>
-                      <th>Kode Perizinan</th>
-                      <th>Desa Kecamatan</th>
-                      <th>Kabupaten</th>
-                      <th>Kalurahan</th>
-                      <th>Luas</th>
-                      <th>Uraian</th>
-                      <th>sertifikat</th>
-                      <th>Tanggal Mlai</th>
-                      <th>Tanggal Akhir</th>
-                      <th>File SK</th>
-                  </tr>
-              </thead>
-
-              <tbody id="table">
-                @foreach ($dtpemanfaatan as $item)
-                  <tr>
-                      <td>{{ $item->id }}</td>
-                      <td>{{ $item->kode_perizinan }}</td>
-                      <td>{{ $item->desa_kecamatan }}</td>
-                      <td>{{ $item->kabupaten }}</td>
-                      <td>{{ $item->kelurahan }}</td>
-                      <td>{{ $item->persil }}</td>
-                      <td>{{ $item->luas }}</td>
-                      <td>{{ $item->uraian }}</td>
-                      <td>{{ $item->tanggal_mulai }}</td>
-                      <td>{{ $item->tanggal_akhir }}</td>
-                      {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
-                      {{-- <td>{{ $item->file_SK }}</td> --}}
-                      <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
-                  </tr>
-                  @endforeach
-              </tbody>
-          </table>
+<!-- Footer -->
+<footer>
+<div class="footer myfooter">
+    <div class="container-fluid">
+      <div class="row bar-copyright" style="background-color: #A0522D; color: white;">
+        <p class="mb-2 mt-2 mx-auto" style="text-align: center;">
+          © 2022 Copyright&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dinas Pertanahan dan Tata Ruang Daerah Istimewa Yogyakarta
+        </p>
       </div>
-    <!-- /.content -->
-  </div>
-  
-
-  <!-- /.content-wrapper -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-<!-- jQuery --> 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-
-<!-- Select2 JS --> 
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
-    @include('tamplate.footer')
-   </footer>
+    <div _ngcontent-wcl-c173="" class="row justify-content-center pb-3" style="background-color: #a7735b; color: white;">
+      <div _ngcontent-wcl-c173="" class="logo-footer" style="display: flex; justify-content: center;">
+        <img  _ngcontent-wcl-c173="" src="{{ asset('assets/img/logo.jpg') }}" alt="logo Pemda DIY" class="float-right mt-2" style="height: 90px;">
+      </div>
+      <div _ngcontent-wcl-c173="" class="col-md-0 text-center">
+        <p _ngcontent-wcl-c173="" class="mt-3 footer-address">
+          Hak Cipta Dispertaru DIY
+          <br _ngcontent-wcl-c173="">
+          Jalan Tentara Rakyat Mataram Nomor 4
+          <br _ngcontent-wcl-c173="">
+          Telp./Fax: (0274) 588219
+          <br _ngcontent-wcl-c173="">
+          Yogyakarta 55231
+        </p>
+      </div>
+      <div class="container d-flex" style="display: flex; justify-content: center;">
+        <div class="row" id="sosmed">
+          <div class="col">
+            <a href="https://twitter.com/dispertarudiy">
+              <img src="{{ asset('assets/img/twitter.png') }}" alt="twitter" width="30" height="30">
+            </a>
+            
+          </div>
+          <div class="col">
+            <a href="https://www.instagram.com/dispertarudiy">
+              <img src="{{ asset('assets/img/ing.png') }}" alt="instagram" width="30" height="30">
+            </a>
+          </div>
+          <div class="col">
+            <a href="https://www.youtube.com/channel/UCFtGDK1-g4ZUb_tbhBNrkpw">
+              <img src="{{ asset('assets/img/youtube.png') }}" alt="youtube" width="30" height="30">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </app-cp-footer>
 </div>
-<!-- ./wrapper -->
+</footer>
+<!-- End Footer -->
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-@include('tamplate.script')
-{{-- <script>
-  // fetch omset, keuntungan, omset, dan total penjualan
-  $(document).ready(function() {
-    let kabupaten = $("#kabupaten");
-    let kecamatan = $('#kecamatan')
-    kecamatan.select2();
-    kabupaten.select2();
-
-    kabupaten.on('select2:select', (e) => {
-          
-          // fetch selected kabupaten
-          $.ajax({
-            url: "{{route('api.pemanfaatan.search')}}",
-            type: "GET",
-            data: {
-              kabupaten: e.target.value
-            },
-            success: function(data) {
-              $('#table').empty()
-              data.forEach(item => {
-                $('#table').append(`
-                <tr>
-                  <td>${item.id}</td>
-                  <td>${item.kode_perizinan}</td>
-                  <td>${item.desa_kecamatan}</td>
-                  <td>${item.kabupaten}</td>
-                  <td>${item.kelurahan}</td>
-                  <td>${item.persil}</td>
-                  <td>${item.luas}</td>
-                  <td>${item.uraian}</td>
-                  <td>${item.tanggal_mulai}</td>
-                  <td>${item.tanggal_akhir}</td>
-                  <td>${item.file_sk}</td>
-                  <td>
-                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
-                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
-                              @csrf
-                            </td>
-                </tr>`)                        
-              })
-                                        
-              },
-          })
-
-          // fetch list kecamatan
-          $.ajax({
-            url: "{{route('api.pemanfaatan.kecamatan')}}",
-            type: "GET",
-            data: {
-              kabupaten: e.target.value
-            },
-            success: function(data) {
-              console.log("memanggil kecamatan")
-              console.log("e", e.target.value)
-              console.log('data', data)
-              data.map(it => {
-                var newOption = new Option(it.desa_kecamatan, it.desa_kecamatan, false, false);
-                $('#kecamatan').append(newOption);
-              })
-                                        
-              },
-          })
-    })
-
-    kecamatan.on('select2:select', (e) => {
-          $.ajax({
-            url: "{{route('api.pemanfaatan.search')}}",
-            type: "GET",
-            data: {
-              desa_kecamatan: e.target.value,
-              kabupaten: $("#kabupaten").val()
-            },
-            success: function(data) {
-              $('#table').empty()
-              kecamatan.empty()
-              console.log("e", e.target.value)
-              console.log('data', data)
-              data.forEach(item => {
-                $('#table').append(`
-                <tr>
-                  <td>${item.id}</td>
-                  <td>${item.kode_perizinan}</td>
-                  <td>${item.desa_kecamatan}</td>
-                  <td>${item.kabupaten}</td>
-                  <td>${item.kelurahan}</td>
-                  <td>${item.persil}</td>
-                  <td>${item.luas}</td>
-                  <td>${item.uraian}</td>
-                  <td>${item.tanggal_mulai}</td>
-                  <td>${item.tanggal_akhir}</td>
-                  <td>${item.file_sk}</td>
-                  <td>
-                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
-                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
-                              @csrf
-                            </td>
-                </tr>`)                        
-              })
-                                        
-              },
-            error: function(data) {
-              let alert = $('div[role="alert"]')
-              alert.addClass('alert alert-danger alert-dismissible')
-              alert.html(JSON.stringify(data.responseJSON.message))
-                alert.show()
-            }
-        })
-    })
-    $.ajax({
-        url: "{{route('api.pemanfaatan.kabupaten')}}",
-        type: "GET",
-        success: function(data) {
-          console.log('data', data)
-          data.map(it => {
-            var newOption = new Option(it.kabupaten, it.kabupaten, false, false);
-            $('#kabupaten').append(newOption).trigger('change');
-          })
-
-        },
-        error: function(data) {
-            let alert = $('div[role="alert"]')
-            alert.addClass('alert alert-danger alert-dismissible')
-            alert.html(JSON.stringify(data.responseJSON.message))
-            alert.show()
-        }
-    })
-  })
-</script> --}}
-</body>
-</html>
-
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+@include('usertemp.script')
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 </body>
 </html>

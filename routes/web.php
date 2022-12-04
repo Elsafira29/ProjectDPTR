@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\dpemanfaatan;
+use App\Models\pengawasan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PengawasanController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\DpemanfaatanController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserdasboardController;
+use App\Http\Controllers\UserPengawasan;
 use Illuminate\Support\Facades\Auth;
 use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Round;
 
@@ -28,10 +30,10 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/', function () {
         return view('user_dashboard');
-    })->name('user');
+    })->name('user_dashboard');
 
     //Login
-    Route::get('/login', [LoginController::class, 'login'])->name('login_admin');
+    Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
 
     //Home
@@ -107,3 +109,5 @@ Route::get('/search/pengawasan/kelurahan',[pengawasanController::class, 'kelurah
 
 //user dasboard
 Route::get('/',[UserdasboardController::class,'index'])->name('user_dasboard');
+
+Route::get('/pengawasan',[UserPengawasan::class,'index'])->name('uspengawasan');
