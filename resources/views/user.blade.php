@@ -11,41 +11,42 @@
 </head>
 <body>
     <div class="d-flex">
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px; height: 100vh">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="background-color:#A0522D;width: 280px; height: 100vh">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
-          <span class="fs-4">Sidebar</span>
+          <div class="row">
+            <div class="col-2">
+              <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Dinas" class="brand-image img-circle elevation-3" style="height:40px;width:35px;margin-right:50px;">
+            </div>
+            <div class="col-10">
+              <h2 class="fs-4 ml-4 mt-1">DISPERTARU</h2>
+            </div>
+          </div>
+          
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link active" aria-current="page">
+            <a href="#" class="nav-link text-white" aria-current="page">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-              Home
+              Dashboard
             </a>
           </li>
           <li>
             <a href="#" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
-              Dashboard
+              Pemanfaatan
             </a>
           </li>
           <li>
             <a href="{{ route('actionlogin') }}" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
-              User
+              Pengawasan
             </a>
           </li>
           <li>
             <a href="#" class="nav-link text-white">
               <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
-              Products
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link text-white">
-              <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"></use></svg>
-              Customers
+              Admin
             </a>
           </li>
         </ul>
@@ -64,7 +65,54 @@
           </ul>
         </div>
     </div>
-    <h4>Selamat Datang <b>{{ Auth::user()->username }}</b>, Anda Login sebagai <b>{{ Auth::user()->role}}</b></h4>
+    <div class="content-wrapper" style="width: 200%;"">
+      
+      <nav class="navbar navbar-light" style="background-color:#A0522D; width:135%">
+        <div class="container-fluid">
+          <a class="navbar-brand">Home</a>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+
+      <div class="card card-body mt-4" style="background-color: rgb(255, 255, 255); margin-left:1%; width:130%">
+        <table class="table table-striped" style="width:100%;right:20%;font-size:15px">
+          <thead>
+              <tr>
+                  <th>Kabupaten</th>
+                  <th>Kapanewon</th>
+                  <th>Kalurahan</th>
+                  <th>Tahun Pengawasan</th>
+                  <th>Nomor SK</th>
+                  <th>Tanggal SK</th>
+                  <th>Bentuk Pemanfaatan</th>
+                  <th>Pengelola</th>
+                  <th>Persil Klas</th>
+                  <th>Nomor Sertifikat</th>
+                  <th>Luas Pemanfaatan</th>
+                  <th>Luas Keseluruhan</th>
+                  <th>Jumlah Bidang</th>
+                  <th>Lokasi</th>
+                  <th>Koordinat</th>
+                  <th>Jangka Waktu</th>
+                  <th>Jenis Sk</th>
+                  <th>Tinda Lanjut</th>
+                  <th>Kesesuaian</th>
+                  <th>Aksi</th>
+              </tr>
+          </thead>
+          </table>
+      </div>
+      
+
+
+       
+
+    </div>
+  </div> 
+    {{-- <h4>Selamat Datang <b>{{ Auth::user()->username }}</b>, Anda Login sebagai <b>{{ Auth::user()->role}}</b></h4> --}}
 </div>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </body>

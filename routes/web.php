@@ -30,7 +30,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/', function () {
         return view('user_dashboard');
-    })->name('user');
+    })->name('user_dashboard');
 
     //Login
     Route::get('/login', [LoginController::class, 'login'])->name('login');

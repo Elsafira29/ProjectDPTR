@@ -129,7 +129,7 @@ class DpemanfaatanController extends Controller
             'uraian'=>$request->uraian,
             'tanggal_mulai'=>$request->tanggal_mulai,
             'tanggal_akhir'=>$request->tanggal_akhir,
-            'file_SK' => 'hehe :P'
+            'file_SK'=>$request->file_SK,
         ]);
 
         // dd($hello);
@@ -216,7 +216,7 @@ class DpemanfaatanController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function destroy(dpemanfaatan $dpemanfaatan)
-    public function delete($id)
+    public function destroy($id)
     {
         //
         $dpemanfaatan = dpemanfaatan::where('id', $id)
