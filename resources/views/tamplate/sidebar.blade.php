@@ -1,100 +1,58 @@
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: 	#A0522D">
-    <!-- Brand Logo -->
-    <style>
-        .sidebar{
-            background-color: 	#A0522D;
-        }
-    </style>
-    <a href="index3.html" class="brand-link">
-      <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Dinas" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-dark" style="color: white">DISPERTARU DIY</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar" style="background-color:#A0522D">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        {{-- <div class="image">
-          <img src="{{ asset('assets/img/') }}" class="img-circle elevation-2" alt="User Image">
-        </div> --}}
-        {{-- <div class="info">
-          <a href="#" class="d-block">mas/mba</a>
-        </div> --}}
-      </div>
-
-      <!-- SidebarSearch Form -->
-      {{-- <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
+<div class="d-flex">
+  <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="background-color:#A0522D;width: 280px; height: 100vh">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <div class="row">
+          <div class="col-2">
+            <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Dinas" class="brand-image img-circle elevation-3" style="height:40px;width:35px;margin-right:50px;">
+          </div>
+          <div class="col-10">
+            <h2 class="fs-4 ml-4 mt-1">DISPERTARU</h2>
           </div>
         </div>
-      </div> --}}
+        
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+          <a href="{{ route('home') }}" class="nav-link text-white" aria-current="page">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('tabel') }}" class="nav-link text-white">
+            Pemanfaatan
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('Data-Pengawasan') }}" class="nav-link text-white">
+            Pengawasan
+          </a>
+        </li>
+        <li>
+          <a href="{{ route('masteradmin') }}" class="nav-link text-white">
+            Admin
+          </a>
+        </li>
+      </ul>
+      <hr>
+  </div>
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-               <li class="nav-item">
-                <a href="{{ route('home') }}" class="nav-link">
-                    {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-                  <i class="nav-icon fas fa-h"></i>
-                  <p>
-                    Dashboard
-                    {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-                  </p>
-                </a>
-              </li>
-          <li class="nav-item menu-open">
-            <a href="{{ route('home') }}" class="nav-link focus">
-              <i class="nav-icon fas fa-plus"></i>
-              <p>
-                Input Data
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="{{ route('tabel') }}" class="nav-link focus">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Pemanfaatan</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="{{ route('Data-Pengawasan') }}" class="nav-link focus">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Data Pengawasan</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
-                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              <i class="nav-icon fas fa-h"></i>
-              <p>
-                Tanggal
-                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('masteradmin') }}" class="nav-link">
-                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              <i class="nav-icon fas fa-h"></i>
-              <p>
-                Admin
-                {{-- <i class="fa fa-sign-out" aria-hidden="true"></i> --}}
-              </p>
-            </a>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
+  <div class="content-wrapper" style="width: 200%;"">
+      
+    <nav class="navbar navbar-light" style="background-color:#A0522D; width:135%">
+      <div class="container-fluid">
+        <a class="navbar-brand text-light">Home</a>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  
+  </div>
+  </div> 
+  {{-- <h4>Selamat Datang <b>{{ Auth::user()->username }}</b>, Anda Login sebagai <b>{{ Auth::user()->role}}</b></h4> --}}
+  </div>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </body>
+  </html>

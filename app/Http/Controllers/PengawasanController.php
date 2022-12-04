@@ -66,6 +66,9 @@ class PengawasanController extends Controller
         //   return view('Pengawasan.Data-Pengawasan');
           $dtpengawasan = pengawasan::all();
           return view('Pengawasan.Data-Pengawasan', compact('dtpengawasan'));
+
+          $dtpengawasan = pengawasan::with('pengawasan')->get();
+            return response()->json($dtpengawasan);
     }
 
     /**
@@ -123,7 +126,7 @@ class PengawasanController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(Pengawasan::with('pengawasan')->find($id));
     }
 
     /**

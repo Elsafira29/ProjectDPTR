@@ -3,7 +3,6 @@
 <!--data table-->
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js" defer></script>
-{{-- tambahan untuk button export data --}}
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap5.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
@@ -17,13 +16,23 @@
 </script> --}}
 <script>
     $(document).ready(function() {
-    var table = $('#myTable').DataTable( {
+    var table = $('#myTables').DataTable( {
         lengthChange: true,
-        buttons: [ 'copy', 'excel', 'print', 'colvis' ]
     } );
  
     table.buttons().container()
         .appendTo( '#myTable_wrapper .col-md-6:eq(0)' );
+
+} );
+
+$(document).ready(function() {
+    var table = $('#myTable').DataTable( {
+        lengthChange: true,
+    } );
+ 
+    table.buttons().container()
+        .appendTo( '#myTable_wrapper .col-md-6:eq(0)' );
+
 } );
 </script>
 <!-- jQuery -->

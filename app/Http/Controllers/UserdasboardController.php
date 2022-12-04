@@ -1,15 +1,20 @@
 <?php
-  
+
 namespace App\Http\Controllers;
-  
+
 use Illuminate\Http\Request;
 use App\Models\dpemanfaatan;
 use App\Models\pengawasan;
 use App\Models\FileUpload;
 use Illuminate\Support\Facades\DB;
-  
-class HomeController extends Controller
+
+class UserdasboardController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $dtpemanfaatan = DB::table('pemanfaatan')
@@ -19,35 +24,24 @@ class HomeController extends Controller
 
         $dtpengawasan = DB::table('pengawasan')->get();
         
-        $jml_pemanfaatan = dpemanfaatan::count();
-        $jml_pengawasan = pengawasan::count();
+       return view('user_dashboard', compact('dtpengawasan','dtpemanfaatan'));
         
-       return view('home', ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan], compact('dtpengawasan','dtpemanfaatan',));
-
-        $jml_pemanfaatan = dpemanfaatan::count();
-        $jml_pengawasan = pengawasan::count();
-        return view('home',  ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan ]);
     }
-        /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
 
-//     public function tabeldata()
-//     {
-//         $dtpemanfaatan = DB::table('pemanfaatan')
-//         ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
+    public function tabeldata()
+    {
+        $dtpemanfaatan = DB::table('pemanfaatan')
+        ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
         
-//         ->get();
+        ->get();
 
-// return view('user_dashboard', compact('dtpemanfaatan'));
+return view('user_dashboard', compact('dtpemanfaatan'));
 
-// $dtpengawasan = DB::table('pengawasan');
+$dtpengawasan = DB::table('pengawasan');
 
-// return view('user_dashboard', compact('dtpengawasan'));
+return view('user_dashboard', compact('dtpengawasan'));
         
-//     }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -127,7 +121,7 @@ class HomeController extends Controller
 
 
 
-        return redirect('home');
+        return redirect('user_dashboard');
     }
 
     /**

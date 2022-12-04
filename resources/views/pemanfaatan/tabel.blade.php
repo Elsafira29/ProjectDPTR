@@ -1,12 +1,8 @@
 
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="en">
-  <head>
-  @include('tamplate.head')
+  @extends('layouts.app')
+
+  @section('content')
+
 <!-- Select2 CSS --> 
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" /> 
 
@@ -20,11 +16,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 
   <!-- Navbar -->
- @include('tamplate.navbar')
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
- @include('tamplate.sidebar')
+
+     
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -33,58 +29,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Pemanfaatan</h1>
+           
           </div><!-- /.col -->
-          <div class="col-sm-6">
+          {{-- <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
             </ol>
-          </div><!-- /.col -->
+          </div><!-- /.col --> --}}
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
     <!-- Main content -->
-    <div class="content">
-        <div class="card card-info card-outline" style="width: 150rem;">
-            <div class="card-header">
-                <div class="card-tools">
-                    <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-secondary">Tambah Data <i class="fa fa-plus-square"></i></a>
-                </div>
+    <div class="content" style="margin:5vh">
+        <div class="card card-info card-outline" style="width: 100%;">
+            <div class="card-header" style="background-color: #c47b59">
+              <h2 class="m-0">Arsip Pemanfaatan</h2>
             </div>
-      <!--filter data-->
-      {{-- <form class="row g-3" method="GET">
-        <div class="col-auto">
-           <select name="city" class="form-select">
-              <option value="" selected>All</option>
-              @foreach ($cities as $city)
-                 <option value="{{ $city->name }}" {{ request('city') === $city->name ? 'selected' : null }}>
-                    {{ $city->name }}</option>
-              @endforeach
-           </select>
+           
+    <div class="row mt-4" style="margin-left: 5px;margin-right:2px">
+      <div class="col">
+        <div class="card-tools">
+          <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-dark">Tambah Data <i class="fa fa-plus-square"></i></a>
+      </div>
+    </div>
+      <div class="col">
+        <div style="display: flex; justify-content:end">
+          <select id="kabupaten">
+           <option value="">Pilih Kabupaten</option>
+         </select>
+         <select id='kecamatan'>
+           <option value=''>Pilih Kecamatan</option>
+         </select>
+         <select id='kelurahan'>
+           <option value=''>Pilih Kalurahan</option>
+         </select>
         </div>
-        <div class="col-auto">
-           <input name="keyword" value="{{ request('keyword') }}" type="search" class="form-control"
-              placeholder="Search...">
-        </div>
-        <div class="col-auto">
-           <button type="submit" class="btn btn-primary mb-3">Search</button>
-        </div>
-     </form> --}}
-     <!-- end filter data-->
-     <div style="display: flex;">
-       <select id="kabupaten">
-        <option value="">Pilih Kabupaten</option>
-      </select>
-      <select id='kecamatan'>
-        <option value=''>Pilih Kecamatan</option>
-      </select>
-      <select id='kelurahan'>
-        <option value=''>Pilih Kalurahan</option>
-      </select>
-     </div>
+      </div>
+    </div>
       <!--main content paling utama-->
-            <div class="card-body">
+            <div class="card-body" style="font-size:12px;">
               <table id="myTable" class="table table-striped" style="width:100%">
                     <thead >
                         <tr>
@@ -148,7 +132,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- Select2 JS --> 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js" defer></script>
-    @include('tamplate.footer')
+    {{-- @include('tamplate.footer') --}}
    </footer>
 </div>
 <!-- ./wrapper -->
@@ -350,3 +334,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 </body>
 </html>
+@endsection

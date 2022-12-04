@@ -66,7 +66,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -11793,7 +11793,7 @@ body.sidebar-collapse:not(.sidebar-mini-xs):not(.sidebar-mini-md):not(.sidebar-m
 
 body:not(.layout-fixed) .main-sidebar {
   height: inherit;
-  min-height: 100%;
+  min-height: 150%;
   position: absolute;
   top: 0;
 }
