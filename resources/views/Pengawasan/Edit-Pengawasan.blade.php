@@ -48,10 +48,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
           @foreach ($Pengawasan as $item)
           <form action="{{ url('update-pengawasan',$item->id) }}" method="POST">
             {{ csrf_field() }}
-                    {{-- <div class="form-group">
-                      <label>ID:</label>
-                      <input type="text" id="id" name ="id" class="form-control">
-                    </div> --}}
                     <div class="form-group">
                       <label>Kabupaten:</label>
                       <input type="text" id="kabupaten" name="kabupaten" class="form-control" value="{{ $item->kabupaten }}">
