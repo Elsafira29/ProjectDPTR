@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
+use App\Models\dpemanfaatan;
  
 class DpemanfaatanSeeder extends Seeder
 {
@@ -17,7 +18,7 @@ class DpemanfaatanSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('dpemanfaatan')->insert([
+        $data = dpemanfaatan::create([
             'kode_perizinan'=> Str::random(10),
             'desa_kecamatan'=> Str::random(10),
             'kabupaten'=> 'sleman',
@@ -28,7 +29,23 @@ class DpemanfaatanSeeder extends Seeder
             'tanggal_mulai'=> now(),
             'tanggal_akhir'=> now(),
             // 'file_SK'=>$request->file_SK,
-            'file_SK' => Str::random(10),
+        ]);
+
+        DB::table('file')->insert([
+            'id_pemanfaatan' => $data->id,
+            'filename' => Str::random(20),
+        ]);
+        DB::table('file')->insert([
+            'id_pemanfaatan' => $data->id,
+            'filename' => Str::random(20),
+        ]);
+        DB::table('file')->insert([
+            'id_pemanfaatan' => $data->id,
+            'filename' => Str::random(20),
+        ]);
+        DB::table('file')->insert([
+            'id_pemanfaatan' => $data->id,
+            'filename' => Str::random(20),
         ]);
     }
 }
