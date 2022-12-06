@@ -17,7 +17,7 @@ class CreateFileTable extends Migration
             $table->id();
             $table->string('filename');
             $table->unsignedBigInteger('id_pemanfaatan');
-            $table->foreign('id_pemanfaatan')->references('id')->on('pemanfaatan');
+            $table->foreign('id_pemanfaatan')->references('id')->on('pemanfaatan')->onDelete('cascade');
             $table->timestamps();
         });
     }

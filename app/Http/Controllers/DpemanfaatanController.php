@@ -198,7 +198,7 @@ class DpemanfaatanController extends Controller
                         'uraian'=>$request->uraian,
                         'tanggal_mulai'=>$request->tanggal_mulai,
                         'tanggal_akhir'=>$request->tanggal_mulai,
-                        'file_SK'=>$request->file_SK,
+                        // 'file_SK'=>$request->file_SK,
                     ]);
 
         return redirect()->route('tabel');
@@ -211,7 +211,7 @@ class DpemanfaatanController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function destroy(dpemanfaatan $dpemanfaatan)
-    public function destroy($id)
+    public function delete($id)
     {
         //
         $dpemanfaatan = dpemanfaatan::where('id', $id)
