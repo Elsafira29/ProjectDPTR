@@ -63,14 +63,9 @@ class DpemanfaatanController extends Controller
     public function index()
     {
         //percobaan
-        
         //memunculksn data inputan ke tabel
         // $dtpemanfaatan = dpemanfaatan::all();
-        $dtpemanfaatan = DB::table('pemanfaatan')
-                    ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
-                    
-                    ->get();
-    
+        $dtpemanfaatan = dpemanfaatan::with('files')->get();
         return view('pemanfaatan.tabel', compact('dtpemanfaatan'));
 
 
@@ -129,7 +124,7 @@ class DpemanfaatanController extends Controller
             'uraian'=>$request->uraian,
             'tanggal_mulai'=>$request->tanggal_mulai,
             'tanggal_akhir'=>$request->tanggal_akhir,
-            'file_SK'=>$request->file_SK,
+            // 'file_SK'=>$request->file_SK,
         ]);
 
         // dd($hello);
@@ -203,7 +198,7 @@ class DpemanfaatanController extends Controller
                         'uraian'=>$request->uraian,
                         'tanggal_mulai'=>$request->tanggal_mulai,
                         'tanggal_akhir'=>$request->tanggal_mulai,
-                        'file_SK'=>$request->file_SK,
+                        // 'file_SK'=>$request->file_SK,
                     ]);
 
         return redirect()->route('tabel');
@@ -216,7 +211,7 @@ class DpemanfaatanController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function destroy(dpemanfaatan $dpemanfaatan)
-    public function destroy($id)
+    public function delete($id)
     {
         //
         $dpemanfaatan = dpemanfaatan::where('id', $id)
