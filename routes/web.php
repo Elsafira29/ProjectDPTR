@@ -85,6 +85,8 @@ Route::get('/edit-pengawasan/{id}',[PengawasanController::class,'edit'])->name('
 Route::post('/update-pengawasan/{id}',[PengawasanController::class,'update'])->name('update-pengawasan');
 Route::get('/delete-pengawasan/{id}',[PengawasanController::class,'destroy'])->name('delete-pengawasan');
 
+Route::get('/Data-Pengawasan', [PengawasanController::class, 'index'])->name('Data-Pengawasan');
+
 });
 
 
