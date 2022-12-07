@@ -7,7 +7,8 @@
     <title>Pengarsipan P5 DPTR</title>
     <script src="https://kit.fontawesome.com/b1ea2b304c.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo.jpg') }}">
+  </head>
 <style>
     .container-fluid h3{
         color: azure;
@@ -43,13 +44,13 @@
                   <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pengawasan</a>
+                  <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>Pemanfaatan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>Pemanfaatan</a>
+                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pengawasan</a>
                   </li>
                 <li class="nav-item">
-                  <a class="nav-link active text-white" aria-current="page" href="{{ route('login') }}">Login</a>
+                  <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{{ route('login') }}">Login</a>
                 </li>
                 </li>
               </ul>

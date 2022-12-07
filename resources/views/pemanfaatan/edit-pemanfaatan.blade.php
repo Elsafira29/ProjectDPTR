@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 
 <!DOCTYPE html>
 <!--
@@ -5,43 +8,14 @@ This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
-  <head>
-  @include('tamplate.head')
-  </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
-  <!-- Navbar -->
- @include('tamplate.navbar')
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
- @include('tamplate.sidebar')
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-    <!-- Main content -->
-    <div class="content">
+    <div class="content" style="margin: 7vh; margin-left:25vh; width:110vh">
         <div class="card card-info card-outline ">
             <div class="card-header">
-                <h3>edit data</h3>
+                <h3>Edit Data Pengawasan</h3>
 
             </div>
 
@@ -87,7 +61,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                   <img height="100px" src="{{ url('/') }}/uploads/{{ $item->file_SK }}" alt="gambar" placeholder="gambar">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-success">Ubah Data</button>
+                        <button type="submit" class="btn btn-success" style="background-color: brown">Ubah Data</button>
                     </div>
                 </form>
               @endforeach
@@ -99,9 +73,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.content-wrapper -->
 
   <!-- Main Footer -->
-  <footer class="main-footer">
-    @include('tamplate.footer')
-   </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -111,3 +82,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @include('tamplate.script')
 </body>
 </html>
+@endsection

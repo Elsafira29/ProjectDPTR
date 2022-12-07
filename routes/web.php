@@ -30,7 +30,7 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/', function () {
         return view('user_dashboard');
-    })->name('user');
+    })->name('user_dashboard');
 
     //Login
     Route::get('/login', [LoginController::class, 'login'])->name('login');
@@ -71,7 +71,7 @@ Route::get('edit-pemanfaatan/{id}',[DpemanfaatanController::class, 'edit'])->nam
 Route::post('/updatepemanfaatan',[DpemanfaatanController::class, 'update'])->name('updatepemanfaatan');
 
 // memanggil hapus
-Route::get('/hapus-pemanfaatan/{id}',[DpemanfaatanController::class, 'delete'])->name('hapus-pemanfaatan');
+Route::get('/hapus-pemanfaatan/{id}',[DpemanfaatanController::class, 'destroy'])->name('hapus-pemanfaatan');
 
 // Route::get('/home', function () {
 //     return view('home');
