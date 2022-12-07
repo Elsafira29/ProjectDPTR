@@ -79,8 +79,8 @@
                   <th>Kalurahan</th>
                   <th>Luas</th>
                   <th>Uraian</th>
-                  <th>sertifikat</th>
-                  <th>Tanggal Mlai</th>
+                  <th>Sertifikat</th>
+                  <th>Tanggal Mulai</th>
                   <th>Tanggal Akhir</th>
                   <th>File SK</th>
                   <th>Action</th>

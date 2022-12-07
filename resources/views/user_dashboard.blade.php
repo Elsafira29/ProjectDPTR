@@ -16,14 +16,27 @@
         margin-top: 10px;
         font-family: serif;
     }
-
     .carousel-item {
     height: 500px;
-}
-.carousel-item img {
-    margin-top: -100px;
-    filter: brightness(50%);
-}
+    }
+    .carousel-item img {
+        margin-top: -100px;
+        filter: brightness(50%);
+    }
+    #tombol {
+    background-color: #333;
+    color: #fff;
+    padding-bottom: 10px;
+    border: 0;
+    }
+    #tombol:hover {
+    background-color: #ff8000;
+    color: rgb(0, 0, 0);
+    }
+
+    .nav-item link :hover {
+    background-color: #c06d47;
+    }
 
 </style>
 <body>
@@ -39,18 +52,19 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <form class="d-flex">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="--bs-scroll-height: 100px;">
-                <li class="nav-item">
+            <ul class="navbar-nav" style="--bs-scroll-height: 100px;"">
+                <li class="nav-item" style="margin-right: 25px">
                   <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="margin-right: 25px">
                   <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>Pemanfaatan</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" style="margin-right: 25px">
                     <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pengawasan</a>
                   </li>
-                <li class="nav-item">
-                  <a class="nav-link active text-white btn btn-warning" aria-current="page" href="{{ route('login') }}">Login</a>
+                <li class="nav-item" style="margin-right: 25px">
+                  <a class="nav-link active text-white btn" id="tombol" style=" border-radius: 15px; padding-right:20px;
+                  padding-left:20px;" aria-current="page" href="{{ route('login') }}">Login</a>
                 </li>
                 </li>
               </ul>
@@ -135,24 +149,22 @@
                 <table id="myTables" class="table table-striped" style="width:100%">
                       <thead >
                           <tr>
-                              <th>ID</th>
                               <th>Kode Perizinan</th>
                               <th>Desa Kecamatan</th>
                               <th>Kabupaten</th>
                               <th>Kalurahan</th>
                               <th>Luas</th>
                               <th>Uraian</th>
-                              <th>sertifikat</th>
+                              <th>Sertifikat</th>
                               <th>Tanggal Mlai</th>
                               <th>Tanggal Akhir</th>
                               <th>File SK</th>
                           </tr>
                       </thead>
             
-                      <tbody id="table">
+                      {{-- <tbody id="table">
                         @foreach ($dtpemanfaatan as $item)
                           <tr>
-                              <td>{{ $item->id }}</td>
                               <td>{{ $item->kode_perizinan }}</td>
                               <td>{{ $item->desa_kecamatan }}</td>
                               <td>{{ $item->kabupaten }}</td>
@@ -162,10 +174,41 @@
                               <td>{{ $item->uraian }}</td>
                               <td>{{ $item->tanggal_mulai }}</td>
                               <td>{{ $item->tanggal_akhir }}</td>
-                              <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
+                              <td>
+                                @foreach($item->files as $file)
+                                <a href="{{ asset('files/'.$file->filename) }}">file {{ $loop->index + 1 }}</a>
+                                @endforeach
+                              </td>
                             </tr>
                           </tr>
                           @endforeach
+                      </tbody> --}}
+                      <tbody id="table">
+                        @foreach ($dtpemanfaatan as $item)
+                        <tr>
+                          <td>{{ $item->kode_perizinan }}</td>
+                          <td>{{ $item->desa_kecamatan }}</td>
+                          <td>{{ $item->kabupaten }}</td>
+                          <td>{{ $item->kelurahan }}</td>
+                          <td>{{ $item->persil }}</td>
+                          <td>{{ $item->luas }}</td>
+                          <td>{{ $item->uraian }}</td>
+                          <td>{{ $item->tanggal_mulai }}</td>
+                          <td>{{ $item->tanggal_akhir }}</td>
+                          {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
+                          {{-- <td>{{ $item->file_SK }}</td> --}}
+                          <td>
+                            @foreach($item->files as $file)
+                            <a href="{{ asset('files/'.$file->filename) }}">File {{ $loop->index + 1 }}</a>
+                            @endforeach
+                          </td>
+        
+                          {{-- <a href="{{ asset('img/'. $item->gambar) }}" target="_blank" rel="noopener noreferrer">lihat gambar</a> --}}
+                          {{-- <img src="cover/{{ $item->file_SK }}" class="img-responsive" style="max-height:100px; max-width:100px" alt="" srcset=""> --}}
+                          {{-- <img src="{{ asset('img/'.$item->file_SK) }}" class="img-responsive" height="10%" width="50%" alt="" srcset=""> --}}
+                        </tr>
+                        </tr>
+                        @endforeach
                       </tbody>
                   </table>
               </div>
@@ -215,11 +258,6 @@
 <footer>
 <div class="footer myfooter">
     <div class="container-fluid">
-      <div class="row bar-copyright" style="background-color: #A0522D; color: white;">
-        <p class="mb-2 mt-2 mx-auto" style="text-align: center;">
-          © 2022 Copyright&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dinas Pertanahan dan Tata Ruang Daerah Istimewa Yogyakarta
-        </p>
-      </div>
     <div _ngcontent-wcl-c173="" class="row justify-content-center pb-3" style="background-color: #a7735b; color: white;">
       <div _ngcontent-wcl-c173="" class="logo-footer" style="display: flex; justify-content: center;">
         <img  _ngcontent-wcl-c173="" src="{{ asset('assets/img/logo.jpg') }}" alt="logo Pemda DIY" class="float-right mt-2" style="height: 90px;">
@@ -257,6 +295,11 @@
       </div>
     </div>
   </app-cp-footer>
+</div>
+<div class="row bar-copyright" style="background-color: #A0522D; color: white;">
+  <p class="mb-2 mt-2 mx-auto" style="text-align: center;">
+    © 2022 Copyright&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dinas Pertanahan dan Tata Ruang Daerah Istimewa Yogyakarta
+  </p>
 </div>
 </footer>
 <!-- End Footer -->

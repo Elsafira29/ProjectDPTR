@@ -55,7 +55,7 @@
       
         <div class="content-wrapper" style="width: 200%;"">
             
-          <nav class="navbar navbar-light" style="background-color:#A0522D; width:auto;">
+          <nav class="navbar navbar-light" style="background-color:#A0522D; width:260%;">
             <div class="container-fluid">
               <a href="#" class="navbar-brand text-light"></a>
               <div class="d-flex">

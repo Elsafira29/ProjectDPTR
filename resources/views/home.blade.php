@@ -39,9 +39,9 @@
     </div>
   </div>
    
-  <div class="container">
+  <div class="container" style="font-size: 12px;">
     <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
-      <h2 id="manfaat">Pemanfaatan</h2>
+      <h4 id="manfaat">Pemanfaatan</h4>
       <table id="myTables" class="table table-striped" style="width:100%">
             <thead >
                 <tr>
@@ -51,14 +51,14 @@
                     <th>Kalurahan</th>
                     <th>Luas</th>
                     <th>Uraian</th>
-                    <th>sertifikat</th>
+                    <th>Sertifikat</th>
                     <th>Tanggal Mlai</th>
                     <th>Tanggal Akhir</th>
                     <th>File SK</th>
                 </tr>
             </thead>
   
-            <tbody id="table">
+            {{-- <tbody id="table">
               @foreach ($dtpemanfaatan as $item)
                 <tr>
                     <td>{{ $item->kode_perizinan }}</td>
@@ -70,16 +70,47 @@
                     <td>{{ $item->uraian }}</td>
                     <td>{{ $item->tanggal_mulai }}</td>
                     <td>{{ $item->tanggal_akhir }}</td>
-                    <td><a href="{{ asset('files/'.$item->filename) }}">lihat file</a></td>
+                    <td>
+                      @foreach($item->files as $file)
+                      <a href="{{ asset('files/'.$file->filename) }}">file {{ $loop->index + 1 }}</a>
+                      @endforeach
+                    </td>
                   </tr>
                 </tr>
                 @endforeach
+            </tbody> --}}
+            <tbody id="table">
+              @foreach ($dtpemanfaatan as $item)
+              <tr>
+                <td>{{ $item->kode_perizinan }}</td>
+                <td>{{ $item->desa_kecamatan }}</td>
+                <td>{{ $item->kabupaten }}</td>
+                <td>{{ $item->kelurahan }}</td>
+                <td>{{ $item->persil }}</td>
+                <td>{{ $item->luas }}</td>
+                <td>{{ $item->uraian }}</td>
+                <td>{{ $item->tanggal_mulai }}</td>
+                <td>{{ $item->tanggal_akhir }}</td>
+                {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
+                {{-- <td>{{ $item->file_SK }}</td> --}}
+                <td>
+                  @foreach($item->files as $file)
+                  <a href="{{ asset('files/'.$file->filename) }}">File {{ $loop->index + 1 }}</a>
+                  @endforeach
+                </td>
+
+                {{-- <a href="{{ asset('img/'. $item->gambar) }}" target="_blank" rel="noopener noreferrer">lihat gambar</a> --}}
+                {{-- <img src="cover/{{ $item->file_SK }}" class="img-responsive" style="max-height:100px; max-width:100px" alt="" srcset=""> --}}
+                {{-- <img src="{{ asset('img/'.$item->file_SK) }}" class="img-responsive" height="10%" width="50%" alt="" srcset=""> --}}
+              </tr>
+              </tr>
+              @endforeach
             </tbody>
         </table>
     </div>
     
     <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
-      <h2 id="awasi">Pengawasan</h2>
+      <h4 id="awasi">Pengawasan</h4>
       <table id="myTable" class="table table-striped" style="width:90%">
             <thead>
                 <tr>
