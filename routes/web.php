@@ -26,7 +26,6 @@ use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Round;
 
 //menampilkan home 
 Route::group(['middleware' => 'web'], function () {
-    // Route::auth();
 
     Route::get('/', function () {
         return view('user_dashboard');
@@ -35,22 +34,21 @@ Route::group(['middleware' => 'web'], function () {
     //Login
     Route::get('/login', [LoginController::class, 'login'])->name('login');
     Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
-
-    //Home
-    Route::get('home', [HomeController::class, 'index'])->name('home');
     Route::match(['get', 'post'],'actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
     
-    // Route::get('user', function () {
-    //     return view('user');
-    // })->name('user');
+Route::group(['middleware' => ['auth']], function()
+    {
+        //Home
+        Route::get('home', [HomeController::class, 'index'])->name('home');
+        Route::match(['get', 'post'],'actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout');
     //Register
-    Route::get('register', [RegisterController::class, 'register'])->name('register');
-    Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
+        Route::get('register', [RegisterController::class, 'register'])->name('register');
+        Route::post('register/action', [RegisterController::class, 'actionregister'])->name('actionregister');
 
-    // Route::get('master', [RegisterController::class, 'register'])->name('register');
-    Route::get('/masterlogin', [LoginController::class, 'masterlogin'])->name('masteradmin');
-    Route::post('actionmaster', [LoginController::class, 'actionmaster'])->name('masterlogin');
-    Route::post('/master', [LoginController::class, 'master'])->name('master');
+        // Route::get('master', [RegisterController::class, 'register'])->name('register');
+        Route::get('/masterlogin', [LoginController::class, 'masterlogin'])->name('masteradmin');
+        Route::post('actionmaster', [LoginController::class, 'actionmaster'])->name('masterlogin');
+        Route::post('/master', [LoginController::class, 'master'])->name('master');
 
     // Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('home', [HomeController::class, 'index'])->name('home');
@@ -106,8 +104,10 @@ Route::get('/search/pengawasan',[pengawasanController::class,'pengawasan'])->nam
 Route::get('/search/pengawasan/kabupaten',[pengawasanController::class, 'kabupaten'])->name('api.pengawasan.kabupaten');
 Route::get('/search/pengawasan/kapanewon',[pengawasanController::class, 'kapanewon'])->name('api.pengawasan.kapanewon');
 Route::get('/search/pengawasan/kelurahan',[pengawasanController::class, 'kelurahan'])->name('api.pengawasan.kelurahan');
-
+Route::get('/pesan/peringatan','pengawasanController@peringatan');
 //user dasboard
 Route::get('/',[UserdasboardController::class,'index'])->name('user_dasboard');
 
 Route::get('/pengawasan',[UserPengawasan::class,'index'])->name('uspengawasan');
+    });
+   

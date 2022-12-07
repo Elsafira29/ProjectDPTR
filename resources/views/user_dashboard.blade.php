@@ -34,8 +34,13 @@
     color: rgb(0, 0, 0);
     }
 
-    .nav-item link :hover {
-    background-color: #c06d47;
+    .nav-link p{
+        color: rgb(255, 255, 255);
+        font-family: serif;
+    }
+
+    .nav-link p:hover{
+        color: rgb(65, 29, 0);
     }
 
 </style>
@@ -54,17 +59,20 @@
           <form class="d-flex">
             <ul class="navbar-nav" style="--bs-scroll-height: 100px;"">
                 <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active text-white" aria-current="page" href="#">
+                    <p>Home</p></a>
                 </li>
                 <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>Pemanfaatan</a>
+                  <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>
+                    <p>Pemanfaatan</p></a>
                 </li>
                 <li class="nav-item" style="margin-right: 25px">
-                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pengawasan</a>
+                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>
+                      <p>Pengawasan</p></a>
                   </li>
                 <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white btn" id="tombol" style=" border-radius: 15px; padding-right:20px;
-                  padding-left:20px;" aria-current="page" href="{{ route('login') }}">Login</a>
+                  <a class="nav-link active text-white btn" id="tombol" style=" border-radius: 10px; padding-right:20px;
+                  padding-left:20px;font-family:serif" aria-current="page" href="{{ route('login') }}">Login</a>
                 </li>
                 </li>
               </ul>
