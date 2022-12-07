@@ -12,11 +12,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $dtpemanfaatan = DB::table('pemanfaatan')
-        ->join('file', 'file.id_pemanfaatan', '=', 'pemanfaatan.id')
-        
-        ->get();
-
+        $dtpemanfaatan = dpemanfaatan::with('files')->get();
         $dtpengawasan = DB::table('pengawasan')->get();
         
         $jml_pemanfaatan = dpemanfaatan::count();

@@ -28,7 +28,7 @@ class DpemanfaatanSeeder extends Seeder
             'uraian'=> Str::random(10),
             'tanggal_mulai'=> now(),
             'tanggal_akhir'=> now(),
-            // 'file_SK'=>$request->file_SK,
+            // 'file_SK'=>Str::random(10),
         ]);
 
         DB::table('file')->insert([

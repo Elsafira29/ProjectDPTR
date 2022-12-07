@@ -42,7 +42,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <label>Password</label>
                     <input type="password" name="password" class="form-control" placeholder="Password" required="">
                 </div>
-                <button type="submit" class="btn btn-block" style="background-color: #f6996f">Log In</button>
+                <button type="submit" class="btn btn-block mt-4" style="background-color: #f6996f">Log In</button>
                 <hr>
                 {{-- <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p> --}}
             </form>
