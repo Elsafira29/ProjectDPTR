@@ -80,6 +80,7 @@ Route::get('/Data-Pengawasan', [PengawasanController::class,'index'])->name('Dat
 Route::get('/Create-Pengawasan',[PengawasanController::class,'create'])->name('Create-Pengawasan');
 Route::post('/simpan-Pengawasan',[PengawasanController::class,'store'])->name('simpan-Pengawasan');
 Route::get('/edit-pengawasan/{id}',[PengawasanController::class,'edit'])->name('edit-pengawasan');
+Route::get('/view-pengawasan/{id}',[PengawasanController::class,'view'])->name('view-pengawasan');
 Route::post('/update-pengawasan/{id}',[PengawasanController::class,'update'])->name('update-pengawasan');
 Route::get('/delete-pengawasan/{id}',[PengawasanController::class,'destroy'])->name('delete-pengawasan');
 
