@@ -11,12 +11,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css">
+    <script src="https://kit.fontawesome.com/e6cac57b1a.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{ asset('assets/img/logo.jpg') }}">
 </head>
 <body>
     <div class="d-flex">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="background-color:#A0522D;width: 280px; height: auto">
             <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
               <div class="row">
                 <div class="col-2">
                   <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Dinas" class="brand-image img-circle elevation-3" style="height:40px;width:35px;margin-right:50px;">
@@ -30,25 +34,25 @@
             <hr>
             <ul class="nav nav-pills flex-column" style="margin-left:30px;">
               <li class="nav-item mb-3">
-                <a href="{{ route('home') }}" class="nav-link text-white" aria-current="page">
+                <a href="{{ route('home') }}" class="nav-link text-white" aria-current="page"><i class="fa-solid fa-house"></i>
                   Dashboard
                 </a>
               </li>
               <li>
-                <a href="{{ route('tabel') }}" class="nav-link text-white mb-3">
+                <a href="{{ route('tabel') }}" class="nav-link text-white mb-3"><i class="fa-solid fa-landmark"></i>
                   Pemanfaatan
                 </a>
               </li>
               <li>
-                <a href="{{ route('Data-Pengawasan') }}" class="nav-link text-white mb-3">
+                <a href="{{ route('Data-Pengawasan') }}" class="nav-link text-white mb-3"><i class="fa-solid fa-eye"></i>
                   Pengawasan
                 </a>
               </li>
-              <li>
+              {{-- <li>
                 <a href="{{ route('masteradmin') }}" class="nav-link text-white mb-3">
                   Admin
                 </a>
-              </li>
+              </li> --}}
             </ul>
             <hr>
         </div>

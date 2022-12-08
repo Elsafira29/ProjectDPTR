@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css">
+    <script src="https://kit.fontawesome.com/e6cac57b1a.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{ asset('assets/img/logo.jpg') }}">
 </head>
 <body>
@@ -30,25 +31,25 @@
             <hr>
             <ul class="nav nav-pills flex-column" style="margin-left:30px;">
               <li class="nav-item mb-3">
-                <a href="{{ route('home') }}" class="nav-link text-white" aria-current="page">
+                <a href="{{ route('home') }}" class="nav-link text-white" aria-current="page"><i class="fa-solid fa-house"></i>
                   Dashboard
                 </a>
               </li>
               <li>
-                <a href="{{ route('tabel') }}" class="nav-link text-white mb-3">
+                <a href="{{ route('tabel') }}" class="nav-link text-white mb-3"><i class="fa-solid fa-landmark"></i>
                   Pemanfaatan
                 </a>
               </li>
               <li>
-                <a href="{{ route('Data-Pengawasan') }}" class="nav-link text-white mb-3">
+                <a href="{{ route('Data-Pengawasan') }}" class="nav-link text-white mb-3"><i class="fa-solid fa-eye"></i>
                   Pengawasan
                 </a>
               </li>
-              <li>
+              {{-- <li>
                 <a href="{{ route('masteradmin') }}" class="nav-link text-white mb-3">
                   Admin
                 </a>
-              </li>
+              </li> --}}
             </ul>
             <hr>
         </div>

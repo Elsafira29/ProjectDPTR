@@ -34,44 +34,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div> --}}
                     <div class="form-group mt-3">
                         <label>Kode Perizininan</label>
-                        <input type="text" id="kode_perizinan" name="kode_perizinan" class="form-control" placeholder="Kode perizinan">
+                        <input type="text" id="kode_perizinan" name="kode_perizinan" class="form-control" placeholder="Kode perizinan" required>
                     </div>
                     <div class="form-group mt-3 mt-3">
                         <label>Desa/Kecamatan</label>
-                        <input type="text" id="desa-kecamatan" name="desa_kecamatan" class="form-control" placeholder="Desa/Kecamatan">
+                        <input type="text" id="desa-kecamatan" name="desa_kecamatan" class="form-control" placeholder="Desa/Kecamatan" required>
                     </div>
                     <div class="form-group mt-3">
                       <label>Kabupaten</label>
-                        <input type="text" id="kabupaten" name="kabupaten" class="form-control" placeholder="Kabupaten">
+                        <input type="text" id="kabupaten" name="kabupaten" class="form-control" placeholder="Kabupaten" required>
                     </div>
                     <div class="form-group mt-3">
                       <label>Kelurahan</label>
-                        <input type="text" id="kelurahan" name="kelurahan" class="form-control" placeholder="Kelurahan">
+                        <input type="text" id="kelurahan" name="kelurahan" class="form-control" placeholder="Kelurahan" required>
                     </div>
                     <div class="form-group mt-3">
                       <label>Sertifikat/persil</label>
-                      <input type="text" id="persil" name="persil" class="form-control" placeholder="Sertifikat/persil">
+                      <input type="text" id="persil" name="persil" class="form-control" placeholder="Sertifikat/persil" required>
                      </div>
                     <div class="form-group mt-3">
                       <label>Luas</label>
-                        <input type="text" id="luas" name="luas" class="form-control" placeholder="Luas">
+                        <input type="text" id="luas" name="luas" class="form-control" placeholder="Luas" required>
                     </div>
                     <div class="form-group mt-3">
                       <label>Uraian</label>
-                        <input type="text" id="uraian" name="uraian" class="form-control" placeholder="Uraian">
+                        <input type="text" id="uraian" name="uraian" class="form-control" placeholder="Uraian" required>
                     </div>
                     <div class="form-group mt-3">
                       <label>Tanggal Mulai</label>
-                        <input type="date" id="tanggal_mulai" name="tanggal_mulai" class="form-control" placeholder="tanggal-mulai">
+                        <input type="date" id="tanggal_mulai" name="tanggal_mulai" class="form-control" placeholder="tanggal-mulai" required>
                     </div>
                     <div class="form-group mt-3">
                       <label>Tanggal Akhir</label>
-                        <input type="date" id="tanggal_akhir" name="tanggal_akhir" class="form-control" placeholder="tanggal-akhir">
+                        <input type="date" id="tanggal_akhir" name="tanggal_akhir" class="form-control" placeholder="tanggal-akhir" required>
                     </div>
                     <div class="form-group mt-3">
                       <label for="files" class="form-label">Upload SK:</label>
                       <div class="input-group hdtuto control-group lst increment" >
-                        <input type="file" name="filenames[]" class="myfrm form-control">
+                        <input type="file" name="filenames[]" class="myfrm form-control" required>
                         <div class="input-group-btn"> 
                           <button class="btn btn-success" type="button"><i class="fldemo glyphicon glyphicon-plus"></i>Add</button>
                         </div>

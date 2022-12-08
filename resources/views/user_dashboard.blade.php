@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pengarsipan P5 DPTR</title>
-    <script src="https://kit.fontawesome.com/b1ea2b304c.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/e6cac57b1a.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="shortcut icon" href="{{ asset('assets/img/logo.jpg') }}">
   </head>
@@ -34,8 +34,13 @@
     color: rgb(0, 0, 0);
     }
 
-    .nav-item link :hover {
-    background-color: #c06d47;
+    .nav-link p{
+        color: rgb(255, 255, 255);
+        font-family: serif;
+    }
+
+    .nav-link p:hover{
+        color: rgb(65, 29, 0);
     }
 
 </style>
@@ -43,7 +48,7 @@
 <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" style="background-color: #A0522D">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex" href="#">
+            <a class="navbar-brand d-flex">
                 <img src="{{ asset('assets/img/logo.jpg') }}" alt="" width="50" height="60" class="d-inline-block align-text-top">
                 <h3>PENGARSIPAN BIDANG P5 DISPERTARU DIY</h3>
               </a>
@@ -54,17 +59,20 @@
           <form class="d-flex">
             <ul class="navbar-nav" style="--bs-scroll-height: 100px;"">
                 <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white" aria-current="page" href="#">Home</a>
+                  <a class="nav-link active text-white" aria-current="page" href="#">
+                    <p>Home</p></a>
                 </li>
                 <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>Pemanfaatan</a>
+                  <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>
+                    <p>Pemanfaatan</p></a>
                 </li>
                 <li class="nav-item" style="margin-right: 25px">
-                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>Pengawasan</a>
+                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>
+                      <p>Pengawasan</p></a>
                   </li>
                 <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white btn" id="tombol" style=" border-radius: 15px; padding-right:20px;
-                  padding-left:20px;" aria-current="page" href="{{ route('login') }}">Login</a>
+                  <a class="nav-link active text-white btn" id="tombol" style=" border-radius: 10px; padding-right:20px;
+                  padding-left:20px;font-family:serif" aria-current="page" href="{{ route('login') }}">Login</a>
                 </li>
                 </li>
               </ul>
@@ -274,21 +282,24 @@
         </p>
       </div>
       <div class="container d-flex" style="display: flex; justify-content: center;">
-        <div class="row" id="sosmed">
+        <div class="row">
           <div class="col">
             <a href="https://twitter.com/dispertarudiy">
-              <img src="{{ asset('assets/img/twitter.png') }}" alt="twitter" width="30" height="30">
+              <i class="fa-brands fa-twitter text-light"></i>
+              {{-- <img src="{{ asset('assets/img/twitter.png') }}" alt="twitter" width="30" height="30"> --}}
             </a>
             
           </div>
           <div class="col">
             <a href="https://www.instagram.com/dispertarudiy">
-              <img src="{{ asset('assets/img/ing.png') }}" alt="instagram" width="30" height="30">
+              {{-- <img src="{{ asset('assets/img/ing.png') }}" alt="instagram" width="30" height="30"> --}}
+              <i class="fa-brands fa-instagram text-light"></i>
             </a>
           </div>
           <div class="col">
             <a href="https://www.youtube.com/channel/UCFtGDK1-g4ZUb_tbhBNrkpw">
-              <img src="{{ asset('assets/img/youtube.png') }}" alt="youtube" width="30" height="30">
+              {{-- <img src="{{ asset('assets/img/youtube.png') }}" alt="youtube" width="30" height="30"> --}}
+              <i class="fa-brands fa-youtube text-light"></i>
             </a>
           </div>
         </div>
