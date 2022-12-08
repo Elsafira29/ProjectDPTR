@@ -48,7 +48,7 @@
 <!-- Navbar -->
     <nav class="navbar navbar-expand-lg" style="background-color: #A0522D">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex" href="#">
+            <a class="navbar-brand d-flex">
                 <img src="{{ asset('assets/img/logo.jpg') }}" alt="" width="50" height="60" class="d-inline-block align-text-top">
                 <h3>PENGARSIPAN BIDANG P5 DISPERTARU DIY</h3>
               </a>

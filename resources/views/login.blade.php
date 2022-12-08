@@ -76,7 +76,7 @@
     <div class="container"><br>
         <div class="card col-md-4 col-md-offset-4" style="margin-top: 60px " id="badan">
             <h4 class="text-center"><br>Login Akun</h4>
-            <img src="{{ asset('assets/img/logo.jpg') }}" alt="" width="70" height="80" style="display:block; margin:auto;" class="d-flex d-inline-block align-text-top text-center">
+            <img src="{{ asset('assets/img/logo.jpg') }}" alt="" width="67" height="80" style="display:block; margin:auto;" class="d-flex d-inline-block align-text-top text-center">
             <hr>
             @if(session('error'))
             <div class="alert alert-danger">
@@ -85,7 +85,7 @@
             @endif
             <form action="{{ route('actionlogin') }}" method="post">
             @csrf
-                <div class="form-group">
+                <div class="form-group mb-2">
                     <label>Email</label>
                     <input type="email" name="email" class="form-control" placeholder="Email" required="">
                 </div>
