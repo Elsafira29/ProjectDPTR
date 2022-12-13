@@ -103,6 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <td>{{ $item->tdklanjut}}</td>
                             <td>{{ $item->kesesuaian }}</td>
                             <td>
+                              <a href="{{ url('view-pengawasan',$item->id) }}"><i class="fas fa-eye"></i></a> |
                               <a href="{{ url('edit-pengawasan',$item->id) }}"><i class="fas fa-edit"></i></a> |
                               <a href="{{ url('delete-pengawasan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt"></i></a>
                             </td>

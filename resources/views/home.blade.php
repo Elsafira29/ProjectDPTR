@@ -14,7 +14,7 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-              <a href="{{ route('tabel') }}" class="btn" style="background-color: antiquewhite">More Info > </a>
+              <a href="{{ route('Data-Pengawasan') }}" class="btn" style="background-color: antiquewhite">More Info > </a>
           </div>
         </div>
       </div>

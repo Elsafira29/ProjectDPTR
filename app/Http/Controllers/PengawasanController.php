@@ -64,6 +64,12 @@ class PengawasanController extends Controller
     {
         //
         //   return view('Pengawasan.Data-Pengawasan');
+        // view
+            // {
+            //     $Pengawasan = pengawasan :: all();
+            //     return view('Pengawasan.Data-Pengawasan',['Pengawasan' => $Pengawasan]);
+            //     // return view('Pengawasan/index', compact('Pengawasan'));
+            // }
           $dtpengawasan = pengawasan::all();
           return view('Pengawasan.Data-Pengawasan', compact('dtpengawasan'));
 
@@ -134,7 +140,17 @@ class PengawasanController extends Controller
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
+     * 
      */
+    public function view($id)
+    {
+        //
+        $Pengawasan = Pengawasan::select('*')
+                            -> where('id', $id)
+                            -> get();
+        return view('Pengawasan.View-Pengawasan',['Pengawasan' => $Pengawasan]);
+    }
+
     public function edit($id)
     {
         //

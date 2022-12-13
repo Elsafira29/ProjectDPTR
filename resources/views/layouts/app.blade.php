@@ -57,7 +57,7 @@
             <hr>
         </div>
       
-        <div class="content-wrapper" style="width: 200%;"">
+        <div class="content-wrapper" style="width: 200%;">
             
           <nav class="navbar navbar-light" style="background-color:#A0522D; width:auto;">
             <div class="container-fluid">
