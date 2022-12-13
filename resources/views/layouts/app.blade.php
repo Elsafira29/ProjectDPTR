@@ -13,6 +13,28 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css">
     <script src="https://kit.fontawesome.com/e6cac57b1a.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{ asset('assets/img/logo.jpg') }}">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          <?php echo $chartData?>
+        ]);
+
+        var options = {
+          title: 'Kabupaten chart'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 </head>
 <body>
     <div class="d-flex">

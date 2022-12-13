@@ -39,6 +39,9 @@
     </div>
   </div>
    
+  {{-- Grafik --}}
+  <div id="piechart" style="width: 900px; height: 500px;"></div>
+  
   <div class="container" style="font-size: 12px;">
     <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
       <h4 id="manfaat">Pemanfaatan</h4>

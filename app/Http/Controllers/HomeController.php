@@ -23,6 +23,14 @@ class HomeController extends Controller
         $jml_pemanfaatan = dpemanfaatan::count();
         $jml_pengawasan = pengawasan::count();
         return view('home',  ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan ]);
+
+        $result =DB::select(DB::raw("SELECT COUNT(*) as total_kabupaten, kabupaten FROM 'pemanfaatan' group by kabupaten;"));
+        $chartData="";
+        foreach($result as $list){
+            $chartData.="['".$list->kabupaten."', ".$list->total_kabupaten."],";
+        }
+        $arr['chartData']=rtrim($chartData,",");
+        return view('home', $arr);
     }
         /**
      * Display a listing of the resource.
