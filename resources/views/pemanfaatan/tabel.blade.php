@@ -127,29 +127,9 @@
       </div>
       <!-- /.content -->
     </div>
-<<<<<<< HEAD
-      <!--main content paling utama-->
-            <div class="card-body" style="font-size:12px;">
-              <table id="myTable" class="table table-striped" style="width:100%">
-                    <thead >
-                        <tr>
-                            <th>ID</th> 
-                            <th>Kode Perizinan</th>
-                            <th>Desa Kecamatan</th>
-                            <th>Kabupaten</th>
-                            <th>Kalurahan</th>
-                            <th>Luas</th>
-                            <th>Uraian</th>
-                            <th>sertifikat</th>
-                            <th>Tanggal Mlai</th>
-                            <th>Tanggal Akhir</th>
-                            <th>File SK</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-=======
+
     <!-- /.content-wrapper -->
->>>>>>> 867af066eb30d624708c513703614e7f4181625c
+
 
     <!-- Main Footer -->
     <footer class="main-footer">
