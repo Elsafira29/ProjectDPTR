@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('p5dptrmaster')
         ]);
 
-        $master->assignRole('master');
+        $master->assignRole('admin');
 
         $admin = User::create([
             'username' => 'Admin',
