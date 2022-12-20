@@ -1,5 +1,54 @@
 @extends('layouts.app')
 @section('content')
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {
+    'packages': ['corechart']
+  });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    const charData = {!!json_encode($chartData, JSON_HEX_TAG)!!};
+    console.log(charData, 'here')
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ...charData.map(it => [it.kabupaten, it.total_kabupaten])
+    ]);
+
+    var options = {
+      title: 'Kabupaten chart Pemanfaatan'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+  }
+</script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {
+    'packages': ['corechart']
+  });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    const charData = {!!json_encode($charData, JSON_HEX_TAG)!!};
+    console.log(charData, 'here')
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ...charData.map(it => [it.kabupaten, it.total_kabupaten])
+    ]);
+
+    var options = {
+      title: 'Kabupaten chart Pengawasan'
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+
+    chart.draw(data, options);
+  }
+</script>
 <div class="content-wrapper">
   <div class="row">
     <div class="col-lg-3 col-6" >
@@ -39,8 +88,11 @@
     </div>
   </div>
    
-  {{-- Grafik --}}
+  {{-- Grafik Pemanfaatan --}}
   <div id="piechart" style="width: 900px; height: 500px;"></div>
+
+  {{-- Grafik Pengawasan--}}
+  <div id="donutchart" style="width: 900px; height: 500px;"></div>
   
   <div class="container" style="font-size: 12px;">
     <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
