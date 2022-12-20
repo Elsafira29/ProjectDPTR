@@ -17,11 +17,7 @@
           @foreach ($Pengawasan as $item)
           <form action="{{ url('update-pengawasan',$item->id) }}" method="POST">
             {{ csrf_field() }}
-                    {{-- <div class="form-group mt-3">
-                      <label>ID:</label>
-                      <input type="text" id="id" name ="id" class="form-control">
-                    </div> --}}
-                    <div class="form-group mt-3">
+                    <div class="form-group">
                       <label>Kabupaten:</label>
                       <input type="text" id="kabupaten" name="kabupaten" class="form-control" value="{{ $item->kabupaten }}">
                     </div>

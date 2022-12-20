@@ -95,7 +95,7 @@
                 </div>
                 <hr>
                 <button type="submit" class="btn btn-block mt-3">Log In</button>
-                {{-- <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p> --}}
+                {{-- <p class="text-center">Belum punya akun? <a href="{{ route('register') }}">Register</a> sekarang!</p>  --}}
             </form>
         </div>
     </div>

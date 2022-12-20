@@ -127,7 +127,9 @@
       </div>
       <!-- /.content -->
     </div>
+
     <!-- /.content-wrapper -->
+
 
     <!-- Main Footer -->
     <footer class="main-footer">

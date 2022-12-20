@@ -21,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <div class="card-body">
               @foreach($dpemanfaatan as $item)
-                <form action="{{ route('updatepemanfaatan') }}" method="POST">
+                <form action="{{ route('updatepemanfaatan',$item->id) }}" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group mb-3">
                         <label>ID</label>

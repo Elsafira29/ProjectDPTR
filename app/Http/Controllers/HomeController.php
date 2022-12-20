@@ -12,17 +12,29 @@ class HomeController extends Controller
 {
     public function index()
     {
+
+        // $users = DB::table('users')
+        // ->selectRaw('count(*) as user_count, status')
+        // ->where('status', '<>', 1)
+        //     ->groupBy('status')
+        //     ->get();
+        // chart untuk pemanfaatan
+        $chartData = DB::table('pemanfaatan')
+        ->selectRaw(('count(*) as total_kabupaten, kabupaten'))
+        ->groupBy('kabupaten')
+        ->get();
+
+        $charData = DB::table('Pengawasan')
+        ->selectRaw(('count(*) as total_kabupaten, kabupaten'))
+        ->groupBy('kabupaten')
+        ->get();
+
         $dtpemanfaatan = dpemanfaatan::with('files')->get();
         $dtpengawasan = DB::table('pengawasan')->get();
-        
         $jml_pemanfaatan = dpemanfaatan::count();
         $jml_pengawasan = pengawasan::count();
-        
-       return view('home', ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan], compact('dtpengawasan','dtpemanfaatan',));
+       return view('home', ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan, 'chartData' => $chartData, 'charData' => $charData], compact('dtpengawasan','dtpemanfaatan',));
 
-        $jml_pemanfaatan = dpemanfaatan::count();
-        $jml_pengawasan = pengawasan::count();
-        return view('home',  ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan ]);
     }
         /**
      * Display a listing of the resource.
