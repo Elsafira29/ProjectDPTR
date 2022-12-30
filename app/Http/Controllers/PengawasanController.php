@@ -15,6 +15,10 @@ class PengawasanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function tahun(Request $request) {
+        $data = DB::table('pengawasan')->select('tahun_pengawasan')->distinct()->get();
+        return response()->json($data);
+    }
     public function kabupaten(Request $request) {
         $data = DB::table('pengawasan')->select('kabupaten')->distinct()->get();
         return $data;
@@ -45,6 +49,33 @@ class PengawasanController extends Controller
         $kapanewon = $request->query('kapanewon');
         $kelurahan = $request->query('kelurahan');
         
+        $tahun = $request->query('tahun');
+        if(isset($tahun)) {
+            if(isset($kapanewon)&&isset($kabupaten)&&isset($kelurahan)) {
+                $data = DB::table('pengawasan')
+                ->where('kabupaten', $kabupaten)
+                ->where('kapanewon', $kapanewon)
+                ->where('kelurahan', $kelurahan)
+                ->where('tahun_pengawasan', $tahun)
+                ->get();
+            } elseif (isset($kelurahan)&&isset($kabupaten)) {
+                $data = DB::table('pengawasan')
+               ->where('kabupaten', $kabupaten)
+               ->where('kelurahan', $kelurahan)
+               ->where('tahun_pengawasan', $tahun)
+               ->get();
+            } elseif(isset($kabupaten)) {
+                $data = DB::table('pengawasan')
+                ->where('kabupaten', $kabupaten)
+                ->where('tahun_pengawasan', $tahun)
+                ->get();
+            } else {
+                $data = DB::table('pengawasan')
+                ->where('tahun_pengawasan', $tahun)
+                ->get();
+            };
+            return response()->json($data);
+        }
         if(isset($kapanewon)&&isset($kabupaten)&&isset($kelurahan)) {
             $data = DB::table('pengawasan')
             ->where('kabupaten', $kabupaten)

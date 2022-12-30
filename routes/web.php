@@ -104,6 +104,7 @@ Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
 
 
 Route::get('/search/pengawasan',[pengawasanController::class,'pengawasan'])->name('api.pengawasan.search');
+Route::get('/search/tahun',[pengawasanController::class,'tahun'])->name('api.tahun');
 Route::get('/search/pengawasan/kabupaten',[pengawasanController::class, 'kabupaten'])->name('api.pengawasan.kabupaten');
 Route::get('/search/pengawasan/kapanewon',[pengawasanController::class, 'kapanewon'])->name('api.pengawasan.kapanewon');
 Route::get('/search/pengawasan/kelurahan',[pengawasanController::class, 'kelurahan'])->name('api.pengawasan.kelurahan');
