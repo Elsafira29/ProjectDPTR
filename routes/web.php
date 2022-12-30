@@ -107,6 +107,7 @@ Route::get('/search/pengawasan',[pengawasanController::class,'pengawasan'])->nam
 Route::get('/search/pengawasan/kabupaten',[pengawasanController::class, 'kabupaten'])->name('api.pengawasan.kabupaten');
 Route::get('/search/pengawasan/kapanewon',[pengawasanController::class, 'kapanewon'])->name('api.pengawasan.kapanewon');
 Route::get('/search/pengawasan/kelurahan',[pengawasanController::class, 'kelurahan'])->name('api.pengawasan.kelurahan');
+Route::get('/search/pengawasan/tahun_pengawasan',[pengawasanController::class, 'tahun_pengawasan'])->name('api.pengawasan.tahun_pengawasan');
 Route::get('/pesan/peringatan','pengawasanController@peringatan');
 //user dasboard
 Route::get('/',[UserdasboardController::class,'index'])->name('user_dasboard');
