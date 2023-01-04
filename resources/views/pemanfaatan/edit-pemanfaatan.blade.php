@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="content" style="margin: 7vh; margin-left:25vh; width:110vh">
+    <div class="content" style="margin: 7vh; margin-left:25vh; width:110vh; margin-right:24vh">
         <div class="card card-info card-outline ">
             <div class="card-header">
                 <h3>Edit Data Pemanfaatan</h3>

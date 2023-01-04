@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
     
@@ -7,19 +7,17 @@
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
   <div class="content-wrapper">
-    <div class="content" style="margin: 7vh; margin-left:25vh; width:110vh">
-    <div class="card catd-info card-outline">
+    <div class="pull-right">
+      <a href="{{ url('Data-Pengawasan') }}">
+        <button type="back" class="btn btn-primary my-3 mx-3" style="background-color: brown"><i class="fa-solid fa-circle-arrow-left"></i></i>Back</button>
+      </a>
+    </div>
+    <div class="content" style="margin: 2vh; margin-left:25vh; width:110vh; margin-right:23vh">
+      <div class="card catd-info card-outline">
       <div class="card-header">
         <h3>Detail Data Pengawasan</h3>
       </div>
-      <hr>
-      <div class="pull-right">
-        <a href="{{ url('Data-Pengawasan') }}">
-          <button type="back" class="btn btn-primary" style="background-color: brown"><i class="fa fa-plus" ></i>Back</button>
-        </a>
-      </div>
-
-        <div class="card-body table-responsive">
+        <div class="card-body table-responsive mt-4">
           <div class="row">
             <div class="col-md-8 offset-md-2">
 

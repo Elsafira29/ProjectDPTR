@@ -41,7 +41,7 @@
       </div>
       <!-- /.content-header -->
       <!-- Main content -->
-      <div class="content" style="margin:5vh">
+      <div class="content" style="margin:3vh">
         <div class="card card-info card-outline" style="width: 100%;">
           <div class="card-header" style="background-color: #c47b59">
             <h2 class="m-0">Arsip Pemanfaatan</h2>

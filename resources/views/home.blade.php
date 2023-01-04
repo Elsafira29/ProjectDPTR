@@ -49,11 +49,11 @@
     chart.draw(data, options);
   }
 </script>
-<div class="content-wrapper">
+<div class="content-wrapper" style="margin-right: 22vh">
   <div class="row">
     <div class="col-lg-3 col-6" >
       <!-- small box -->
-      <div class="card" style="margin-left:10%; margin-top:10%">
+      <div class="card" style="margin-left:10%; margin-top:10%; width:200px">
         <div class="card-body" style="background-color: rgba(255, 179, 143, 1)">
           <div class="small-box" >
             <div class="inner">
@@ -71,7 +71,7 @@
 
     <div class="col-lg-3 col-6" >
       <!-- small box -->
-      <div class="card" style="margin-left:5%; margin-top:10%">
+      <div class="card" style="margin-left:10%; margin-top:10%; width:200px">
         <div class="card-body" style="background-color: rgba(255, 179, 143, 1)">
           <div class="small-box" >
             <div class="inner">
@@ -89,14 +89,19 @@
   </div>
    
   {{-- Grafik Pemanfaatan --}}
-  <div id="piechart" style="width: 900px; height: 500px;"></div>
-
-  {{-- Grafik Pengawasan--}}
-  <div id="donutchart" style="width: 900px; height: 500px;"></div>
+  <div class="row">
+    <div class="col-6">
+      <div id="piechart" style="width: 450px; height: 300px;"></div>
+    </div>
+    <div class="col-6">
+  <div id="donutchart" style="width: 450px; height: 300px;"></div>
+    </div>
+  </div>
   
   <div class="container" style="font-size: 12px;">
     <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
       <h4 id="manfaat">Pemanfaatan</h4>
+      <div class="table-responsive">
       <table id="myTables" class="table table-striped" style="width:100%">
             <thead >
                 <tr>
@@ -112,29 +117,7 @@
                     <th>File SK</th>
                 </tr>
             </thead>
-  
-            {{-- <tbody id="table">
-              @foreach ($dtpemanfaatan as $item)
-                <tr>
-                    <td>{{ $item->kode_perizinan }}</td>
-                    <td>{{ $item->desa_kecamatan }}</td>
-                    <td>{{ $item->kabupaten }}</td>
-                    <td>{{ $item->kelurahan }}</td>
-                    <td>{{ $item->persil }}</td>
-                    <td>{{ $item->luas }}</td>
-                    <td>{{ $item->uraian }}</td>
-                    <td>{{ $item->tanggal_mulai }}</td>
-                    <td>{{ $item->tanggal_akhir }}</td>
-                    <td>
-                      @foreach($item->files as $file)
-                      <a href="{{ asset('files/'.$file->filename) }}">file {{ $loop->index + 1 }}</a>
-                      @endforeach
-                    </td>
-                  </tr>
-                </tr>
-                @endforeach
-            </tbody> --}}
-            <tbody id="table">
+              <tbody id="table">
               @foreach ($dtpemanfaatan as $item)
               <tr>
                 <td>{{ $item->kode_perizinan }}</td>
@@ -162,11 +145,13 @@
               @endforeach
             </tbody>
         </table>
+      </div>
     </div>
     
     <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
       <h4 id="awasi">Pengawasan</h4>
-      <table id="myTable" class="table table-striped" style="width:90%">
+      <div class="table-responsive">
+      <table id="myTable" class="table table-striped" style="width:100%">
             <thead>
                 <tr>
                   <th>Kapanewon</th> 
@@ -200,6 +185,7 @@
                 @endforeach
             </tbody>
         </table>
+      </div>
     </div> 
   </div>
 </div>

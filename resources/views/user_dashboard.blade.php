@@ -12,7 +12,6 @@
 <style>
     .container-fluid h3{
         color: azure;
-        margin-left: 20px;
         margin-top: 10px;
         font-family: serif;
     }
@@ -36,52 +35,63 @@
 
     .nav-link p{
         color: rgb(255, 255, 255);
-        font-family: serif;
+        font-family: Helvetica, sans-serif;
     }
 
     .nav-link p:hover{
         color: rgb(65, 29, 0);
     }
 
+@media(max-width:767px) {
+  .carousel-item img {
+    height: 800px;
+    width: 700px;
+  }
+
+  .carousel-item h1 {
+    font-size: 25px;
+  }
+
+  .carousel-item p {
+    font-size: 12px;
+  }
+
+}
 </style>
 <body>
 <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg" style="background-color: #A0522D">
-        <div class="container-fluid">
-            <a class="navbar-brand d-flex">
-                <img src="{{ asset('assets/img/logo.jpg') }}" alt="" width="50" height="60" class="d-inline-block align-text-top">
-                <h3>PENGARSIPAN BIDANG P5 DISPERTARU DIY</h3>
-              </a>
-            
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <form class="d-flex">
-            <ul class="navbar-nav" style="--bs-scroll-height: 100px;"">
-                <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white" aria-current="page" href="#">
-                    <p>Home</p></a>
-                </li>
-                <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>
-                    <p>Pemanfaatan</p></a>
-                </li>
-                <li class="nav-item" style="margin-right: 25px">
-                    <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>
-                      <p>Pengawasan</p></a>
-                  </li>
-                <li class="nav-item" style="margin-right: 25px">
-                  <a class="nav-link active text-white btn" id="tombol" style=" border-radius: 10px; padding-right:20px;
-                  padding-left:20px;font-family:serif" aria-current="page" href="{{ route('login') }}">Login</a>
-                </li>
-                </li>
-              </ul>
-          </form>
-        </div>
-      </nav>
-
-<!-- End Navbar -->
-
+<nav class="navbar navbar-expand-lg fixed-top shadow-sm" style="background-color: #A0522D">
+  <div class="container">
+      <a class="navbar-brand"><img src="{{ asset('assets/img/LOGO1.png') }}" width="160px" height="60px"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color:#fff; font-size:28px;"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-3 ms-auto">
+            <li class="nav-item" style="margin-right: 25px; margin-top:15px">
+              <a class="nav-link active text-white" aria-current="page" href="#">
+                <p>HOME</p></a>
+            </li>
+            <li class="nav-item" style="margin-right: 25px; margin-top:15px">
+              <a class="nav-link active text-white" aria-current="page" href="#manfaat" &raquo;>
+                <p>PEMANFAATAN</p></a>
+            </li>
+            <li class="nav-item" style="margin-right: 25px;margin-top:15px">
+                <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>
+                  <p>PENGAWASAN</p></a>
+              </li>
+            <li class="nav-item" style="margin-right: 5px;margin-top:15px">
+              <a class="nav-link active text-white btn" id="tombol" style=" border-radius: 10px; padding-right:20px;
+              padding-left:20px;font-family:serif" aria-current="page" href="{{ route('login') }}">LOGIN</a>
+            </li>
+            </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+ 
 <!-- Carousel -->
       <Main>
         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -100,7 +110,7 @@
               <img src="{{ asset('assets/img/gambar1.jpg') }}" class="d-block w-100" alt="...">
               <div class="container">
                 <div class="carousel-caption text-center">
-                  <h1>Dinas Pertanahan dan Tata Ruang DIY</h1>
+                  <h1 class="hidden-md">Dinas Pertanahan dan Tata Ruang DIY</h1>
                   <p>Dinas Pertanahan dan Tata Ruang (Kundha Niti Mandala Sarta Tata Sasana) Daerah Istimewa Yogyakarta mempunyai tugas membantu Gubernur menyelenggarakan urusan pemerintahan dan urusan keistimewaan bidang tata ruang serta urusan pemerintahan dan urusan keistimewaan bidang pertanahan.</p>
                   <br>
                   <center><a id="#" class="btn btn-success btn-secondary btn-warning" href="#awasi">Cek Arsip
@@ -152,8 +162,10 @@
 <!-- End Carousel -->
        
 <!-- Tabel Pemanfaatan -->
+
               <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
                 <h2 id="manfaat">Pemanfaatan</h2>
+                <div class="table-responsive">
                 <table id="myTables" class="table table-striped" style="width:100%">
                       <thead >
                           <tr>
@@ -219,12 +231,14 @@
                         @endforeach
                       </tbody>
                   </table>
+                </div>
               </div>
 <!-- End Tabel Pemanfaatan -->
 
 <!-- Tabel Pengawasan -->
                   <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
                     <h2 id="awasi">Pengawasan</h2>
+                    <div class="table-responsive">
                     <table id="myTable" class="table table-striped" style="width:100%">
                           <thead>
                               <tr>
@@ -259,6 +273,7 @@
                               @endforeach
                           </tbody>
                       </table>
+                    </div> 
                   </div> 
 <!-- End Tabel Pengawasan -->
 
@@ -307,11 +322,18 @@
     </div>
   </app-cp-footer>
 </div>
-<div class="row bar-copyright" style="background-color: #A0522D; color: white;">
+<div class="container-fluid last-content" style="background-color: #A0522D; color: white;">
+  <div class="row">
+    <p class="mt-3" style="text-align: center;">
+      © 2022 Copyright&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dinas Pertanahan dan Tata Ruang Daerah Istimewa Yogyakarta
+    </p>
+  </div>
+</div>
+{{-- <div class="bar-copyright" style="background-color: #A0522D; color: white;">
   <p class="mb-2 mt-2 mx-auto" style="text-align: center;">
     © 2022 Copyright&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;Dinas Pertanahan dan Tata Ruang Daerah Istimewa Yogyakarta
   </p>
-</div>
+</div> --}}
 </footer>
 <!-- End Footer -->
 

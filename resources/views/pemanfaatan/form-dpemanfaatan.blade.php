@@ -19,7 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Content Header (Page header) -->
     <!-- /.content-header -->
     <!-- Main content -->
-    <div class="content" style="margin: 7vh; margin-left:25vh; width:110vh">
+    <div class="content" style="margin: 10vh; margin-left:20vh; width:110vh; margin-right:28vh">
         <div class="card card-info card-outline ">
             <div class="card-header">
                 <h3>Input Data Pemanfaatan</h3>

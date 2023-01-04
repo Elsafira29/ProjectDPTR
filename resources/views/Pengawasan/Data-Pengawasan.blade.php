@@ -1,4 +1,4 @@
-@extends('layouts.apps')
+@extends('layouts.app')
 
 @section('content')
     
@@ -25,8 +25,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <div class="content" style="margin: 7vh; width:110vh">
-        <div class="card card-info card-outline" style="width: 350%;">
+    <div class="content" style="margin: 9vh;">
+        <div class="card card-info card-outline" style="width: 100%;">
             <div class="card-header" style="background-color: #c47b59">
               <h2 class="m-0">Arsip Pengawasan</h2>
             </div>
@@ -68,7 +68,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <th>Nomor SK</th>
                             <th>Tanggal SK</th>
                             <th>Bentuk Pemanfaatan</th>
-                            <th>Pengelola</th>
+                            {{-- <th>Pengelola</th>
                             <th>Persil Klas</th>
                             <th>Nomor Sertifikat</th>
                             <th>Luas Pemanfaatan</th>
@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <th>Jangka Waktu</th>
                             <th>Jenis Sk</th>
                             <th>Tinda Lanjut</th>
-                            <th>Kesesuaian</th>
+                            <th>Kesesuaian</th> --}}
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <td>{{ $item->nomor_sk }}</td>
                             <td>{{ $item->tanggal_sk }}</td>
                             <td>{{ $item->bentuk_pemanfaatan }}</td>
-                            <td>{{ $item->pengelola }}</td>
+                            {{-- <td>{{ $item->pengelola }}</td>
                             <td>{{ $item->persil_klas }}</td>
                             <td>{{ $item->nomor_sertifikat }}</td>
                             <td>{{ $item->luas_pemanfaatan }}</td>
@@ -105,7 +105,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <td>{{ $item->jktwaktu }}</td>
                             <td>{{ $item->jenis_sk }}</td>
                             <td>{{ $item->tdklanjut}}</td>
-                            <td>{{ $item->kesesuaian }}</td>
+                            <td>{{ $item->kesesuaian }}</td> --}}
                             <td>
                               <a href="{{ url('view-pengawasan',$item->id) }}"><i class="fas fa-eye"></i></a> |
                               <a href="{{ url('edit-pengawasan',$item->id) }}"><i class="fas fa-edit"></i></a> |

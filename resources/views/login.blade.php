@@ -60,6 +60,13 @@
         background-attachment: fixed;
         background-repeat: no-repeat;
     }
+
+    @media(max-width:500px) {
+  .navbar-brand h3 {
+    font-size: 13px;
+    margin-top:20px;
+  }
+}
 </style>
 <body>
   
