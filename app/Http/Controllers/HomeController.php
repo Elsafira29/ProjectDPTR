@@ -1,7 +1,8 @@
 <?php
   
 namespace App\Http\Controllers;
-  
+
+use App\Models\Administrasi;
 use Illuminate\Http\Request;
 use App\Models\dpemanfaatan;
 use App\Models\pengawasan;
@@ -31,9 +32,11 @@ class HomeController extends Controller
 
         $dtpemanfaatan = dpemanfaatan::with('files')->get();
         $dtpengawasan = DB::table('pengawasan')->get();
+        $dtadministrasi = DB::table('administrasi')->get();
         $jml_pemanfaatan = dpemanfaatan::count();
         $jml_pengawasan = pengawasan::count();
-       return view('home', ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan, 'chartData' => $chartData, 'charData' => $charData], compact('dtpengawasan','dtpemanfaatan',));
+        $jml_administrasi = Administrasi::count();
+       return view('home', ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan, 'chartData' => $chartData,'administrasi' => $jml_administrasi, 'charData' => $charData], compact('dtpengawasan','dtpemanfaatan',));
 
     }
         /**

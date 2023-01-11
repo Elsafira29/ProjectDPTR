@@ -57,6 +57,26 @@
         <div class="card-body" style="background-color: rgba(255, 179, 143, 1)">
           <div class="small-box" >
             <div class="inner">
+              <h1>{{ $administrasi }}</h1>
+              <p>Permohonan Izin</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-bag"></i>
+            </div>
+              <a href="{{ route('tabel_izin') }}" class="btn" style="background-color: antiquewhite">More Info > </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<div class="content-wrapper" style="margin-right: 22vh">
+  <div class="row">
+    <div class="col-lg-3 col-6" >
+      <!-- small box -->
+      <div class="card" style="margin-left:10%; margin-top:10%; width:200px">
+        <div class="card-body" style="background-color: rgba(255, 179, 143, 1)">
+          <div class="small-box" >
+            <div class="inner">
               <h1>{{ $pengawasan }}</h1>
               <p>Pengawasan</p>
             </div>
