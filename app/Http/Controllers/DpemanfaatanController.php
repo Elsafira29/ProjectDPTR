@@ -16,16 +16,20 @@ class DpemanfaatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function tahunA(Request $request) {
+        $data = DB::table('pemanfaatan')->select('tanggal_akhir')->distinct()->get();
+        return response()->json($data);
+    }
     public function kabupaten(Request $request) {
         $data = DB::table('pemanfaatan')->select('kabupaten')->distinct()->get();
         return $data;
     }
-    public function kecamatan(Request $request) {
+    public function kapanewon(Request $request) {
         $kabupaten = $request->query('kabupaten');
         if(!isset($kabupaten)) {
             dd("gk ada kabupaten di query");
         }
-        $data = DB::table('pemanfaatan')->where('kabupaten', $kabupaten)->select('desa_kecamatan')->distinct()->get();
+        $data = DB::table('pemanfaatan')->where('kabupaten', $kabupaten)->select('kapanewon')->distinct()->get();
         // dd($data);
         return $data;
     }
@@ -42,24 +46,52 @@ class DpemanfaatanController extends Controller
     {
         // dd($request);
         $kabupaten =  $request->query('kabupaten');
-        $desa_kecamatan = $request->query('desa_kecamatan');
+        $kapanewon = $request->query('kapanewon');
         $kelurahan = $request->query('kelurahan');
-        if(isset($desa_kecamatan)&&isset($kabupaten)&&isset($kelurahan)) {
+
+        $tahun = $request->query('tahun');
+        if(isset($tahun)) {
+        if(isset($kapanewon)&&isset($kabupaten)&&isset($kelurahan)) {
             $data = DB::table('pemanfaatan')
             ->where('kabupaten', $kabupaten)
-            ->where('desa_kecamatan', $desa_kecamatan)
-            ->where('kelurahan', $kelurahan)->get();
+            ->where('kapanewon', $kapanewon)
+            ->where('kelurahan', $kelurahan)
+            ->where('tanggal_akhir', $tahun)
+            ->get();
         } elseif (isset($kelurahan)&&isset($kabupaten)) {
             $data = DB::table('pemanfaatan')
            ->where('kabupaten', $kabupaten)
-           ->where('kelurahan', $kelurahan)->get();
+           ->where('kelurahan', $kelurahan)
+           ->where('tanggal_akhir', $tahun)
+            ->get();
+        } elseif (isset($kabupaten)){
+            $data = DB::table('pemanfaatan')
+            ->where('kabupaten', $kabupaten)
+            ->where('tanggal_akhir', $tahun)
+            ->get();
         } else {
             $data = DB::table('pemanfaatan')
-            ->where('kabupaten', $kabupaten)->get();
+            ->where('tanggal_akhir', $tahun)
+            ->get();
         };
         
         return response()->json($data);
     }
+    if(isset($kapanewon)&&isset($kabupaten)&&isset($kelurahan)) {
+        $data = DB::table('pemanfaatan')
+        ->where('kabupaten', $kabupaten)
+        ->where('kapanewon', $kapanewon)
+        ->where('kelurahan', $kelurahan)->get();
+    } elseif (isset($kelurahan)&&isset($kabupaten)) {
+        $data = DB::table('pemanfaatan')
+       ->where('kabupaten', $kabupaten)
+       ->where('kelurahan', $kelurahan)->get();
+    } else {
+        $data = DB::table('pemanfaatan')
+        ->where('kabupaten', $kabupaten)->get();
+    };
+    return response()->json($data);
+}
     public function index()
     {
         //percobaan
@@ -116,9 +148,10 @@ class DpemanfaatanController extends Controller
         $hello = dpemanfaatan::create([
     
             'kode_perizinan'=> $request->kode_perizinan,
-            'desa_kecamatan'=>$request->desa_kecamatan,
             'kabupaten'=>$request->kabupaten,
+            'kapanewon'=>$request->kapanewon,
             'kelurahan'=>$request->kelurahan,
+            'desa'=>$request->desa,
             'persil'=>$request->persil,
             'luas'=>$request->luas,
             'uraian'=>$request->uraian,
@@ -190,9 +223,10 @@ class DpemanfaatanController extends Controller
                     ->update([
                         'id'=>$request->id,
                         'kode_perizinan'=>$request->kode_perizinan,
-                        'desa_kecamatan'=>$request->desa_kecamatan,
                         'kabupaten'=>$request->kabupaten,
+                        'kapanewon'=>$request->kapanewon,
                         'kelurahan'=>$request->kelurahan,
+                        'desa'=>$request->desa,
                         'persil'=>$request->persil,
                         'luas'=>$request->luas,
                         'uraian'=>$request->uraian,

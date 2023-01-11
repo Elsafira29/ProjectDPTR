@@ -10,7 +10,7 @@ class dpemanfaatan extends Model
 {
     //  use HasFactory;
     protected $table = "pemanfaatan";
-    protected $fillable = ['kode_perizinan','desa_kecamatan','kabupaten','kelurahan','persil','luas','uraian','tanggal_mulai','tanggal_akhir'];
+    protected $fillable = ['kode_perizinan','kabupaten','kapanewon','kelurahan','desa','persil','luas','uraian','tanggal_mulai','tanggal_akhir'];
 
     // relation
     public function files()

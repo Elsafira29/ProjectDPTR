@@ -16,14 +16,15 @@ class CreatePemanfaatansTable extends Migration
         Schema::create('pemanfaatan', function (Blueprint $table) {
             $table->id();
             $table->string('kode_perizinan');
-            $table->string('desa_kecamatan');
-            $table->string('kabupaten');
-            $table->string('kelurahan');
+            $table->string ('kabupaten');
+            $table->string ('kapanewon');
+            $table->string ('kelurahan');
+            $table->string ('desa');
             $table->string('persil');
             $table->string('luas');
             $table->string('uraian');
             $table->date('tanggal_mulai');
-            $table->date('tanggal_akhir');
+            $table->string('tanggal_akhir');
             $table->timestamps();
         });
     }

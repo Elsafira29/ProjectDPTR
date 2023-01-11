@@ -31,17 +31,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <label>Kode Perizinan</label>
                         <input type="text" id="kode_perizinan" name="kode_perizinan" class="form-control" placeholder="kode perizinan" value="{{ $item->kode_perizinan }}">
                     </div>
+                    <div class="form-group">
+                        <label>Kabupaten:</label>
+                        <input type="text" id="kabupaten" name="kabupaten" class="form-control" value="{{ $item->kabupaten }}">
+                      </div>
+                      <div class="form-group mt-3">
+                          <label>Kapanewon:</label>
+                          <input type="text" id ="kapanewon" name="kapanewon" class="form-control" value="{{ $item->kapanewon}}" />
+                      </div>
+                      <div class="form-group mt-3">
+                          <label>Kalurahan:</label>
+                          <input type="text" id ="kelurahan" name="kelurahan" class="form-control" value="{{ $item->kelurahan}}"/>
+                      </div>
                     <div class="form-group mb-3">
-                        <label>Desa Kecamatan</label>
-                        <input type="text" id="desa-kecamatan" name="desa_kecamatan" class="form-control" placeholder="Desa/Kemacatan" value="{{ $item->desa_kecamatan }}">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label>Kabupaten</label>
-                        <input type="text" id="kabupaten" name="kabupaten" class="form-control" placeholder="kabupaten" value="{{ $item->kabupaten }}">
-                    </div>
-                    <div class="form-group mb-3">
-                        <label>Kalurahan</label>
-                        <input type="text" id="kelurahan" name="kelurahan" class="form-control" placeholder="kelurahan" value="{{ $item->kelurahan }}">
+                        <label>Desa</label>
+                        <input type="text" id="desa" name="desa" class="form-control" placeholder="Desa" value="{{ $item->desa }}">
                     </div>
                     <div class="form-group mb-3">
                         <label>Persil</label>
@@ -60,8 +64,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <input type="date" id="tanggal_mulai" name="tanggal_mulai" class="form-control" placeholder="tanggal-mulai" value="{{ $item->tanggal_mulai }}">
                     </div>
                     <div class="form-group mb-3">
-                        <label>Tanggal Akhir</label>
-                        <input type="date" id="tanggal_akhir" name="tanggal_akhir" class="form-control" placeholder="tanggal-akhir" value="{{ $item->tanggal_akhir }}">
+                        <label>Tahun Akhir</label>
+                        <input type="text" id="tanggal_akhir" name="tanggal_akhir" class="form-control" placeholder="tanggal-akhir" value="{{ $item->tanggal_akhir }}">
                     </div>
                     {{-- <div class="form-group">
                         <label>File SK</label>

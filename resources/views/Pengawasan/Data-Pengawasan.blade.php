@@ -158,7 +158,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             url: "{{route('api.pengawasan.search')}}",
             type: "GET",
             data: {
-              kabupaten: $('#kabupaten').val(),
+             kabupaten: $('#kabupaten').val(),
              kapanewon:$("#kapanewon").val(),
              kelurahan:$("#kelurahan").val(),
               tahun: e.target.value
@@ -274,9 +274,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
              tahun: $("#tahun").val()
             },
             success: function(data) {
-              // console.log("memanggil kelurahan")
-              // console.log("e", e.target.value)
-              // console.log('data', data)
               console.log("dataaa", data)
               data.map(it => {
                 var newOption = new Option(it.kelurahan, it.kelurahan, false, false);

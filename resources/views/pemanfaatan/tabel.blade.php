@@ -50,15 +50,18 @@
           <div class="row mt-4" style="margin-left: 5px;margin-right:2px">
             <div class="col">
               <div class="card-tools">
-                <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-dark">Tambah Data <i class="fa fa-plus-square"></i></a>
+                <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-dark">Tambah Data <i class="fa fa-plus-square"></i></a> 
               </div>
             </div>
             <div class="col">
               <div style="display: flex; justify-content:end">
+                <select id="tahun">
+                  <option value="">Pilih Tahun Akhir</option>
+                </select>
                 <select id="kabupaten">
                   <option value="">Pilih Kabupaten</option>
                 </select>
-                <select id='kecamatan'>
+                <select id='kapanewon'>
                   <option value=''>Pilih Kecamatan</option>
                 </select>
                 <select id='kelurahan'>
@@ -74,14 +77,15 @@
                 <tr>
                   <th>ID</th>
                   <th>Kode Perizinan</th>
-                  <th>Desa Kecamatan</th>
                   <th>Kabupaten</th>
+                  <th>Kapanewon</th>
                   <th>Kalurahan</th>
+                  <th>Desa</th>
                   <th>Luas</th>
                   <th>Uraian</th>
                   <th>Sertifikat</th>
                   <th>Tanggal Mulai</th>
-                  <th>Tanggal Akhir</th>
+                  <th>Tahun Akhir</th>
                   <th>File SK</th>
                   <th>Action</th>
                 </tr>
@@ -92,9 +96,10 @@
                 <tr>
                   <td>{{ $item->id }}</td>
                   <td>{{ $item->kode_perizinan }}</td>
-                  <td>{{ $item->desa_kecamatan }}</td>
                   <td>{{ $item->kabupaten }}</td>
+                  <td>{{ $item->kapanewon }}</td>
                   <td>{{ $item->kelurahan }}</td>
+                  <td>{{ $item->desa }}</td>
                   <td>{{ $item->persil }}</td>
                   <td>{{ $item->luas }}</td>
                   <td>{{ $item->uraian }}</td>
@@ -151,11 +156,51 @@
     // fetch omset, keuntungan, omset, dan total penjualan
     $(document).ready(function() {
       let kabupaten = $("#kabupaten");
-      let kecamatan = $('#kecamatan')
-      let kelurahan = $('#kelurahan')
+      let kapanewon = $('#kapanewon')
+      let kelurahan= $('#kelurahan')
+      let tahun = $('#tahun')
+      tahun.select2();
       kelurahan.select2();
-      kecamatan.select2();
+      kapanewon.select2();
       kabupaten.select2();
+
+      tahun.on('select2:select', e => {
+      $.ajax({
+            url: "{{route('api.pemanfaatan.search')}}",
+            type: "GET",
+            data: {
+             kabupaten: $('#kabupaten').val(),
+             kapanewon:$("#kapanewon").val(),
+             kelurahan:$("#kelurahan").val(),
+              tahun: e.target.value
+            },
+            success: function(data) {
+              $('#table').empty()
+              data.forEach(item => {
+                $('#table').append(`
+                <tr>
+                  <td>${item.id}</td>
+                  <td>${item.kode_perizinan}</td>
+                  <td>${item.kabupaten }</td>
+                  <td>${item.kapanewon }</td>
+                  <td>${item.kelurahan }</td>
+                  <td>${item.desa }</td>
+                  <td>${item.persil}</td>
+                  <td>${item.luas}</td>
+                  <td>${item.uraian}</td>
+                  <td>${item.tanggal_mulai}</td>
+                  <td>${item.tanggal_akhir}</td>
+                  <td>${item.file_sk}</td>
+                  <td>
+                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
+                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
+                              @csrf
+                            </td>
+                </tr>`)
+            })
+
+          },
+        }) })
 
       kabupaten.on('select2:select', (e) => {
 
@@ -164,7 +209,8 @@
           url: "{{route('api.pemanfaatan.search')}}",
           type: "GET",
           data: {
-            kabupaten: e.target.value
+            kabupaten: e.target.value,
+            tahun: $("#tahun").val()
           },
           success: function(data) {
             $('#table').empty()
@@ -173,9 +219,10 @@
                 <tr>
                   <td>${item.id}</td>
                   <td>${item.kode_perizinan}</td>
-                  <td>${item.desa_kecamatan}</td>
-                  <td>${item.kabupaten}</td>
-                  <td>${item.kelurahan}</td>
+                  <td>${item.kabupaten }</td>
+                  <td>${item.kapanewon }</td>
+                  <td>${item.kelurahan }</td>
+                  <td>${item.desa }</td>
                   <td>${item.persil}</td>
                   <td>${item.luas}</td>
                   <td>${item.uraian}</td>
@@ -193,33 +240,35 @@
           },
         })
 
-        // fetch list kecamatan
+        // fetch list kapanewon
         $.ajax({
-          url: "{{route('api.pemanfaatan.kecamatan')}}",
+          url: "{{route('api.pemanfaatan.kapanewon')}}",
           type: "GET",
           data: {
-            kabupaten: e.target.value
+            kabupaten: e.target.value,
+            tahun: $("#tahun").val()
           },
           success: function(data) {
             // console.log("memanggil kecamatan")
             // console.log("e", e.target.value)
             // console.log('data', data)
             data.map(it => {
-              var newOption = new Option(it.desa_kecamatan, it.desa_kecamatan, false, false);
-              $('#kecamatan').append(newOption);
+              var newOption = new Option(it.kapanewon, it.kapanewon, false, false);
+              $('#kapanewon').append(newOption);
             })
 
           },
         })
       })
 
-      kecamatan.on('select2:select', (e) => {
+      kapanewon.on('select2:select', (e) => {
         $.ajax({
           url: "{{route('api.pemanfaatan.kelurahan')}}",
           type: "GET",
           data: {
-            kecamatan: e.target.value,
-            kabupaten: $("#kabupaten").val()
+            kapanewon: e.target.value,
+            kabupaten: $("#kabupaten").val(),
+            tahun: $("#tahun").val()
           },
           success: function(data) {
             console.log("dataaa", data)
@@ -234,12 +283,13 @@
           url: "{{route('api.pemanfaatan.search')}}",
           type: "GET",
           data: {
-            desa_kecamatan: e.target.value,
-            kabupaten: $("#kabupaten").val()
+            kapanewon: e.target.value,
+            kabupaten: $("#kabupaten").val(),
+            tahun: $("#tahun").val()
           },
           success: function(data) {
             $('#table').empty()
-            kecamatan.empty()
+            kapanewon.empty()
             // console.log("e", e.target.value)
             // console.log('data', data)
             data.forEach(item => {
@@ -247,9 +297,10 @@
                 <tr>
                   <td>${item.id}</td>
                   <td>${item.kode_perizinan}</td>
-                  <td>${item.desa_kecamatan}</td>
-                  <td>${item.kabupaten}</td>
-                  <td>${item.kelurahan}</td>
+                  <td>${item.kabupaten }</td>
+                  <td>${item.kapanewon }</td>
+                  <td>${item.kelurahan }</td>
+                  <td>${item.desa }</td>
                   <td>${item.persil}</td>
                   <td>${item.luas}</td>
                   <td>${item.uraian}</td>
@@ -282,7 +333,8 @@
           type: "GET",
           data: {
             kelurahan: e.target.value,
-            kabupaten: $("#kabupaten").val()
+            kabupaten: $("#kabupaten").val(),
+            tahun: $("#tahun").val()
           },
           success: function(data) {
             $('#table').empty()
@@ -319,6 +371,19 @@
           }
         })
       })
+
+      $.ajax({
+      url: "{{ route('api.tahunA') }}",
+      type: "GET",
+      success: function(data) {
+        console.log(data)
+        data.map(it => {
+            var newOption = new Option(it.tanggal_akhir, it.tanggal_akhir, false, false);
+            $('#tahun').append(newOption).trigger('change');
+          })
+      }
+    })
+
       $.ajax({
         url: "{{route('api.pemanfaatan.kabupaten')}}",
         type: "GET",
@@ -340,6 +405,5 @@
     })
   </script>
 </body>
-
 </html>
 @endsection
