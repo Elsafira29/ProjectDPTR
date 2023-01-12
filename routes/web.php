@@ -4,6 +4,7 @@ use App\Models\dpemanfaatan;
 use App\Models\pengawasan;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\PengawasanController;
 use App\Http\Controllers\DpemanfaatanController;
 use App\Http\Controllers\LoginController;
@@ -88,7 +89,14 @@ Route::get('/Data-Pengawasan', [PengawasanController::class, 'index'])->name('Da
 
 });
 
-
+//permohonan izin
+Route::get('/tabel_izin', [AdministrasiController::class, 'index'])->name('tabel_izin');
+Route::get('/form_izin',[AdministrasiController::class, 'create'])->name('form_izin');
+Route::post('/simpan_administrasi',[AdministrasiController::class,'store'])->name('simpan_administrasi');
+Route::get('edit/{id}',[AdministrasiController::class,'edit'])->name('edit');
+Route::post('/updateadministrasi', [AdministrasiController::class, 'update'])->name('updateadministrasi');
+Route::delete('/hapus/{id}', [AdministrasiController::class, 'destroy'])->name('hapus');
+   
 // Auth::routes();
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -97,9 +105,12 @@ Route::get('/Data-Pengawasan', [PengawasanController::class, 'index'])->name('Da
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/search/pemanfaatan',[DpemanfaatanController::class,'pemanfaatan'])->name('api.pemanfaatan.search');
+Route::get('/search/tahunA',[DpemanfaatanController::class,'tahunA'])->name('api.tahunA');
 Route::get('/search/pemanfaatan/kabupaten',[DpemanfaatanController::class, 'kabupaten'])->name('api.pemanfaatan.kabupaten');
-Route::get('/search/pemanfaatan/kecamatan',[DpemanfaatanController::class, 'kecamatan'])->name('api.pemanfaatan.kecamatan');
+Route::get('/search/pemanfaatan/kapanewon',[DpemanfaatanController::class, 'kapanewon'])->name('api.pemanfaatan.kapanewon');
 Route::get('/search/pemanfaatan/kelurahan',[DpemanfaatanController::class, 'kelurahan'])->name('api.pemanfaatan.kelurahan');
+Route::get('/search/pemanfaatan/tanggal_akhir',[DpemanfaatanController::class, 'tanggal_akhir'])->name('api.pemanfaatan.tanggal_akhir');
+Route::get('/pesan/peringatan','DpemanfaatanController@peringatan');
 Route::post('/logout',[LoginController::class, 'logout'])->name('logout');
 
 
@@ -115,4 +126,3 @@ Route::get('/',[UserdasboardController::class,'index'])->name('user_dasboard');
 
 Route::get('/pengawasan',[UserPengawasan::class,'index'])->name('uspengawasan');
     });
-   

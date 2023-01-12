@@ -121,29 +121,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
   </div>
   <!-- /.content-wrapper -->
 
-  <!-- Control Sidebar -->
-  {{-- <aside class="control-sidebar control-sidebar-dark"> --}}
-    <!-- Control sidebar content goes here -->
-    {{-- <div class="content">
-        <div class="card card-info card-outline">
-            <div class="card-header">
-                <div class="cart-tools">
-                    <a href="#" class="btn btn-success">
-                </div>
-            </div>
-        </div>
-    </div>
-  </aside> --}}
-  <!-- /.control-sidebar -->
-
+  
   <!-- Main Footer -->
-  {{-- <footer class="main-footer"> --}}
+  <footer class="main-footer">
+    @include('tamplate.footer')
+   </footer>
+</div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
-  @include('tamplate.script')
 
+<!-- jQuery -->
+@include('tamplate.script')
 </body>
 </html>
-
-@endsection

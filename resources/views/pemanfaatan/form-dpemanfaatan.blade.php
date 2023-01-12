@@ -36,17 +36,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <label>Kode Perizininan</label>
                         <input type="text" id="kode_perizinan" name="kode_perizinan" class="form-control" placeholder="Kode perizinan" required>
                     </div>
+                    <div class="form-group mt-3">
+                      <label>Kabupaten:</label>
+                      <input type="text" id="kabupaten" name="kabupaten" class="form-control" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label>Kapanewon:</label>
+                        <input type="text" id ="kapanewon" name="kapanewon" class="form-control" required>
+                    </div>
+                    <div class="form-group mt-3">
+                        <label>Kalurahan:</label>
+                        <input type="text" id ="kelurahan" name="kelurahan" class="form-control" required>
+                    </div>
                     <div class="form-group mt-3 mt-3">
-                        <label>Desa/Kecamatan</label>
-                        <input type="text" id="desa-kecamatan" name="desa_kecamatan" class="form-control" placeholder="Desa/Kecamatan" required>
-                    </div>
-                    <div class="form-group mt-3">
-                      <label>Kabupaten</label>
-                        <input type="text" id="kabupaten" name="kabupaten" class="form-control" placeholder="Kabupaten" required>
-                    </div>
-                    <div class="form-group mt-3">
-                      <label>Kelurahan</label>
-                        <input type="text" id="kelurahan" name="kelurahan" class="form-control" placeholder="Kelurahan" required>
+                        <label>Desa</label>
+                        <input type="text" id="desa" name="desa" class="form-control" placeholder="Desa" required>
                     </div>
                     <div class="form-group mt-3">
                       <label>Sertifikat/persil</label>
@@ -65,8 +69,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <input type="date" id="tanggal_mulai" name="tanggal_mulai" class="form-control" placeholder="tanggal-mulai" required>
                     </div>
                     <div class="form-group mt-3">
-                      <label>Tanggal Akhir</label>
-                        <input type="date" id="tanggal_akhir" name="tanggal_akhir" class="form-control" placeholder="tanggal-akhir" required>
+                      <label>Tahun Akhir</label>
+                        <input type="text" id="tanggal_akhir" name="tanggal_akhir" class="form-control" placeholder="tanggal-akhir" required>
                     </div>
                     <div class="form-group mt-3">
                       <label for="files" class="form-label">Upload SK:</label>

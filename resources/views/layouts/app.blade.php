@@ -35,6 +35,11 @@
                 </a>
               </li>
               <li>
+                <a href="{{ route('tabel_izin') }}" class="nav-link text-white mb-3"><i class="fa-solid fa-eye"></i>
+                  Permohonan Izin
+                </a>
+              </li>
+              <li>
                 <a href="{{ route('tabel') }}" class="nav-link text-white mb-3"><i class="fa-solid fa-landmark"></i>
                   Pemanfaatan
                 </a>
@@ -44,6 +49,7 @@
                   Pengawasan
                 </a>
               </li>
+
               {{-- <li>
                 <a href="{{ route('masteradmin') }}" class="nav-link text-white mb-3">
                   Admin
