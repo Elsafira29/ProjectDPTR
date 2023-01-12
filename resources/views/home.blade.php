@@ -1,5 +1,7 @@
 @extends('layouts.app')
 @section('content')
+
+<link rel="stylesheet" type="text/css" href="{{ asset('css/home.css') }}">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
   google.charts.load('current', {
@@ -49,12 +51,11 @@
     chart.draw(data, options);
   }
 </script>
-<div class="content-wrapper" style="margin-right: 22vh">
+<div class="content-wrapper">
   <div class="row">
     <div class="col-lg-3 col-6" >
-      <!-- small box -->
-      <div class="card" style="margin-left:10%; margin-top:10%; width:200px">
-        <div class="card-body" style="background-color: rgba(255, 179, 143, 1)">
+      <div class="card">
+        <div class="card-body mr-3">
           <div class="small-box" >
             <div class="inner">
               <h1>{{ $pengawasan }}</h1>
@@ -63,7 +64,7 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-              <a href="{{ route('Data-Pengawasan') }}" class="btn" style="background-color: antiquewhite">More Info > </a>
+              <a href="{{ route('Data-Pengawasan') }}" class="btn">More Info > </a>
           </div>
         </div>
       </div>
@@ -71,8 +72,8 @@
 
     <div class="col-lg-3 col-6" >
       <!-- small box -->
-      <div class="card" style="margin-left:10%; margin-top:10%; width:200px">
-        <div class="card-body" style="background-color: rgba(255, 179, 143, 1)">
+      <div class="card"  style="margin-left:50px">
+        <div class="card-body">
           <div class="small-box" >
             <div class="inner">
               <h1>{{ $pemanfaatan }}</h1>
@@ -81,7 +82,7 @@
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-              <a href="{{ route('tabel') }}" class="btn" style="background-color: antiquewhite">More Info > </a>
+              <a href="{{ route('tabel') }}" class="btn">More Info > </a>
           </div>
         </div>
       </div>    

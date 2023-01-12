@@ -1,0 +1,9 @@
+.d-flex flex-column {
+    background-color:#A0522D;
+    width: 280px;
+    height: auto;
+}
+
+body {
+    background-color: aqua;
+}

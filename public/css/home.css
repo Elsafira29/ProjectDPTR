@@ -1,0 +1,13 @@
+.card {
+    margin :10%;
+    width:200px;
+}
+
+.card-body {
+    background-color: rgba(255, 179, 143, 1);
+    
+}
+
+.card a {
+    background-color: antiquewhite;
+}

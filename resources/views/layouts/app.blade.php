@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pengarsipan P5 | Admin</title>
-    <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ asset('assets/plugins/fontawesome-free/css/all.min.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
@@ -13,23 +12,23 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css">
     <script src="https://kit.fontawesome.com/e6cac57b1a.js" crossorigin="anonymous"></script>
     <link rel="shortcut icon" href="{{ asset('assets/img/logo.jpg') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 </head>
 <body>
     <div class="d-flex">
-        <div class="d-flex flex-column flex-shrink-0 p-3 text-white" style="background-color:#A0522D;width: 280px; height: auto">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white">
               <div class="row">
                 <div class="col-2">
-                  <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Dinas" class="brand-image img-circle elevation-3" style="height:40px;width:35px;margin-right:50px;">
+                  <img src="{{ asset('assets/img/logo.jpg') }}" alt="Logo Dinas" class="brand-image img-circle elevation-3">
                 </div>
                 <div class="col-10">
-                  <h2 class="fs-4 ml-4 mt-1">DISPERTARU</h2>
+                  <h2 class="fs-4 ml-2 mt-1">DISPERTARU</h2>
                 </div>
               </div>
               
             </a>
             <hr>
-            <ul class="nav nav-pills flex-column" style="margin-left:30px;">
+            <ul class="nav nav-pills flex-column">
               <li class="nav-item mb-3">
                 <a href="{{ route('home') }}" class="nav-link text-white" aria-current="page"><i class="fa-solid fa-house"></i>
                   Dashboard
@@ -56,12 +55,12 @@
       
         <div class="content-wrapper">
             
-          <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#A0522D; width:101%">
+          <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
               <div class="d-flex ms-auto">
                 <form action="/logout" method="POST">
                     @csrf
-                    <button class="btn btn-custom d-flex" style="background-color:#FFB38F;"><i class="bi bi-box-arrow-right"></i>Logout</button>
+                    <button class="btn btn-custom d-flex"><i class="bi bi-box-arrow-right"></i>Logout</button>
                 </form>
               </div>
             </div>

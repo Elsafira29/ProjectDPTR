@@ -16,10 +16,10 @@
         font-family: serif;
     }
     .carousel-item {
-    height: 500px;
+    height: 585px;
     }
     .carousel-item img {
-        margin-top: -100px;
+        margin-top: -20px;
         filter: brightness(50%);
     }
     #tombol {
