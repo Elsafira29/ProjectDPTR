@@ -20,9 +20,10 @@ class DpemanfaatanSeeder extends Seeder
     {
         $data = dpemanfaatan::create([
             'kode_perizinan'=> Str::random(10),
-            'desa_kecamatan'=> Str::random(10),
+            'kapanewon'=> Str::random(10),
             'kabupaten'=> 'sleman',
             'kelurahan'=> 'ngaglik',
+            'desa'=> Str::random(10),
             'persil'=> Str::random(10),
             'luas'=> Str::random(10),
             'uraian'=> Str::random(10),

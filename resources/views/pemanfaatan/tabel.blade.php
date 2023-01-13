@@ -192,8 +192,8 @@
                   <td>${item.tanggal_akhir}</td>
                   <td>${item.file_sk}</td>
                   <td>
-                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
-                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
+                              <a href="edit-pemanfaatan/${item.id}"><i class="fas fa-edit"></i></a> |
+                              <a href="hapus-pemanfaatan/${item.id}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
                               @csrf
                             </td>
                 </tr>`)
@@ -230,8 +230,8 @@
                   <td>${item.tanggal_akhir}</td>
                   <td>${item.file_sk}</td>
                   <td>
-                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
-                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
+                              <a href="edit-pemanfaatan/${item.id}"><i class="fas fa-edit"></i></a> |
+                              <a href="hapus-pemanfaatan/${item.id}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
                               @csrf
                             </td>
                 </tr>`)
@@ -308,8 +308,8 @@
                   <td>${item.tanggal_akhir}</td>
                   <td>${item.file_sk}</td>
                   <td>
-                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
-                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
+                              <a href="edit-pemanfaatan/${item.id}"><i class="fas fa-edit"></i></a> |
+                              <a href="hapus-pemanfaatan/${item.id}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
                               @csrf
                             </td>
                 </tr>`)
@@ -356,8 +356,8 @@
                   <td>${item.tanggal_akhir}</td>
                   <td>${item.file_sk}</td>
                   <td>
-                              <a href="{{ url('edit-pemanfaatan',$item->id) }}"><i class="fas fa-edit"></i></a> |
-                              <a href="{{ url('hapus-pemanfaatan',$item->id) }}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
+                              <a href="edit-pemanfaatan/${item.id}"><i class="fas fa-edit"></i></a> |
+                              <a href="hapus-pemanfaatan/${item.id}"  onclick="return confirm('Apakah Anda Yakin Menghapus Data?');" ><i class="fas fa-trash-alt bg-dancer"></i></a>
                               @csrf
                             </td>
                 </tr>`)

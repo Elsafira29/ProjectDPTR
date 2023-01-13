@@ -51,7 +51,7 @@
               </li>
 
               {{-- <li>
-                <a href="{{ route('masteradmin') }}" class="nav-link text-white mb-3">
+                <a href="{{ route('masteradmin') }}" class="nav-link text-white mb-3"><i class="fa-solid fa-user"></i>
                   Admin
                 </a>
               </li> --}}
