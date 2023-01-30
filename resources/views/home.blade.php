@@ -52,74 +52,51 @@
   }
 </script>
 <div class="content-wrapper">
-  <div class="row">
-    <div class="col-lg-3 col-6" >
-      <div class="card">
-        <div class="card-body mr-3">
-          <div class="small-box" >
-            <div class="inner">
-              <h1>{{ $administrasi }}</h1>
-              <p>Permohonan Izin</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-              <a href="{{ route('tabel_izin') }}" class="btn" style="background-color: antiquewhite">More Info > </a>
-          </div>
-        </div>
+  <div class="flex-container">
+    <div class="small-box" style="width: 30%; background-color:rgba(255, 179, 143, 1)">
+      <div class="inner">
+        <h1>{{ $administrasi }}</h1>
+        <p>Permohonan Izin</p>
       </div>
-    </div>
-
-<div class="content-wrapper" style="margin-right: 22vh">
-  <div class="row">
-    <div class="col-lg-3 col-6" >
-      <!-- small box -->
-      <div class="card" style="margin-left:10%; margin-top:10%; width:200px">
-        <div class="card-body" style="background-color: rgba(255, 179, 143, 1)">
-          <div class="small-box" >
-            <div class="inner">
-              <h1>{{ $pengawasan }}</h1>
-              <p>Pengawasan</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-              <a href="{{ route('Data-Pengawasan') }}" class="btn">More Info > </a>
-          </div>
-        </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
       </div>
+        <a href="{{ route('tabel_izin') }}" class="btn" style="background-color:rgb(255, 223, 207)">More Info > </a>
     </div>
-
-    <div class="col-lg-3 col-6" >
-      <!-- small box -->
-      <div class="card"  style="margin-left:50px">
-        <div class="card-body">
-          <div class="small-box" >
-            <div class="inner">
-              <h1>{{ $pemanfaatan }}</h1>
-              <p>Pemanfaatan</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-bag"></i>
-            </div>
-              <a href="{{ route('tabel') }}" class="btn">More Info > </a>
-          </div>
-        </div>
-      </div>    
+    <div class="small-box" style="width: 30%; background-color:rgba(255, 179, 143, 1)">
+      <div class="inner">
+        <h1>{{ $pengawasan }}</h1>
+        <p>Pengawasan</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+        <a href="{{ route('Data-Pengawasan') }}" class="btn" style="background-color:rgb(255, 223, 207)">More Info > </a>
+    </div>
+    <div class="small-box" style="width: 30%; background-color:rgba(255, 179, 143, 1)">
+      <div class="inner">
+        <h1>{{ $pemanfaatan }}</h1>
+        <p>Pemanfaatan</p>
+      </div>
+      <div class="icon">
+        <i class="ion ion-bag"></i>
+      </div>
+        <a href="{{ route('tabel') }}" class="btn" style="background-color:rgb(255, 223, 207)">More Info > </a>
     </div>
   </div>
+<div class="content-wrapper" style="margin-right: 22vh">
    
   {{-- Grafik Pemanfaatan --}}
   <div class="row">
     <div class="col-6">
-      <div id="piechart" style="width: 450px; height: 300px;"></div>
+      <div id="piechart"></div>
     </div>
     <div class="col-6">
-  <div id="donutchart" style="width: 450px; height: 300px;"></div>
+  <div id="donutchart"></div>
     </div>
   </div>
   
-  <div class="container" style="font-size: 12px;">
+  <div class="container">
     <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
       <h4 id="manfaat">Pemanfaatan</h4>
       <div class="table-responsive">
@@ -207,7 +184,8 @@
             </tbody>
         </table>
       </div>
-    </div> 
+    </div>
+
   </div>
 </div>
 

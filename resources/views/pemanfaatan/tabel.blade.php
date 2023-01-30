@@ -75,7 +75,6 @@
             <table id="myTable" class="table table-striped" style="width:100%">
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Kode Perizinan</th>
                   <th>Kabupaten</th>
                   <th>Kapanewon</th>
@@ -94,7 +93,6 @@
               <tbody id="table">
                 @foreach ($dtpemanfaatan as $item)
                 <tr>
-                  <td>{{ $item->id }}</td>
                   <td>{{ $item->kode_perizinan }}</td>
                   <td>{{ $item->kabupaten }}</td>
                   <td>{{ $item->kapanewon }}</td>

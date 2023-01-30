@@ -22,7 +22,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <div class="content" style="margin: 10vh; margin-left:20vh; width:110vh; margin-right:28vh">
         <div class="card card-info card-outline ">
             <div class="card-header">
-                <h3>Input Data Pemanfaatan</h3>
+                <h3>Input Data Permohonan Izin</h3>
             </div>
             <div class="card-body">
                 <form action="{{ route('simpan_administrasi') }}" method="POST" enctype="multipart/form-data" style="width: 100vh; margin-left:10px;">
@@ -30,10 +30,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     {{-- <div class="form-group mt-3">
                         <input type="text" id="id" name="id" class="form-control @error('id') is-invalid @enderror" placeholder="id">
                     </div> --}}
-                    <div class="form-group mt-3">
-                        <label>surat rekomendasi permohonan</label>
-                        <textarea name="surat_kemonbu" id="surat_kemonbu" cols="30" rows="10"></textarea>
-                    </div>
                     <div class="form-group mt-3 mt-3">
                         <label>Desa</label>
                         <input type="text" id="desa" name="desa" class="form-control" placeholder="Desa" required>
@@ -66,6 +62,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <label>Jawaban Biro Hukum</label>
                       <input type="text" id="jawaban_biro" name="jawaban_biro" class="form-control" placeholder="Jawaban Biro Hukum" required>
                     </div>
+                    <div class="form-group mt-3">
+                      <label>Surat rekomendasi permohonan</label>
+                      <textarea name="surat_kemonbu" id="surat_kemonbu" cols="30" rows="8"></textarea>
+                  </div>
                     <div class="form-group mt-4">
                         <button type="submit" class="btn btn-secondary" style="background-color: brown">Simpan Data</button>
                     </div>

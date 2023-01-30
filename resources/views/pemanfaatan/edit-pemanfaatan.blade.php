@@ -24,10 +24,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <form action="{{ route('updatepemanfaatan',$item->id) }}" method="POST">
                     {{ csrf_field() }}
                     <div class="form-group mb-3">
-                        <label>ID</label>
-                        <input type="text" id="id" name="id" class="form-control" placeholder="id" value="{{ $item->id }}">
-                    </div>
-                    <div class="form-group mb-3">
                         <label>Kode Perizinan</label>
                         <input type="text" id="kode_perizinan" name="kode_perizinan" class="form-control" placeholder="kode perizinan" value="{{ $item->kode_perizinan }}">
                     </div>

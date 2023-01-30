@@ -10,7 +10,7 @@
     <div class="content" style="margin: 7vh; margin-left:25vh; width:110vh">
     <div class="card catd-info card-outline">
       <div class="card-header">
-        <h3>Edit Data Pengawasan</h3>
+        <h3>Edit Data Permohonan Izin</h3>
       </div>
 
       <div class="card-body">
@@ -21,10 +21,6 @@
                   <label>ID</label>
                   <input type="text" id="id" name="id" class="form-control"  value="{{ $item->id }}">
               </div> --}}
-              <div class="form-group mb-3">
-                  <label>Surat Rekomendasi Bupati</label>
-                  <textarea name="surat_kemonbu" id="surat_kemonbu" cols="30" rows="10" value="{{ $item->surat_kemonbu }}"></textarea>
-              </div>
               <div class="form-group mb-3">
                   <label>Tanggal Masuk Surat</label>
                   <input type="text" id="desa" name="desa" class="form-control"  value="{{ $item->desa }}">
@@ -57,6 +53,10 @@
                 <label>Jawaban Biro Hukum</label>
                 <input type="text" id="jawaban_biro" name="jawaban_biro" class="form-control" value="{{ $item->jawaban_biro}}">
               </div>
+              <div class="form-group mb-3">
+                <label>Surat Rekomendasi Bupati</label>
+                <textarea name="surat_kemonbu" id="surat_kemonbu" cols="30" rows="10" value="{{ $item->surat_kemonbu }}"></textarea>
+            </div>
               <div class="form-group">
                   <button type="submit" class="btn btn-success" style="background-color: rgb(255, 102, 0)">Ubah Data</button>
               </div>

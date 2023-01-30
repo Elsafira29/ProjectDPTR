@@ -3,6 +3,17 @@
     width:200px;
 }
 
+.flex-container {
+    display: flex;
+  }
+  
+  .flex-container > div {
+    background-color: #f1f1f1;
+    margin: 20px;
+    padding: 25px;
+    font-size: 20px;
+  }
+
 .card-body {
     background-color: rgba(255, 179, 143, 1);   
 }
@@ -10,3 +21,19 @@
 .card a {
     background-color: antiquewhite;
 }
+
+#piechart {
+    width: 450px; 
+    height: 300px;
+}
+
+#donutchart {
+    width: 450px; 
+    height: 300px;
+}
+
+.container {
+    font-size: 12px;
+}
+
+

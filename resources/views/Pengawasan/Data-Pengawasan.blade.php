@@ -78,7 +78,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <th>Koordinat</th>
                             <th>Jangka Waktu</th>
                             <th>Jenis Sk</th>
-                            <th>Tinda Lanjut</th>
+                            <th>Tindak Lanjut</th>
                             <th>Kesesuaian</th>
                             <th>Aksi</th>
                         </tr>

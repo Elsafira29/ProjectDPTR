@@ -34,6 +34,7 @@ $(document).ready(function() {
         .appendTo( '#myTable_wrapper .col-md-6:eq(0)' );
 
 } );
+
 </script>
 <!-- jQuery -->
 {{-- <script src="{{ asset('assets/plugins/jquery/jquery.min.js')}}"></script> --}}

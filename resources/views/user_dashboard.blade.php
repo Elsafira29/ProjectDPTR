@@ -82,6 +82,10 @@
                 <a class="nav-link active text-white" aria-current="page" href="#awasi" &raquo;>
                   <p>PENGAWASAN</p></a>
               </li>
+              <li class="nav-item" style="margin-right: 25px;margin-top:15px">
+                <a class="nav-link active text-white" aria-current="page" href="#izin" &raquo;>
+                  <p>PERMOHONAN IZIN</p></a>
+              </li>
             <li class="nav-item" style="margin-right: 5px;margin-top:15px">
               <a class="nav-link active text-white btn" id="tombol" style=" border-radius: 10px; padding-right:20px;
               padding-left:20px;font-family:serif" aria-current="page" href="{{ route('login') }}">LOGIN</a>
@@ -162,54 +166,37 @@
 <!-- End Carousel -->
        
 <!-- Tabel Pemanfaatan -->
-
+<div id="manfaat">
+</div>
               <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
-                <h2 id="manfaat">Pemanfaatan</h2>
+                <h2 >Pemanfaatan</h2>
                 <div class="table-responsive">
                 <table id="myTables" class="table table-striped" style="width:100%">
                       <thead >
                           <tr>
-                              <th>Kode Perizinan</th>
-                              <th>Desa Kecamatan</th>
-                              <th>Kabupaten</th>
-                              <th>Kalurahan</th>
-                              <th>Luas</th>
-                              <th>Uraian</th>
-                              <th>Sertifikat</th>
-                              <th>Tanggal Mlai</th>
-                              <th>Tanggal Akhir</th>
-                              <th>File SK</th>
+                            <th>Kode Perizinan</th>
+                            <th>Kabupaten</th>
+                            <th>Kapanewon</th>
+                            <th>Kalurahan</th>
+                            <th>Desa</th>
+                            <th>Luas</th>
+                            <th>Uraian</th>
+                            <th>Sertifikat</th>
+                            <th>Tanggal Mulai</th>
+                            <th>Tahun Akhir</th>
+                            <th>File SK</th>
                           </tr>
                       </thead>
             
-                      {{-- <tbody id="table">
-                        @foreach ($dtpemanfaatan as $item)
-                          <tr>
-                              <td>{{ $item->kode_perizinan }}</td>
-                              <td>{{ $item->desa_kecamatan }}</td>
-                              <td>{{ $item->kabupaten }}</td>
-                              <td>{{ $item->kelurahan }}</td>
-                              <td>{{ $item->persil }}</td>
-                              <td>{{ $item->luas }}</td>
-                              <td>{{ $item->uraian }}</td>
-                              <td>{{ $item->tanggal_mulai }}</td>
-                              <td>{{ $item->tanggal_akhir }}</td>
-                              <td>
-                                @foreach($item->files as $file)
-                                <a href="{{ asset('files/'.$file->filename) }}">file {{ $loop->index + 1 }}</a>
-                                @endforeach
-                              </td>
-                            </tr>
-                          </tr>
-                          @endforeach
-                      </tbody> --}}
+               
                       <tbody id="table">
                         @foreach ($dtpemanfaatan as $item)
                         <tr>
                           <td>{{ $item->kode_perizinan }}</td>
-                          <td>{{ $item->desa_kecamatan }}</td>
                           <td>{{ $item->kabupaten }}</td>
+                          <td>{{ $item->kapanewon }}</td>
                           <td>{{ $item->kelurahan }}</td>
+                          <td>{{ $item->desa }}</td>
                           <td>{{ $item->persil }}</td>
                           <td>{{ $item->luas }}</td>
                           <td>{{ $item->uraian }}</td>
@@ -219,7 +206,7 @@
                           {{-- <td>{{ $item->file_SK }}</td> --}}
                           <td>
                             @foreach($item->files as $file)
-                            <a href="{{ asset('files/'.$file->filename) }}">File {{ $loop->index + 1 }}</a>
+                            <a href="{{ asset('files/'.$file->filename) }}">file {{ $loop->index + 1 }}</a>
                             @endforeach
                           </td>
         
@@ -236,8 +223,10 @@
 <!-- End Tabel Pemanfaatan -->
 
 <!-- Tabel Pengawasan -->
+<div id="awasi">
+</div>
                   <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
-                    <h2 id="awasi">Pengawasan</h2>
+                    <h2>Pengawasan</h2>
                     <div class="table-responsive">
                     <table id="myTable" class="table table-striped" style="width:100%">
                           <thead>
@@ -275,7 +264,56 @@
                       </table>
                     </div> 
                   </div> 
-<!-- End Tabel Pengawasan -->
+
+                  <div id="izin">
+                  </div>
+
+                  <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
+                    <h2>Permohonan Izin</h2>
+                    <div class="table-responsive">
+                    <table id="myTable" class="table table-striped" style="width:100%">
+                      <thead >
+                        <tr>
+                          <th rowspan="2">Surat Rekomendari Bupati</th>
+                          <th rowspan="2">Desa</th>
+                          <th rowspan="2">Tanggal Masuk</th>
+                          <th rowspan="2">Tindak Lanjut</th>
+                          <th rowspan="2">Pengembalian</th>
+                          <th colspan="2">Rekomendasi Kasultanan/Kadipaten</th>
+                          <th colspan="2">Rekomendasi Biro Hukum</th>
+                        </tr>
+                        <tr>
+                          <th>Proses</th>
+                          <th>Jawaban Kasultanan/Kadipaten</th>
+                          <th>Proses</th>
+                          <th>SK GUB/JAWABAN</th>
+                        </tr>
+                      </thead>
+                      
+                      <tbody id="table">
+                        @foreach ($administrasi as $item)
+                        <tr>
+                          {{-- <td>{{ $item->id }}</td> --}}
+                          <td>{{ $item->surat_kemonbu }}</td>
+                          <td>{{ $item->desa }}</td>
+                          <td>{{ $item->tgl_masuk }}</td>
+                          <td>{{ $item->tindak }}</td>
+                          <td>{{ $item->pengembalian }}</td>
+                          <td>{{ $item->proses_kasultanan }}</td>
+                          <td>{{ $item->jawaban_kasultanan }}</td>
+                          <td>{{ $item->proses_biro }}</td>
+                          <td>{{ $item->jawaban_biro }}</td>
+                        </tr>
+                          @endforeach
+                      </tbody>
+                    </table>
+                  </div> 
+                </div> 
+                  {{-- <div class="card-body" style="font-size:12px;">
+                    <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+                          
+                      </table>
+                  </div> --}}
 
 <!-- Footer -->
 <footer>

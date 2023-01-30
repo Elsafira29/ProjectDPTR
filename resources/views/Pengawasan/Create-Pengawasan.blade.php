@@ -122,10 +122,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.content-wrapper -->
 
   
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    @include('tamplate.footer')
-   </footer>
 </div>
 <!-- ./wrapper -->
 
@@ -135,3 +131,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 @include('tamplate.script')
 </body>
 </html>
+@endsection

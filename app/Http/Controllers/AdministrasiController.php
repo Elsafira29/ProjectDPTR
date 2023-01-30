@@ -15,6 +15,10 @@ class AdministrasiController extends Controller
     {
         $administrasi = administrasi::all();
         return view('permohonan_izin.tabel_izin', compact('administrasi'));
+
+        $administrasi = administrasi::with('administrasi')->get();
+        return response()->json($administrasi);
+        
     }
 
     /**

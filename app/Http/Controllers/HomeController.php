@@ -32,11 +32,12 @@ class HomeController extends Controller
 
         $dtpemanfaatan = dpemanfaatan::with('files')->get();
         $dtpengawasan = DB::table('pengawasan')->get();
-        $dtadministrasi = DB::table('administrasi')->get();
+        $administrasi = DB::table('administrasi')->get();
         $jml_pemanfaatan = dpemanfaatan::count();
         $jml_pengawasan = pengawasan::count();
         $jml_administrasi = Administrasi::count();
-       return view('home', ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan, 'chartData' => $chartData,'administrasi' => $jml_administrasi, 'charData' => $charData], compact('dtpengawasan','dtpemanfaatan',));
+       return view('home', ['pengawasan' => $jml_pengawasan, 'pemanfaatan' => $jml_pemanfaatan, 'chartData' => $chartData,'administrasi' => $jml_administrasi, 
+       'charData' => $charData], compact('dtpengawasan','dtpemanfaatan','administrasi'));
 
     }
         /**

@@ -20,8 +20,10 @@ class UserdasboardController extends Controller
         $dtpemanfaatan = dpemanfaatan::with('files')->get();
 
         $dtpengawasan = DB::table('pengawasan')->get();
+
+        $administrasi = DB::table('administrasi')->get();
         
-       return view('user_dashboard', compact('dtpengawasan','dtpemanfaatan'));
+       return view('user_dashboard', compact('dtpengawasan','dtpemanfaatan', 'administrasi'));
         
     }
 
@@ -32,11 +34,11 @@ class UserdasboardController extends Controller
         
         ->get();
 
-return view('user_dashboard', compact('dtpemanfaatan'));
+        return view('user_dashboard', compact('dtpemanfaatan'));
 
-$dtpengawasan = DB::table('pengawasan');
+        $dtpengawasan = DB::table('pengawasan');
 
-return view('user_dashboard', compact('dtpengawasan'));
+        return view('user_dashboard', compact('dtpengawasan'));
         
     }
     /**

@@ -42,7 +42,7 @@
       <div class="content" style="margin:3vh">
         <div class="card card-info card-outline" style="width: 100%;">
           <div class="card-header" style="background-color: #c47b59">
-            <h2 class="m-0">Arsip Perizinan</h2>
+            <h2 class="m-0">Arsip Permohonan Izin</h2>
           </div>
 
           <div class="row mt-4" style="margin-left: 5px;margin-right:2px">
@@ -58,19 +58,19 @@
         <table id="myTable" class="table table-striped table-bordered" style="width:100%">
               <thead >
                 <tr>
-                  <th rowspan="2">SURAT REKOMENDASI BUPATI</th>
-                  <th rowspan="2">DESA</th>
-                  <th rowspan="2">TANGGAK MASUK</th>
-                  <th rowspan="2">TINDAK LANJUT</th>
-                  <th rowspan="2">PENGEMBALIAN</th>
-                  <th colspan="2">REKOMENDASI KASULTANA/KADIPATEN</th>
-                  <th colspan="2">REKOMENDASI BIRO HUKUM</th>
-                  <th rowspan="2">ACTION</th>
+                  <th rowspan="2">Surat Rekomendari Bupati</th>
+                  <th rowspan="2">Desa</th>
+                  <th rowspan="2">Tanggal Masuk</th>
+                  <th rowspan="2">Tindak Lanjut</th>
+                  <th rowspan="2">Pengembalian</th>
+                  <th colspan="2">Rekomendasi Kasultanan/Kadipaten</th>
+                  <th colspan="2">Rekomendasi Biro Hukum</th>
+                  <th rowspan="2">Action</th>
                 </tr>
                 <tr>
-                  <th>proses</th>
-                  <th>jawaban kasultanan/kadipaten</th>
-                  <th>proses</th>
+                  <th>Proses</th>
+                  <th>Jawaban Kasultanan/Kadipaten</th>
+                  <th>Proses</th>
                   <th>SK GUB/JAWABAN</th>
                 </tr>
               </thead>
