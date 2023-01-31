@@ -97,36 +97,37 @@
   </div>
   
   <div class="container">
-    <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
+    <div class="card-body" style="margin: 5%; background-color:rgb(249, 249, 249); padding:2%;width:130%">
       <h4 id="manfaat">Pemanfaatan</h4>
-      <div class="table-responsive">
       <table id="myTables" class="table table-striped" style="width:100%">
             <thead >
                 <tr>
-                    <th>Kode Perizinan</th>
-                    <th>Desa Kecamatan</th>
-                    <th>Kabupaten</th>
-                    <th>Kalurahan</th>
-                    <th>Luas</th>
-                    <th>Uraian</th>
-                    <th>Sertifikat</th>
-                    <th>Tanggal Mlai</th>
-                    <th>Tanggal Akhir</th>
-                    <th>File SK</th>
+                  <th>Kode Perizinan</th>
+                  <th>Kabupaten</th>
+                  <th>Kapanewon</th>
+                  <th>Kalurahan</th>
+                  <th>Desa</th>
+                  <th>Luas</th>
+                  <th>Uraian</th>
+                  <th>Sertifikat</th>
+                  <th>Tanggal Mulai</th>
+                  <th>Tahun Akhir</th>
+                  <th>File SK</th>
                 </tr>
             </thead>
               <tbody id="table">
               @foreach ($dtpemanfaatan as $item)
               <tr>
                 <td>{{ $item->kode_perizinan }}</td>
-                <td>{{ $item->desa_kecamatan }}</td>
-                <td>{{ $item->kabupaten }}</td>
-                <td>{{ $item->kelurahan }}</td>
-                <td>{{ $item->persil }}</td>
-                <td>{{ $item->luas }}</td>
-                <td>{{ $item->uraian }}</td>
-                <td>{{ $item->tanggal_mulai }}</td>
-                <td>{{ $item->tanggal_akhir }}</td>
+                  <td>{{ $item->kabupaten }}</td>
+                  <td>{{ $item->kapanewon }}</td>
+                  <td>{{ $item->kelurahan }}</td>
+                  <td>{{ $item->desa }}</td>
+                  <td>{{ $item->persil }}</td>
+                  <td>{{ $item->luas }}</td>
+                  <td>{{ $item->uraian }}</td>
+                  <td>{{ $item->tanggal_mulai }}</td>
+                  <td>{{ $item->tanggal_akhir }}</td>
                 {{-- <td><img width="150px" src="{{ url('') }}" alt=""></td> --}}
                 {{-- <td>{{ $item->file_SK }}</td> --}}
                 <td>
@@ -146,10 +147,10 @@
       </div>
     </div>
     
-    <div class="card-body" style="margin: 5%; background-color:rgb(255, 251, 251)">
+    <div class="card-body" style="margin: 5%; background-color:rgb(249, 249, 249);padding:4%;width:130%">
       <h4 id="awasi">Pengawasan</h4>
-      <div class="table-responsive">
-      <table id="myTable" class="table table-striped" style="width:100%">
+      {{-- <div class="table-responsive"> --}}
+      <table id="myTable" class="table table-striped" style="width:100%;font-size:12px">
             <thead>
                 <tr>
                   <th>Kapanewon</th> 
@@ -159,7 +160,6 @@
                   <th>Nomor SK</th>  
                   <th>Bentuk Pemanfaatan</th>  
                   <th>Persil Klas</th>
-                  <th>Jenis Sk</th>
                   <th>Tindak Lanjut</th>
                   <th>Kesesuaian</th>
                 </tr>
@@ -175,7 +175,6 @@
                   <td>{{ $item->nomor_sk }}</td>
                   <td>{{ $item->bentuk_pemanfaatan }}</td>
                   <td>{{ $item->persil_klas }}</td>
-                  <td>{{ $item->jenis_sk }}</td>
                   <td>{{ $item->tdklanjut}}</td>
                   <td>{{ $item->kesesuaian }}</td>
                   </tr>
@@ -186,6 +185,8 @@
       </div>
     </div>
 
+
+    
   </div>
 </div>
 
