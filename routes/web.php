@@ -24,7 +24,7 @@ use PhpOffice\PhpSpreadsheet\Calculation\MathTrig\Round;
 | contains the "web" middleware group. Now create something great!
 |
 */
-URL::forceScheme('https');
+// URL::forceScheme('https');
 
 //menampilkan home 
 Route::group(['middleware' => 'web'], function () {
