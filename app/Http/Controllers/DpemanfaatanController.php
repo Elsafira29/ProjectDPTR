@@ -16,33 +16,38 @@ class DpemanfaatanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function tahunA(Request $request) {
+    public function tahunA(Request $request)
+    {
         $data = DB::table('pemanfaatan')->select('tanggal_akhir')->distinct()->get();
         return response()->json($data);
     }
-    public function kabupaten(Request $request) {
+    public function kabupaten(Request $request)
+    {
         $data = DB::table('pemanfaatan')->select('kabupaten')->distinct()->get();
         return $data;
     }
-    public function kapanewon(Request $request) {
+    public function kapanewon(Request $request)
+    {
         $kabupaten = $request->query('kabupaten');
-        if(!isset($kabupaten)) {
+        if (!isset($kabupaten)) {
             dd("gk ada kabupaten di query");
         }
         $data = DB::table('pemanfaatan')->where('kabupaten', $kabupaten)->select('kapanewon')->distinct()->get();
         // dd($data);
         return $data;
     }
-    public function kelurahan(Request $request) {
+    public function kelurahan(Request $request)
+    {
         $kabupaten = $request->query('kabupaten');
-        if(!isset($kabupaten)) {
+        if (!isset($kabupaten)) {
             dd("gk ada kabupaten di query");
         }
         $data = DB::table('pemanfaatan')->where('kabupaten', $kabupaten)->select('kelurahan')->distinct()->get();
         // dd($data);
         return $data;
     }
-    public function pemanfaatan(Request $request) 
+
+    public function pemanfaatan(Request $request)
     {
         // dd($request);
         $kabupaten =  $request->query('kabupaten');
@@ -50,48 +55,48 @@ class DpemanfaatanController extends Controller
         $kelurahan = $request->query('kelurahan');
 
         $tahun = $request->query('tahun');
-        if(isset($tahun)) {
-        if(isset($kapanewon)&&isset($kabupaten)&&isset($kelurahan)) {
+        if (isset($tahun)) {
+            if (isset($kapanewon) && isset($kabupaten) && isset($kelurahan)) {
+                $data = DB::table('pemanfaatan')
+                    ->where('kabupaten', $kabupaten)
+                    ->where('kapanewon', $kapanewon)
+                    ->where('kelurahan', $kelurahan)
+                    ->where('tanggal_akhir', $tahun)
+                    ->get();
+            } elseif (isset($kelurahan) && isset($kabupaten)) {
+                $data = DB::table('pemanfaatan')
+                    ->where('kabupaten', $kabupaten)
+                    ->where('kelurahan', $kelurahan)
+                    ->where('tanggal_akhir', $tahun)
+                    ->get();
+            } elseif (isset($kabupaten)) {
+                $data = DB::table('pemanfaatan')
+                    ->where('kabupaten', $kabupaten)
+                    ->where('tanggal_akhir', $tahun)
+                    ->get();
+            } else {
+                $data = DB::table('pemanfaatan')
+                    ->where('tanggal_akhir', $tahun)
+                    ->get();
+            };
+
+            return response()->json($data);
+        }
+        if (isset($kapanewon) && isset($kabupaten) && isset($kelurahan)) {
             $data = DB::table('pemanfaatan')
-            ->where('kabupaten', $kabupaten)
-            ->where('kapanewon', $kapanewon)
-            ->where('kelurahan', $kelurahan)
-            ->where('tanggal_akhir', $tahun)
-            ->get();
-        } elseif (isset($kelurahan)&&isset($kabupaten)) {
+                ->where('kabupaten', $kabupaten)
+                ->where('kapanewon', $kapanewon)
+                ->where('kelurahan', $kelurahan)->get();
+        } elseif (isset($kelurahan) && isset($kabupaten)) {
             $data = DB::table('pemanfaatan')
-           ->where('kabupaten', $kabupaten)
-           ->where('kelurahan', $kelurahan)
-           ->where('tanggal_akhir', $tahun)
-            ->get();
-        } elseif (isset($kabupaten)){
-            $data = DB::table('pemanfaatan')
-            ->where('kabupaten', $kabupaten)
-            ->where('tanggal_akhir', $tahun)
-            ->get();
+                ->where('kabupaten', $kabupaten)
+                ->where('kelurahan', $kelurahan)->get();
         } else {
             $data = DB::table('pemanfaatan')
-            ->where('tanggal_akhir', $tahun)
-            ->get();
+                ->where('kabupaten', $kabupaten)->get();
         };
-        
         return response()->json($data);
     }
-    if(isset($kapanewon)&&isset($kabupaten)&&isset($kelurahan)) {
-        $data = DB::table('pemanfaatan')
-        ->where('kabupaten', $kabupaten)
-        ->where('kapanewon', $kapanewon)
-        ->where('kelurahan', $kelurahan)->get();
-    } elseif (isset($kelurahan)&&isset($kabupaten)) {
-        $data = DB::table('pemanfaatan')
-       ->where('kabupaten', $kabupaten)
-       ->where('kelurahan', $kelurahan)->get();
-    } else {
-        $data = DB::table('pemanfaatan')
-        ->where('kabupaten', $kabupaten)->get();
-    };
-    return response()->json($data);
-}
     public function index()
     {
         //percobaan
@@ -133,36 +138,34 @@ class DpemanfaatanController extends Controller
         //     'filenames' => 'required',
         //     'filenames.*' => 'required'
         // ]);
-        
+
         $files = [];
-        if($request->hasfile('filenames'))
-        {
-            foreach($request->file('filenames') as $file)
-            {
-                $name = time().rand(1,100).'.'.$file->extension();
-                $file->move(public_path('files'), $name);  
-                $files[] = $name;  
+        if ($request->hasfile('filenames')) {
+            foreach ($request->file('filenames') as $file) {
+                $name = time() . rand(1, 100) . '.' . $file->extension();
+                $file->move(public_path('files'), $name);
+                $files[] = $name;
             }
         }
         // dd($request->all());
         $hello = dpemanfaatan::create([
-    
-            'kode_perizinan'=> $request->kode_perizinan,
-            'kabupaten'=>$request->kabupaten,
-            'kapanewon'=>$request->kapanewon,
-            'kelurahan'=>$request->kelurahan,
-            'desa'=>$request->desa,
-            'persil'=>$request->persil,
-            'luas'=>$request->luas,
-            'uraian'=>$request->uraian,
-            'tanggal_mulai'=>$request->tanggal_mulai,
-            'tanggal_akhir'=>$request->tanggal_akhir,
+
+            'kode_perizinan' => $request->kode_perizinan,
+            'kabupaten' => $request->kabupaten,
+            'kapanewon' => $request->kapanewon,
+            'kelurahan' => $request->kelurahan,
+            'desa' => $request->desa,
+            'persil' => $request->persil,
+            'luas' => $request->luas,
+            'uraian' => $request->uraian,
+            'tanggal_mulai' => $request->tanggal_mulai,
+            'tanggal_akhir' => $request->tanggal_akhir,
             // 'file_SK'=>$request->file_SK,
         ]);
 
         // dd($hello);
 
-        foreach($files as $file) {
+        foreach ($files as $file) {
             FileUpload::create([
                 'filename' => $file,
                 'id_pemanfaatan' => $hello->id
@@ -204,9 +207,9 @@ class DpemanfaatanController extends Controller
     public function edit($id)
     {
         $dpemanfaatan = dpemanfaatan::select('*')
-                        ->where('id', $id)
-                        ->get();
-        return view('pemanfaatan.edit-pemanfaatan', ['dpemanfaatan'=> $dpemanfaatan]);
+            ->where('id', $id)
+            ->get();
+        return view('pemanfaatan.edit-pemanfaatan', ['dpemanfaatan' => $dpemanfaatan]);
     }
 
     /**
@@ -220,20 +223,20 @@ class DpemanfaatanController extends Controller
     {
         //
         $dpemanfaatan = dpemanfaatan::where('id', $request->id)
-                    ->update([
-                        'id'=>$request->id,
-                        'kode_perizinan'=>$request->kode_perizinan,
-                        'kabupaten'=>$request->kabupaten,
-                        'kapanewon'=>$request->kapanewon,
-                        'kelurahan'=>$request->kelurahan,
-                        'desa'=>$request->desa,
-                        'persil'=>$request->persil,
-                        'luas'=>$request->luas,
-                        'uraian'=>$request->uraian,
-                        'tanggal_mulai'=>$request->tanggal_mulai,
-                        'tanggal_akhir'=>$request->tanggal_mulai,
-                        // 'file_SK'=>$request->file_SK,
-                    ]);
+            ->update([
+                'id' => $request->id,
+                'kode_perizinan' => $request->kode_perizinan,
+                'kabupaten' => $request->kabupaten,
+                'kapanewon' => $request->kapanewon,
+                'kelurahan' => $request->kelurahan,
+                'desa' => $request->desa,
+                'persil' => $request->persil,
+                'luas' => $request->luas,
+                'uraian' => $request->uraian,
+                'tanggal_mulai' => $request->tanggal_mulai,
+                'tanggal_akhir' => $request->tanggal_mulai,
+                // 'file_SK'=>$request->file_SK,
+            ]);
 
         return redirect()->route('tabel');
     }
@@ -249,10 +252,8 @@ class DpemanfaatanController extends Controller
     {
         //
         $dpemanfaatan = dpemanfaatan::where('id', $id)
-                    ->delete();
+            ->delete();
 
         return redirect()->route('tabel');
     }
-
-
 }
