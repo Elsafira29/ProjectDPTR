@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Kabupaten;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,5 +18,8 @@ class DatabaseSeeder extends Seeder
         // $this->call(UserSeeder::class);
         // $this->call(PengawasanSeeder::class);
         $this->call(DpemanfaatanSeeder::class);
+        $this->call(KabupatenSeeder::class);
+        $this->call(KecamatanSeeder::class);
+        $this->call(KelurahanSeeder::class);
     }
 }

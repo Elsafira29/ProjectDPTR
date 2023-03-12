@@ -50,7 +50,7 @@
           <div class="row mt-4" style="margin-left: 5px;margin-right:2px">
             <div class="col">
               <div class="card-tools">
-                <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-dark">Tambah Data <i class="fa fa-plus-square"></i></a> 
+                <a href="{{ route('form-dpemanfaatan') }}" class="btn btn-dark">Tambah Data <i class="fa fa-plus-square"></i></a>
               </div>
             </div>
             <div class="col">
